@@ -1,2 +1,10 @@
+# Ignore file extensions
 .DS_Store
 *.pyc
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore the database file
+db.sqlite3
