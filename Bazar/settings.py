@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Bazar.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['Bazar/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
