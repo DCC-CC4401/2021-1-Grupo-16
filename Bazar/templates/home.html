@@ -7,8 +7,10 @@
 
 {% block static-files %}
     <script src="{% static 'js/modules/home.js' %}"></script>
+    {% include 'components/header.html' with type='head' %}
 {% endblock %}
 
 {% block body %}
+    {% include 'components/header.html' with type='body' %}
     Body-test
 {% endblock %}

@@ -1,0 +1,13 @@
+{% if type == 'head' %}
+
+    {% load static %}
+    <script src="{% static 'js/components/header.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/header.css' %}" media="screen">
+
+{% elif type == 'body' %}
+
+    <div class="header-component">
+        Header example
+    </div>
+
+{% endif %}
