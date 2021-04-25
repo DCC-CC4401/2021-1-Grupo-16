@@ -65,6 +65,7 @@ function __CORE_LibraryManager() {
         HOVERCSS: 'hover.css',
         HULL: 'hull.js',
         IONRANGESLIDER: 'ion.rangeSlider',
+        JQUERYACTUAL: 'jquery.actual',
         JQUERYCONFIRM: 'jquery-confirm',
         JQUERYNICESCROLL: 'jquery.nicescroll',
         JQUERYRESIZABLE: 'jquery-resizable',
@@ -974,6 +975,13 @@ function __CORE_LibraryManager() {
                 break;
 
             /**
+             * Jquery.actual
+             */
+            case self.lib.JQUERYACTUAL:
+                self._getScriptAsyncCallback($library, '/static/lib/jquery.actual/jquery.actual.min.js', $callback, $params);
+                break;
+
+            /**
              * Jquery-confirm
              */
             case self.lib.JQUERYCONFIRM:
@@ -1433,6 +1441,7 @@ const app_library_manager = new __CORE_LibraryManager();
  * ----------------------------------------------------------------------------
  */
 app_library_manager.addLibToQueue(app_library_manager.lib.AMARANJS);
+app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYACTUAL);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYCONFIRM);
 app_library_manager.addLibToQueue(app_library_manager.lib.MD5);
 app_library_manager.addLibToQueue(app_library_manager.lib.NOTIFICATIONJS);
@@ -1469,11 +1478,3 @@ function afterLoadImports() {
  * bowser - Navigator validator.
  */
 let bowser;
-
-/**
- * MD5 function (replaced then by the library).
- *
- * @param {string} $str
- * @returns {string}
- */
-let md5 = ($str) => $str;
