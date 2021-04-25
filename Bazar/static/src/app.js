@@ -76,5 +76,8 @@ $(function () {
      * --------------------------------------------------------------------
      */
     afterLoadImports();
+    app_module.init(() => {
+        app_dom.body.css('display', 'block');
+    });
 
 });

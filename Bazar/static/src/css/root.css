@@ -8,74 +8,79 @@ Configure main elements of the application.
 Variables
  */
 :root {
-    --border-full-px: 5px; /* Full border */
-    --border-loading-px: 8px; /* Border loading radius **/
-    --border-min-px: 3px; /* Min border */
-    --zindex-dialogs: 12000;
-    --zindex-leanmodal: 10000;
-    --zindex-loading-background: 12900;
-    --zindex-loading-layer: 13000;
-    --zindex-loading-spinner: 13100;
-    --zindex-notification: 100000;
-    --zindex-over-panel: 1000;
-    --zindex-panel-active: 100;
-    --zindex-panel: 99;
+	--border-full-px: 5px; /* Full border */
+	--border-loading-px: 8px; /* Border loading radius **/
+	--border-min-px: 3px; /* Min border */
+	--main-context-color: #e372ac;
+	--zindex-dialogs: 12000;
+	--zindex-leanmodal: 10000;
+	--zindex-loading-background: 12900;
+	--zindex-loading-layer: 13000;
+	--zindex-loading-spinner: 13100;
+	--zindex-notification: 100000;
+	--zindex-over-panel: 1000;
+	--zindex-panel-active: 100;
+	--zindex-panel: 99;
 }
 
 body {
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    -moz-osx-font-smoothing: grayscale;
-    -ms-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-text-size-adjust: 100%;
-    background: #e372ac !important;
-    /** background: rgb(89, 48, 160) !important **/
-    /* background: linear-gradient(0deg, rgba(89, 48, 160, 1) 0%, rgba(205, 92, 172, 1) 63%, rgba(227, 114, 172, 1) 100%) !important; */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
-    font-family: sans-serif;
-    font-size: 15px !important;
-    line-height: 1.5;
-    margin: 0;
-    min-width: 720px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    shape-rendering: auto;
-    text-align: left;
-    text-rendering: optimizelegibility;
+	--font-family-monospace: sfmono-regular, menlo, monaco, consolas, "Liberation Mono", "Courier New", monospace;
+	--font-family-sans-serif: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, "Helvetica Neue", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+	-moz-osx-font-smoothing: grayscale;
+	-ms-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-text-size-adjust: 100%;
+	background: #ffffff;
+	/** background: rgb(89, 48, 160) !important **/
+	/* background: linear-gradient(0deg, rgba(89, 48, 160, 1) 0%, rgba(205, 92, 172, 1) 63%, rgba(227, 114, 172, 1) 100%) !important; */
+	display: none;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+	font-family: sans-serif;
+	font-size: 15px !important;
+	line-height: 1.5;
+	margin: 0;
+	min-width: 720px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	shape-rendering: auto;
+	text-align: left;
+	text-rendering: optimizeLegibility;
 }
 
 @media screen and (max-width: 576px) {
-    body {
-        font-size: 13px !important;
-        overflow-x: initial;
-    }
+	body {
+		font-size: 13px !important;
+		overflow-x: initial;
+	}
 }
 
 pre {
-    font-family: "Consolas", monospace;
+	font-family: "Consolas", monospace;
 }
 
 /**
 Bootstrap is loaded asynchronously
  */
-*, *:before, *:after {
-    box-sizing: border-box;
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
 }
 
 a.disabled {
-    color: #767676;
-    cursor: default;
-    pointer-events: none;
+	color: #767676;
+	cursor: default;
+	pointer-events: none;
 }
 
 a.disabled:hover {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 button.disabled:hover {
-    cursor: default !important;
+	cursor: default !important;
 }
 
 /**
@@ -87,26 +92,26 @@ Disable selection of elements
 .vakata-context,
 .amaran-wrapper,
 .jconfirm-closeIcon {
-    -moz-user-select: none;
-    -ms-user-select: none;
-    /* -webkit-touch-callout: none; */
-    -webkit-user-select: none;
-    outline: 0;
-    user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	/* -webkit-touch-callout: none; */
+	-webkit-user-select: none;
+	outline: 0;
+	user-select: none;
 }
 
 .disabledButton {
-    filter: alpha(opacity=40);
-    opacity: .4;
-    pointer-events: none;
-    zoom: 1;
+	filter: alpha(opacity=40);
+	opacity: 0.4;
+	pointer-events: none;
+	zoom: 1;
 }
 
 select:-moz-focusring {
-    color: transparent;
-    text-shadow: 0 0 0 #000;
+	color: transparent;
+	text-shadow: 0 0 0 #000000;
 }
 
 select.decoration option:hover {
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset;
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) inset;
 }

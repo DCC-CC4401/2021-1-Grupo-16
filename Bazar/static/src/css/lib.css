@@ -14,7 +14,7 @@ jquery.contextMenu
 Lists
  */
 .context-menu-list {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, .1) !important;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
 	font-size: 0.95rem !important;
 }
 
@@ -71,13 +71,6 @@ twbs bootstrap
 -------------------------------------------------------------------------------
  */
 
-/**
-Disable form outline
- */
-.form-control:focus {
-	box-shadow: inherit !important;
-}
-
 @media screen and (max-width: 576px) {
 	.form-control {
 		font-size: 0.8rem !important;
@@ -105,7 +98,7 @@ Buttons
 
 .btn-secondary.disabled,
 .btn-secondary:disabled {
-	color: #fff !important;
+	color: #ffffff !important;
 	background-color: #b3b3b3 !important;
 	border-color: #adadad !important;
 }
@@ -120,6 +113,13 @@ Tooltips
 
 .form-control {
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+/**
+Disable form outline
+ */
+.form-control:focus {
+	box-shadow: inherit !important;
 }
 
 .row-no-margin {
@@ -295,10 +295,10 @@ Pick a color
 }
 
 .pick-a-color-markup .input-group-addon {
-	background-color: #eee;
+	background-color: #eeeeee;
 	border-radius: 4px 0 0 4px;
-	border: 1px solid #ccc;
-	color: #555;
+	border: 1px solid #cccccc;
+	color: #555555;
 	cursor: default;
 	font-size: 14px;
 	font-weight: normal;
