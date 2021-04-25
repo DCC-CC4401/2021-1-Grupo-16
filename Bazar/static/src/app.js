@@ -77,7 +77,10 @@ $(function () {
      */
     afterLoadImports();
     app_module.init(() => {
-        app_dom.body.css('display', 'block');
+        app_dom.body.css({
+            'display': 'block',
+            'overflow-y': 'auto'
+        });
     });
 
 });

@@ -37,6 +37,14 @@ function HomeModule() {
         self._header = new HeaderComponent();
         self._header.setTitle('Bazar');
         self._header.init();
+
+        // Init footer
+        let $footer = new FooterComponent();
+        $footer.init();
+
+        // Update contents height to fit window height
+        let $contents = $('#contents');
+        $contents.css('min-height', app_dom.window.outerHeight() - self._header.getHeight());
     }
 
 }

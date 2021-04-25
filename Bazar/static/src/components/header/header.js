@@ -1,6 +1,6 @@
 /**
  HEADER
- Header component
+ Header component.
  */
 "use strict";
 
@@ -40,6 +40,15 @@ function HeaderComponent() {
      */
     this.setTitle = function ($title) {
         self._title = $title;
+    };
+
+    /**
+     * Return the header height.
+     *
+     * @returns {number}
+     */
+    this.getHeight = function () {
+        return header.actual('outerHeight');
     };
 
     /**

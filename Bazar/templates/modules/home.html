@@ -8,9 +8,11 @@
 {% block static-files %}
     <script src="{% static 'src/modules/home/home.js' %}"></script>
     {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
 {% endblock %}
 
 {% block body %}
     {% include 'components/header.html' with type='body' %}
-    Body-test
+    <div id="contents">Very epic</div>
+    {% include 'components/footer.html' with type='body' %}
 {% endblock %}

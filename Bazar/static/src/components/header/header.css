@@ -5,5 +5,15 @@ Header component.
 */
 
 .header-component {
-    background-color: #ffffff;
+	background-color: #ffffff;
+	padding: 0.4rem 0.5rem;
+	font-size: 1.75rem;
+	display: block;
+	opacity: 0.99;
+	/* noinspection CssInvalidFunction */
+	box-shadow: 0 6px 7px 0 rgb(0 0 0 / 10%);
+}
+
+.header-component .header-title {
+	font-weight: 600;
 }

@@ -1,3 +1,9 @@
+@charset "UTF-8";
+/*
+PACE
+Pace loading module.
+*/
+
 /* noinspection CssUnknownProperty */
 .pace {
 	-webkit-pointer-events: none;
