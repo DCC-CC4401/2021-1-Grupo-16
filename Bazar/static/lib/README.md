@@ -1,6 +1,6 @@
 # Bazar
 
-## lib/
+## static/lib/
 
 Application library folder:
 

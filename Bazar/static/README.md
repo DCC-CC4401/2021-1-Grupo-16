@@ -1,5 +1,5 @@
 # Bazar
 
-## src/
+## static/
 
 Client side source code.
