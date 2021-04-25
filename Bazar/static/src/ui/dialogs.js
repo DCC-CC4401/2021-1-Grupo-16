@@ -174,6 +174,7 @@ function __UI_Dialog() {
             $options['close'] = null;
         }
 
+        // noinspection BadExpressionStatementJS
         $options['cancelText'] = null;
         $options['onClose'] = $options['close'];
         $options['confirmButtonClass'] = $options['closeButtonClass'];
@@ -707,7 +708,7 @@ function __UI_Dialog() {
             }
 
             // Disable web scrolling (if enabled)
-            if ($options.disableWebScroll && app_dom.root.height() > app_dom.window.height()) {
+            if ($options.disableWebScroll && app_dom.body.height() > app_dom.window.height()) {
                 setTimeout(function () {
                     // noinspection JSUnresolvedVariable
                     $.extScrollLock.enable('appdialog');

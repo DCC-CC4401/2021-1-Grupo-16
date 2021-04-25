@@ -6,14 +6,13 @@
 
 /**
  * Get DOM objects
- * @type {{footer:jQuery, document:jQuery, leancontent:jQuery, body:jQuery, menu:jQuery, content:jQuery, leancontainer:jQuery, head:jQuery, menubutton:jQuery, leanoverlay:jQuery, root:jQuery, header:jQuery, html:jQuery, window:jQuery, leanmodal:*}}
+ * @type {{document:jQuery, leancontent:jQuery, body:jQuery, leancontainer:jQuery, head:jQuery, leanoverlay:jQuery, html:jQuery, window:jQuery, leanmodal:*}}
  * @const
  * @global
  */
 const app_dom = {
     body: $(),
     document: $(document),
-    footer: $(),
     head: $(),
     html: $(),
     leancontainer: $(),

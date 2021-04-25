@@ -33,6 +33,7 @@ function __UI_Utils() {
 
     };
 
+    // noinspection JSUnusedGlobalSymbols
     /**
      * Init tooltipster into an object.
      *

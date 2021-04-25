@@ -240,22 +240,22 @@ function __UI_LeanModal() {
             'z-index': 11000,
             'zoom': 1,
         });
-        app_dom.root.css({
-            '-webkit-filter': 'blur(' + app_theme.leanModalBackgroundBlur + 'px)',
-            'filter': 'blur(' + app_theme.leanModalBackgroundBlur + 'px)',
-        });
+        // app_dom.root.css({
+        //     '-webkit-filter': 'blur(' + app_theme.leanModalBackgroundBlur + 'px)',
+        //     'filter': 'blur(' + app_theme.leanModalBackgroundBlur + 'px)',
+        // });
         if (self._options.applyHeaderBlur) {
-            app_dom.header.css({
-                '-webkit-filter': 'blur(' + app_theme.leanModalHeaderBlur + 'px)',
-                'filter': 'blur(' + app_theme.leanModalHeaderBlur + 'px)',
-            });
+            // app_dom.header.css({
+            //     '-webkit-filter': 'blur(' + app_theme.leanModalHeaderBlur + 'px)',
+            //     'filter': 'blur(' + app_theme.leanModalHeaderBlur + 'px)',
+            // });
         }
         // noinspection JSUnresolvedVariable
         $.backToTopBtn.hide();
-        if (app_dom.root.height() > app_dom.window.height()) {
-            // noinspection JSUnresolvedVariable
-            $.extScrollLock.enable('leanmodal');
-        }
+        // if (app_dom.root.height() > app_dom.window.height()) {
+        //     // noinspection JSUnresolvedVariable
+        //     $.extScrollLock.enable('leanmodal');
+        // }
         app_dom.leanmodal.fadeTo(app_theme.leanModalFadeTime * self._animation_factor, 1);
         setTimeout(function () {
             self._in_transition = false;
@@ -278,14 +278,14 @@ function __UI_LeanModal() {
         // noinspection JSValidateTypes
         app_dom.leanoverlay.fadeOut(app_theme.leanModalFadeTime * self._animation_factor);
         app_dom.html.css('overflow-y', 'visible');
-        app_dom.root.css({
-            '-webkit-filter': 'blur(0px)',
-            'filter': 'blur(0px)',
-        });
-        app_dom.header.css({
-            '-webkit-filter': 'blur(0px)',
-            'filter': 'blur(0px)',
-        });
+        // app_dom.root.css({
+        //     '-webkit-filter': 'blur(0px)',
+        //     'filter': 'blur(0px)',
+        // });
+        // app_dom.header.css({
+        //     '-webkit-filter': 'blur(0px)',
+        //     'filter': 'blur(0px)',
+        // });
         app_dom.leanmodal.css({
             'display': 'none',
         });

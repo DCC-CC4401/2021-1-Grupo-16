@@ -49,7 +49,7 @@ function __CORE_LibUtils() {
                         $chart.allTooltipsOnce = true;
                     }
                     $chart.options.tooltips.enabled = true;
-                    // noinspection JSUnresolvedVariable
+                    // noinspection JSUnresolvedVariable,TypeScriptUMDGlobal
                     Chart.helpers.each($chart.pluginTooltips, function ($tooltip) {
                         $tooltip.initialize();
                         $tooltip.update();
@@ -65,7 +65,7 @@ function __CORE_LibUtils() {
                     $chart.pluginTooltips = [];
                     $chart.config.data.datasets.forEach(function ($dataset, $i) {
                         $chart.getDatasetMeta($i).data.forEach(function ($sector) {
-                            // noinspection JSUnresolvedVariable
+                            // noinspection JSUnresolvedVariable,JSValidateTypes
                             $chart.pluginTooltips.push(new Chart.Tooltip({
                                 _active: [$sector],
                                 _chart: $chart.chart,
