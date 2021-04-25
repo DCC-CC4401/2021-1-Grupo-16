@@ -7,10 +7,11 @@ Application library folder:
 | Library | Version | Link |
 | :-- | :--: | :-- |
 | bootstrap | 4.4.1 | <a href="https://github.com/twbs/bootstrap">github.com/twbs/bootstrap</a> |
-| font-awesome | 5.15.1 | <a href="https://fontawesome.com">fontawesome.com</a> |
+| chartjs | 2.9.8 | <a href="https://github.com/chartjs/Chart.js">github.com/chartjs/Chart.js</a> |
+| font-awesome | 5.15.3 | <a href="https://fontawesome.com">fontawesome.com</a> |
 | hammer | 2.0.8 | <a href="https://github.com/hammerjs/hammer.js">github.com/hammerjs/hammer.js</a> |
 | hover | 2.3.1 | <a href="https://github.com/IanLunn/Hover">github.com/IanLunn/Hover</a> |
-| jquery | 3.5.1 | <a href="https://github.com/jquery/jquery">github.com/jquery/jquery</a> |
+| jquery | 3.6.0 | <a href="https://github.com/jquery/jquery">github.com/jquery/jquery</a> |
 | jquery-confirm | 3.3.4 | <a href="https://github.com/craftpip/jquery-confirm">github.com/craftpip/jquery-confirm</a> |
 | jquery-dateFormat | 1.0.2 | <a href="https://github.com/phstc/jquery-dateFormat">github.com/phstc/jquery-dateFormat</a> |
 | jquery-resizable | 0.32 | <a href="https://github.com/RickStrahl/jquery-resizable">github.com/RickStrahl/jquery-resizable</a> |

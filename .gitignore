@@ -8,3 +8,6 @@
 
 # Ignore the database file
 db.sqlite3
+
+# Ignore certain files
+Bazar/static/lib/chart.js/Chart.bundle.js
