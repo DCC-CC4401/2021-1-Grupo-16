@@ -12,4 +12,4 @@ def view_home(request: 'HttpRequest') -> 'HttpResponse':
     """
     Home app.
     """
-    return render(request, 'home.html', {})
+    return render(request, 'modules/home.html', {})

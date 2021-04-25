@@ -7,59 +7,61 @@
     <title>{% block title %}{% endblock %}</title>
 
     <!-- Import libraries -->
-    <script src="{% static 'js/core/globals.js' %}"></script>
+    <script src="{% static 'src/core/globals.js' %}"></script>
     <script src="{% static 'lib/jquery/jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'lib/jquery-dateFormat/jquery-dateFormat.min.js' %}"></script>
     <script src="{% static 'lib/jscookie/js.cookie-2.2.1.min.js' %}"></script>
 
     <!-- Import styles -->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/leanmodal.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/lib.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/loading.css' %}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/root.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'src/css/leanmodal.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'src/css/lib.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'src/css/loading.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'src/css/root.css' %}" media="screen">
 
     <!-- Import app -->
-    <script src="{% static 'js/about/about.js' %}"></script>
-    <script src="{% static 'js/about/author.js' %}"></script>
-    <script src="{% static 'js/about/version.js' %}"></script>
+    <script src="{% static 'src/about/about.js' %}"></script>
+    <script src="{% static 'src/about/author.js' %}"></script>
+    <script src="{% static 'src/about/version.js' %}"></script>
 
-    <script src="{% static 'js/core/primitives/date.js' %}"></script>
-    <script src="{% static 'js/config.js' %}"></script>
-    <script src="{% static 'js/core/dom/dom.js' %}"></script>
-    <script src="{% static 'js/core/dom/jquery.js' %}"></script>
-    <script src="{% static 'js/core/math/hash.js' %}"></script>
-    <script src="{% static 'js/core/math/is.js' %}"></script>
-    <script src="{% static 'js/core/math/math.js' %}"></script>
-    <script src="{% static 'js/core/bazar/console.js' %}"></script>
-    <script src="{% static 'js/core/bazar/errors.js' %}"></script>
-    <script src="{% static 'js/core/bazar/imports.js' %}"></script>
-    <script src="{% static 'js/core/bazar/session.js' %}"></script>
-    <script src="{% static 'js/core/network/ajax.js' %}"></script>
-    <script src="{% static 'js/core/network/url.js' %}"></script>
-    <script src="{% static 'js/core/primitives/array.js' %}"></script>
-    <script src="{% static 'js/core/primitives/color.js' %}"></script>
-    <script src="{% static 'js/core/primitives/date.js' %}"></script>
-    <script src="{% static 'js/core/primitives/file.js' %}"></script>
-    <script src="{% static 'js/core/primitives/polyfills.js' %}"></script>
-    <script src="{% static 'js/core/primitives/string.js' %}"></script>
-    <script src="{% static 'js/core/utils/country.js' %}"></script>
-    <script src="{% static 'js/core/utils/eventutils.js' %}"></script>
-    <script src="{% static 'js/core/utils/libutils.js' %}"></script>
+    <script src="{% static 'src/core/primitives/date.js' %}"></script>
+    <script src="{% static 'src/config.js' %}"></script>
+    <script src="{% static 'src/core/dom/dom.js' %}"></script>
+    <script src="{% static 'src/core/dom/jquery.js' %}"></script>
+    <script src="{% static 'src/core/math/hash.js' %}"></script>
+    <script src="{% static 'src/core/math/is.js' %}"></script>
+    <script src="{% static 'src/core/math/math.js' %}"></script>
+    <script src="{% static 'src/core/bazar/console.js' %}"></script>
+    <script src="{% static 'src/core/bazar/errors.js' %}"></script>
+    <script src="{% static 'src/core/bazar/imports.js' %}"></script>
+    <script src="{% static 'src/core/bazar/session.js' %}"></script>
+    <script src="{% static 'src/core/network/ajax.js' %}"></script>
+    <script src="{% static 'src/core/network/url.js' %}"></script>
+    <script src="{% static 'src/core/primitives/array.js' %}"></script>
+    <script src="{% static 'src/core/primitives/color.js' %}"></script>
+    <script src="{% static 'src/core/primitives/date.js' %}"></script>
+    <script src="{% static 'src/core/primitives/file.js' %}"></script>
+    <script src="{% static 'src/core/primitives/polyfills.js' %}"></script>
+    <script src="{% static 'src/core/primitives/string.js' %}"></script>
+    <script src="{% static 'src/core/utils/country.js' %}"></script>
+    <script src="{% static 'src/core/utils/eventutils.js' %}"></script>
+    <script src="{% static 'src/core/utils/libutils.js' %}"></script>
 
-    <script src="{% static 'js/components/component.js' %}"></script>
+    <script src="{% static 'src/components/component.js' %}"></script>
 
-    <script src="{% static 'js/ui/dialogs.js' %}"></script>
-    <script src="{% static 'js/ui/leanmodal.js' %}"></script>
-    <script src="{% static 'js/ui/loading.js' %}"></script>
-    <script src="{% static 'js/ui/themes.js' %}"></script>
-    <script src="{% static 'js/ui/utils.js' %}"></script>
+    <script src="{% static 'src/modules/module.js' %}"></script>
+
+    <script src="{% static 'src/ui/dialogs.js' %}"></script>
+    <script src="{% static 'src/ui/leanmodal.js' %}"></script>
+    <script src="{% static 'src/ui/loading.js' %}"></script>
+    <script src="{% static 'src/ui/themes.js' %}"></script>
+    <script src="{% static 'src/ui/utils.js' %}"></script>
 
     <!-- Custom module static files -->
     {% block static-files %}
     {% endblock %}
 
     <!-- Init app -->
-    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'src/app.js' %}"></script>
 </head>
 
 <body>
