@@ -1,0 +1,98 @@
+@charset "UTF-8";
+/*
+LOADING
+Loading panel.
+*/
+
+/**
+-------------------------------------------------------------------------------
+Loading handler
+-------------------------------------------------------------------------------
+ */
+:root {
+	--loading-box-height: 75px;
+	--loading-box-width: 75px;
+}
+
+#loading-div-layer {
+	width: 100%;
+}
+
+#loading-div-layer.loading-div-layer-class {
+	border: none;
+	display: none;
+	left: 0;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	z-index: var(--zindex-loading-layer);
+}
+
+#loading-div-layer.loading-div-layer-class .loading-foreground {
+	position: fixed;
+	width: 100%;
+	z-index: var(--zindex-loading-spinner);
+}
+
+#loading-div-layer.loading-div-layer-class .loading-foreground .loading-box {
+	-moz-border-radius: var(--border-loading-px);
+	-webkit-border-radius: var(--border-loading-px);
+	background: rgba(0, 0, 0, 0.85);
+	border-radius: var(--border-loading-px);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.23);
+	height: var(--loading-box-height) !important;
+	line-height: var(--loading-box-height);
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	text-align: center;
+	width: var(--loading-box-width) !important;
+}
+
+/**
+#loading-div-layer.loading-div-layer-class .loading-foreground .loading-box img {
+	border: none;
+	height: 29px;
+	margin: 18px auto;
+	outline: none;
+	padding: 0;
+	position: relative;
+	width: 29px;
+}
+ */
+
+#loading-div-layer.loading-div-layer-class .loading-background {
+	background-color: #000000;
+	border: none;
+	filter: alpha(opacity=30);
+	left: 0;
+	margin: 0;
+	opacity: 0.3;
+	overflow: hidden;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: var(--zindex-loading-background);
+	zoom: 1;
+}
+
+#loading-div-layer #loading-div-layer-message {
+	background-color: #e6e6e6;
+	border-radius: var(--border-full-px);
+	bottom: 0;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.20);
+	display: none;
+	font-size: 0.9rem;
+	font-weight: 300;
+	line-height: normal;
+	margin-right: auto;
+	margin-top: calc(13px + var(--loading-box-height));
+	max-width: 300px;
+	padding: 0.1rem 1rem;
+	position: relative;
+	text-align: center;
+	width: max-content;
+}

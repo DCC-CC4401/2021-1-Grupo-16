@@ -1,0 +1,324 @@
+@charset "UTF-8";
+/*
+LEANMODAL
+Application popup.
+*/
+
+/**
+-------------------------------------------------------------------------------
+Leanmodal, subwindow
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+ */
+#leanmodal {
+	-moz-border-radius: var(--border-full-px);
+	-moz-box-shadow: 0 2px 26px rgba(0, 0, 0, .4), 0 0 0 1px rgba(0, 0, 0, .1);
+	-webkit-border-radius: var(--border-full-px);
+	-webkit-box-shadow: 0 2px 26px rgba(0, 0, 0, .4), 0 0 0 1px rgba(0, 0, 0, .1);
+	background: #ffffff;
+	border-radius: var(--border-full-px);
+	box-shadow: 0 2px 26px rgba(0, 0, 0, .3), 0 0 0 1px rgba(0, 0, 0, .1);
+	display: none;
+	padding-bottom: 2px;
+	z-index: var(--zindex-leanmodal) !important;
+}
+
+#leanmodal #leanmodal-contents {
+	color: rgb(0, 0, 0);
+	overflow-x: auto;
+	overflow-y: auto;
+	padding: 0;
+	word-break: break-word;
+}
+
+@media screen and (min-height: 60em) {
+	#leanmodal #leanmodal-contents {
+		height: 600px;
+	}
+}
+
+@media screen and (min-height: 55em) and (max-height: 60em) {
+	#leanmodal #leanmodal-contents {
+		height: 550px;
+	}
+}
+
+@media screen and (min-height: 50em) and (max-height: 55em) {
+	#leanmodal #leanmodal-contents {
+		height: 500px;
+	}
+}
+
+@media screen and (min-height: 40em) and (max-height: 50em) {
+	#leanmodal #leanmodal-contents {
+		height: 450px;
+	}
+}
+
+@media screen and (min-height: 35em) and (max-height: 40em) {
+	#leanmodal #leanmodal-contents {
+		height: 400px;
+	}
+}
+
+@media screen and (min-height: 30em) and (max-height: 35em) {
+	#leanmodal #leanmodal-contents {
+		height: 350px;
+	}
+}
+
+@media screen and (min-height: 25em) and (max-height: 30em) {
+	#leanmodal #leanmodal-contents {
+		height: 300px;
+		font-size: 0.95rem;
+	}
+}
+
+@media screen and (min-height: 20em) and (max-height: 25em) {
+	#leanmodal #leanmodal-contents {
+		height: 260px;
+		font-size: 0.9rem;
+	}
+}
+
+@media screen and (max-height: 20em) {
+	#leanmodal #leanmodal-contents {
+		height: 210px;
+		font-size: 0.8rem;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#leanmodal #leanmodal-contents {
+		font-size: 0.8rem !important;
+	}
+}
+
+/**
+-------------------------------------------------------------------------------
+Leanmodal background
+-------------------------------------------------------------------------------
+ */
+#lean-overlay {
+	clear: both;
+	content: "";
+	cursor: default;
+	display: none;
+	height: 100%;
+	left: calc(var(--mm-iconpanel-size) * -1.2);
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+@media screen and (max-width: 768px) {
+	#lean-overlay {
+		left: 0;
+	}
+}
+
+/**
+-------------------------------------------------------------------------------
+Leanmodal sizes
+-------------------------------------------------------------------------------
+ */
+@media screen and (min-width: 64em) {
+	#leanmodal.wide-leanmodal {
+		width: 72.5%;
+	}
+
+	#leanmodal.large-leanmodal {
+		width: 65%;
+	}
+
+	#leanmodal.normal-leanmodal {
+		width: 60%;
+	}
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+	#leanmodal.wide-leanmodal {
+		width: 77.5%;
+	}
+
+	#leanmodal.large-leanmodal {
+		width: 70%;
+	}
+
+	#leanmodal.normal-leanmodal {
+		width: 65%;
+	}
+}
+
+@media screen and (max-width: 42em) {
+	#leanmodal.wide-leanmodal {
+		width: 82.5%;
+	}
+
+	#leanmodal.large-leanmodal {
+		width: 75%;
+	}
+
+	#leanmodal.normal-leanmodal {
+		width: 70%;
+	}
+}
+
+/**
+-------------------------------------------------------------------------------
+Leanmodal title
+-------------------------------------------------------------------------------
+ */
+
+/**
+Container
+ */
+#leanmodal #leanmodal-header {
+	-moz-border-radius-topleft: var(--border-full-px);
+	-moz-border-radius-topright: var(--border-full-px);
+	-webkit-border-top-left-radius: var(--border-full-px);
+	-webkit-border-top-right-radius: var(--border-full-px);
+	background: url("../../res/ui/hd-bg.png");
+	border-bottom: 1px solid #cccccc;
+	border-top-left-radius: var(--border-full-px);
+	border-top-right-radius: var(--border-full-px);
+	box-sizing: border-box;
+	min-height: 58px;
+	padding: 13px 12px 12px 14px;
+}
+
+@media screen and (min-height: 20em) and (max-height: 25em) {
+	#leanmodal #leanmodal-header {
+		min-height: 30px;
+		line-height: 0.8;
+	}
+}
+
+@media screen and (max-height: 20em) {
+	#leanmodal #leanmodal-header {
+		min-height: 30px;
+		line-height: 0.5;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#leanmodal #leanmodal-header {
+		padding: 10px 8px 8px 10px !important;
+		min-height: 25px !important;
+	}
+}
+
+/**
+Title
+ */
+#leanmodal-header .leanmodaltitle {
+	color: #000000;
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+@media screen and (min-height: 20em) and (max-height: 25em) {
+	#leanmodal .leanmodaltitle {
+		font-size: 1.2rem;
+		font-weight: 700;
+	}
+}
+
+@media screen and (max-height: 20em) {
+	#leanmodal-header .leanmodaltitle {
+		font-size: 1.1rem;
+		font-weight: 700;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#leanmodal-header .leanmodaltitle {
+		font-size: 1.0rem !important;
+	}
+}
+
+/**
+Close button
+ */
+#leanmodal-header .leanmodaltitle .modal-close {
+	cursor: pointer;
+	display: block;
+	filter: alpha(opacity=45);
+	font-size: 1.1rem;
+	height: 14px;
+	opacity: 0.45;
+	position: absolute;
+	right: 12px;
+	top: 17px;
+	z-index: 2;
+	zoom: 1;
+}
+
+#leanmodal-header .leanmodaltitle .modal-close:hover {
+	color: #404142;
+}
+
+@media screen and (min-height: 20em) and (max-height: 25em) {
+	#leanmodal-header .leanmodaltitle .modal-close {
+		top: 14px;
+	}
+}
+
+@media screen and (max-height: 20em) {
+	#leanmodal-header .leanmodaltitle .modal-close {
+		top: 12px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	#leanmodal-header .leanmodaltitle .modal-close {
+		/* font-size: 1.0rem !important; */
+		top: 10px !important;
+	}
+}
+
+/**
+-------------------------------------------------------------------------------
+Content
+-------------------------------------------------------------------------------
+ */
+#leanmodal h2 {
+	color: #444444;
+	font-size: 2em;
+	font-weight: 700;
+	margin-bottom: 3px;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+#leanmodal p {
+	color: #444444;
+	font-size: 1.3em;
+	margin: 0;
+	text-shadow: none;
+}
+
+#leanmodal .leanmodal-h1-title {
+	font-size: 1.3rem;
+	font-weight: bold;
+	padding: 0 10px 8px;
+}
+
+#leanmodal .leanmodal-h2-title {
+	font-size: 1.1rem;
+	font-weight: bold;
+	padding: 0 10px 4px;
+}
+
+@media screen and (max-width: 576px) {
+	#leanmodal .leanmodal-h1-title {
+		font-size: 1.05rem !important;
+		padding: 0 5px 5px;
+	}
+
+	#leanmodal .leanmodal-h2-title {
+		font-size: 0.85rem !important;
+		padding: 0 5px 3px;
+	}
+}
