@@ -1,0 +1,51 @@
+{% if type == 'head' %}
+
+    {% load static %}
+
+    <!--suppress HtmlUnknownAnchorTarget -->
+    <script src="{% static 'src/components/footer/footer.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'src/components/footer/footer.css' %}" media="screen">
+
+{% elif type == 'body' %}
+
+    <div id="footer">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="footer-line-entry logo-title">Bazar</div>
+                <div class="footer-line-entry"><a href="#conocenos">Conócenos</a></div>
+                <div class="footer-line-entry"><a href="#soporte">Soporte</a></div>
+                <div class="footer-line-separator"></div>
+                <div class="footer-line-entry"><a href="#organizacion">Organización</a></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="footer-line-entry">Nuestras redes sociales:</div>
+                <div class="footer-line-entry">
+                    <div class="footer-rrss-icon">
+                        <a href="#twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <div class="footer-rrss-icon">
+                        <a href="#facebook"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <div class="footer-rrss-icon">
+                        <a href="#instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="footer-rrss-icon">
+                        <a href="#whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-line-separator"></div>
+                <div class="footer-line-entry"><a href="#contacto">Contacto</a></div>
+                <div class="footer-line-entry footer-version"></div>
+            </div>
+        </div>
+        <div class="footer-description">
+            Bazar le permite a usted llegar a miles de negocios de manera rápida y sencilla, busque por tiendas, compre
+            sus productos favoritos y disfrute.
+            <br><br>
+            Copyright © 2021 Bazar Chile Ltda.
+            <br>
+            Av. Apoquindo 1000, Torre 2, piso 21, Las Condes, Santiago - Chile.
+        </div>
+    </div>
+
+{% endif %}

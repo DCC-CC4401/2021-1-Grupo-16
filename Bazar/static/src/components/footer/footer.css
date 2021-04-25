@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/*
+FOOTER
+Footer component.
+*/
+
+#footer {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 1rem 2rem;
+	font-size: 0.95rem;
+}
+
+#footer .footer-line-entry {
+	display: block;
+}
+
+#footer .logo-title {
+	font-family: serif;
+	border-bottom: 1px solid #4a4a4a;
+	font-size: 1.50rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+}
+
+#footer .footer-line-separator {
+	margin-bottom: 1rem;
+}
+
+#footer .footer-rrss-icon {
+	font-size: 1.5rem;
+	display: inline-block;
+	margin-right: 0.5rem;
+}
+
+#footer .footer-description {
+	margin-top: 2rem;
+	font-size: 0.75rem;
+	color: #8a8a8a;
+}
+
+#footer .footer-version {
+	color: #979797;
+	font-size: 0.8rem;
+}
+
+#footer .footer-line-entry a,
+#footer .footer-line-entry a:visited {
+	color: #ffffff;
+}
+
+#footer .footer-line-entry a:hover {
+	color: #a5a5a5;
+}
