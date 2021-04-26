@@ -4,16 +4,93 @@ HEADER
 Header component.
 */
 
-.header-component {
+#header-component {
 	background-color: #ffffff;
 	padding: 0.4rem 0.5rem;
-	font-size: 1.75rem;
 	display: block;
 	opacity: 0.99;
 	/* noinspection CssInvalidFunction */
 	box-shadow: 0 6px 7px 0 rgb(0 0 0 / 10%);
 }
 
-.header-component .header-title {
+#header-component #header-title {
 	font-weight: 600;
+	font-size: 1.75rem;
+}
+
+#header-component .header-tool-icon {
+	display: inline-block;
+	float: right;
+	color: #494949;
+	font-size: 1rem;
+	font-weight: 400;
+	padding: 0.57rem 0.75rem;
+}
+
+@media screen and (max-width: 640px) {
+	#header-component .header-tool-icon {
+		font-size: 0.9rem;
+		padding: 0.67rem 0.75rem;
+	}
+}
+
+#header-component .header-tool-icon:hover {
+	color: #000000;
+}
+
+#header-popup-container {
+	height: 0;
+}
+
+#header-tool-container.header-tools-popup {
+	background-color: #ffffff;
+	border-radius: var(--border-loading-px);
+	box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+	display: flex;
+	flex-direction: column-reverse;
+	float: right;
+	min-width: 200px;
+	padding: 0.75rem 0.5rem;
+	position: fixed;
+	right: 1rem;
+	top: 4.5rem;
+}
+
+#header-tool-container.header-tools-popup:before {
+	content: "";
+	background: #ffffff;
+	/* -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 30%); */
+	/* box-shadow: 0 2px 10px rgb(0 0 0 / 30%); */
+	display: block;
+	width: 15px;
+	height: 15px;
+	right: 15px;
+	top: -8px;
+	position: absolute;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/*
+Header tools item
+ */
+#header-tool-container.header-tools-popup .header-tool-icon {
+	font-size: 1.1rem;
+	padding: 0.25rem;
+}
+
+#header-tool-container.header-tools-popup .header-tool-icon:hover {
+	background-color: #ececec;
+	cursor: pointer;
+}
+
+#header-tool-container-button {
+	cursor: pointer;
+	display: none;
+	float: right;
+	font-size: 1.7rem;
+	padding-left: 1.1rem;
+	padding-right: 1.1rem;
+	padding-top: 0.1rem;
 }
