@@ -1445,7 +1445,6 @@ app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYACTUAL);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYCONFIRM);
 app_library_manager.addLibToQueue(app_library_manager.lib.MD5);
 app_library_manager.addLibToQueue(app_library_manager.lib.NOTIFICATIONJS);
-app_library_manager.addLibToQueue(app_library_manager.lib.RIPPLER);
 app_library_manager.addLibToQueue(app_library_manager.lib.SCROLLLOCK);
 app_library_manager.addLibToQueue(app_library_manager.lib.SPIN);
 app_library_manager.addLibToQueue(app_library_manager.lib.TOOLTIPSTER);
