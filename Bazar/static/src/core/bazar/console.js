@@ -95,6 +95,19 @@ function __CORE_Console() {
     };
 
     /**
+     * Log object in the console.
+     *
+     * @param {Object} $obj
+     */
+    this.object = function ($obj) {
+
+        if (!cfg_verbose) return;
+        self._resetMessages();
+        console.log($obj);
+
+    };
+
+    /**
      * Trace message.
      *
      * @param {string} $msg - Message
