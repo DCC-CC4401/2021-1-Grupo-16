@@ -54,8 +54,8 @@ function __ModuleManager() {
 
     /**
      * Register a module
-     * @param {string} $name
-     * @param {Module} $module
+     * @param {string} $name - Name of the module
+     * @param {Module} $module - Module object
      */
     this.registerModule = function ($name, $module) {
         // if (!($module instanceof Module)) {

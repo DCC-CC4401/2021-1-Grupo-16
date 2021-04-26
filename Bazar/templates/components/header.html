@@ -1,15 +1,26 @@
 {% if type == 'head' %}
 
     {% load static %}
-    <script src="{% static 'src/components/header/header.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'src/components/header/header.css' %}" media="screen">
+    <script src="{% static 'src/components/header/header.js' %}"></script>
 
 {% elif type == 'body' %}
 
-    <div class="header-component">
-        <div class="header-title"></div>
-        <div class="header-middle"></div>
-        <div class="header-tools"></div>
+    <div id="header-component">
+        <div class="row">
+            <div id="header-title" class="col-3">col-2</div>
+            <div id="header-middle" class="col-4"></div>
+            <div id="header-tools" class="col-5">
+                <div id="header-tool-container">
+                    <div class="header-tool-icon">Login</div>
+                    <div class="header-tool-icon">Ofertas</div>
+                    <div class="header-tool-icon">Buscador</div>
+                </div>
+                <div id="header-tool-container-button">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endif %}

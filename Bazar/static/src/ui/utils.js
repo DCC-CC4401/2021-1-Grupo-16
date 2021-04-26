@@ -33,7 +33,6 @@ function __UI_Utils() {
 
     };
 
-    // noinspection JSUnusedGlobalSymbols
     /**
      * Init tooltipster into an object.
      *
@@ -51,7 +50,7 @@ function __UI_Utils() {
             contentAsHTML: true,
             contentCloning: false,
             debug: true,
-            delay: 200,
+            delay: 450,
             distance: 0,
             functionAfter: null, // A custom function to be fired once the tooltip has been closed and removed from the DOM
             functionBefore: null, // A custom function to be fired before the tooltip is opened
@@ -86,6 +85,16 @@ function __UI_Utils() {
 
     };
 
+}
+
+/**
+ * Converts rem to pixels.
+ *
+ * @param {number} rem - Number of rems
+ * @returns {number} - Pixels
+ */
+function convertRemToPixels(rem) {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
 /**
