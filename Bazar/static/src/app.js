@@ -77,10 +77,12 @@ $(function () {
      */
     afterLoadImports();
     app_module.init(() => {
-        app_dom.body.css({
-            'display': 'block',
-            'overflow-y': 'auto'
-        });
+        setTimeout(function () {
+            app_dom.body.css({
+                'display': 'block',
+                'overflow-y': 'auto'
+            });
+        }, 150);
     });
 
 });
