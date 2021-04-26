@@ -1,0 +1,86 @@
+@charset "UTF-8";
+/*
+HOME
+Home module.
+*/
+
+#search-box {
+	display: block;
+	width: 70%;
+	margin-left: 15%;
+}
+
+@media screen and (min-width: 1000px) {
+	#search-box {
+		width: 60%;
+		margin-left: 20%;
+	}
+}
+
+@media screen and (max-width: 560px) {
+	#search-box {
+		width: 90%;
+		margin-left: 5%;
+	}
+}
+
+#search-input-box {
+	background-color: #ffffffad;
+	border-radius: 1rem;
+	padding: 0.8rem;
+	position: relative;
+	z-index: 100;
+}
+
+#search-input-box.search-input-focus {
+	animation: SearchInputBoxEnableFocus 0.4s ease-in forwards;
+}
+
+#search-input-box.search-input-blur {
+	animation: SearchInputBoxDisableFocus 0.4s ease-in forwards;
+}
+
+@keyframes SearchInputBoxEnableFocus {
+	0% {
+		background-color: #ffffffad;
+	}
+	100% {
+		background-color: #ffffff;
+	}
+}
+
+@keyframes SearchInputBoxDisableFocus {
+	0% {
+		background-color: #ffffff;
+	}
+	100% {
+		background-color: #ffffffad;
+	}
+}
+
+#search-input-tools {
+	background-color: #4b4b4b;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
+	display: none;
+	padding: 1rem;
+	position: relative;
+	top: -2rem;
+	z-index: 1;
+}
+
+#search-input-text {
+	background: none;
+	border: 0;
+	color: #000000;
+	font-size: 1.5rem;
+	margin-left: 1rem;
+	outline: none;
+	padding-bottom: 0.25rem;
+	width: 80%;
+}
+
+#search-input-box .fa-search {
+	font-size: 2rem;
+	float: left;
+}

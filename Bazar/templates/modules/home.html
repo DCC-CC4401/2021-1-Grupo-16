@@ -6,13 +6,31 @@
 {% endblock %}
 
 {% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'src/modules/home/home.css' %}" media="screen">
+
     <script src="{% static 'src/modules/home/home.js' %}"></script>
+    <script src="{% static 'src/modules/home/search.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
     {% include 'components/header.html' with type='head' %}
     {% include 'components/footer.html' with type='head' %}
+
 {% endblock %}
 
 {% block body %}
     {% include 'components/header.html' with type='body' %}
-    <div id="contents">Very epic</div>
+    <div id="contents">
+        <div id="search-box">
+            <div id="search-input-box">
+                <i class="fas fa-search"></i>
+                <!--suppress HtmlFormInputWithoutLabel -->
+                <input type="text" id="search-input-text" placeholder="Busca una tienda o producto"/>
+            </div>
+            <div id="search-input-tools">
+            </div>
+        </div>
+    </div>
     {% include 'components/footer.html' with type='body' %}
 {% endblock %}
