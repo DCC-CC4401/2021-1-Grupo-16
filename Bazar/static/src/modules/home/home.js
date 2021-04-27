@@ -61,8 +61,8 @@ function HomeModule() {
         self._search = new HomeModuleSearchComponent();
         self._search.init($contents_height);
 
-    }
+    };
 
 }
 
-app_module.registerModule('name', new HomeModule());
+app_module.registerModule('home', new HomeModule());
