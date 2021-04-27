@@ -6,22 +6,29 @@ Header component.
 
 #header-component {
 	background-color: #ffffff;
-	padding: 0.4rem 0.5rem;
+	padding: 0.4rem 0;
 	display: block;
 	opacity: 0.99;
 	/* noinspection CssInvalidFunction */
 	box-shadow: 0 6px 7px 0 rgb(0 0 0 / 10%);
 }
 
+#header-component .row {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
 #header-component #header-title {
+	cursor: default;
 	font-weight: 600;
 	font-size: 1.75rem;
 }
 
 #header-component .header-tool-icon {
+	color: #494949;
+	cursor: pointer;
 	display: inline-block;
 	float: right;
-	color: #494949;
 	font-size: 1rem;
 	font-weight: 400;
 	padding: 0.57rem 0.75rem;
