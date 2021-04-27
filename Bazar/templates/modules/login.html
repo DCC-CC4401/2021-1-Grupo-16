@@ -1,0 +1,31 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'src/modules/login/login.css' %}" media="screen">
+
+    <script src="{% static 'src/modules/login/login.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    <div id="contents">
+
+        <div id="login-box">
+            test
+        </div>
+
+    </div>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
