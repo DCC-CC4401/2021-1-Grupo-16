@@ -8,24 +8,33 @@ from datetime import datetime
 class User(AbstractUser):
     gender_choices = [('M',"Male"),('F',"Female"),('O',"Other")]
 
-    rut = models.CharField(blank=True, max_length=12)
     gender = models.CharField(choices=gender_choices, max_length=1)
+    
+    # TODO: create validation functions for rut & phone_number 
+    rut = models.CharField(blank=True, max_length=12)                   # Ex: 20.298.878-4 => 12 chars      
+    phone_number = models.CharField(max_length=12)                      # Ex: +569XXXXXXXX => 12 chars
+    
     birthday = models.DateField()
-    phone_number = models.CharField(max_length=12) # +569XXXXXXXX 
-    date_of_creation = models.DateTimeField(default=datetime.today())
+    date_of_creation = models.DateTimeField(default=datetime.today())   
 
 class UserAddress(models.Model):
-    addressid = models.IntegerField(primary_key=True, unique=True)
     alias = models.CharField(max_length=20)
     shipping_comment = models.CharField(max_length=255)
+    
+    #TODO: create choices for each region and commune.
     region = models.CharField(max_length=20)
     commune = models.CharField(max_length=20)
+
     road = models.CharField(max_length=40)
     address_number = models.IntegerField()
     apartament_number = models.IntegerField() 
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class Administration(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
-    privilege_level = models.IntegerField()             # TODO: choices
+
+    # TODO: create choices for each user privilege level in a store
+    # Ex: {0: 'owner', 1: 'admin'}
+    privilege_level = models.IntegerField()
