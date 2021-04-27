@@ -26,7 +26,7 @@ function HomeModuleSearchComponent() {
 
     /**
      * Box that contains the search tools
-     * @type {jQuery}
+     * @type {*|jQuery}
      * @private
      */
     this._search_box = null;
@@ -48,10 +48,12 @@ function HomeModuleSearchComponent() {
         self._search_input.on('focus', () => {
             $search_box.addClass('search-input-focus');
             $search_box.removeClass('search-input-blur');
+            // self._search_box.transition({x: 0, y: -self._contents_initial_height * 0.05}, 300);
         });
         self._search_input.on('blur', () => {
             $search_box.addClass('search-input-blur');
             $search_box.removeClass('search-input-focus');
+            self._search_box.transition({x: 0, y: 0});
         });
     };
 
