@@ -6,7 +6,7 @@ Application library folder:
 
 | Library | Version | Link |
 | :-- | :--: | :-- |
-| bootstrap | 4.4.1 | <a href="https://github.com/twbs/bootstrap">github.com/twbs/bootstrap</a> |
+| bootstrap | 4.6.0 | <a href="https://github.com/twbs/bootstrap">github.com/twbs/bootstrap</a> |
 | chartjs | 2.9.8 | <a href="https://github.com/chartjs/Chart.js">github.com/chartjs/Chart.js</a> |
 | font-awesome | 5.15.3 | <a href="https://fontawesome.com">fontawesome.com</a> |
 | hammer | 2.0.8 | <a href="https://github.com/hammerjs/hammer.js">github.com/hammerjs/hammer.js</a> |
@@ -17,11 +17,13 @@ Application library folder:
 | jquery-resizable | 0.32 | <a href="https://github.com/RickStrahl/jquery-resizable">github.com/RickStrahl/jquery-resizable</a> |
 | jquery-scrollLock | 3.1.3 | <a href="https://github.com/MohammadYounes/jquery-scrollLock">github.com/MohammadYounes/jquery-scrollLock</a> |
 | jquery-timeago | 1.6.7 | <a href="https://github.com/rmm5t/jquery-timeago">github.com/rmm5t/jquery-timeago</a> |
+| jquery.actual | 1.0.19 | <a href="https://github.com/dreamerslab/jquery.actual">github.com/dreamerslab/jquery.actual</a> |
 | jquery.contextMenu | 3.0.0-beta.2 | <a href="https://github.com/swisnl/jQuery-contextMenu">github.com/swisnl/jQuery-contextMenu</a> |
 | jquery.scrollTo | 2.1.2 | <a href="https://github.com/flesler/jquery.scrollTo">github.com/flesler/jquery.scrollTo</a> |
+| jquery.transit | 0.9.12 | <a href="https://github.com/rstacruz/jquery.transit">github.com/rstacruz/jquery.transit</a> |
 | jscookie | 2.2.1 | <a href="https://github.com/js-cookie/js-cookie">github.com/js-cookie/js-cookie</a> |
 | md5 | 2.10.0 | <a href="https://github.com/blueimp/JavaScript-MD5">github.com/blueimp/JavaScript-MD5</a> |
-| mmenu | 8.5.20 | <a href="https://github.com/FrDH/jQuery.mmenu/releases">github.com/FrDH/jQuery.mmenu/releases</a> |
+| mmenu | 8.5.22 | <a href="https://github.com/FrDH/jQuery.mmenu/releases">github.com/FrDH/jQuery.mmenu/releases</a> |
 | mtabs | 2.2.1 | <a href="https://github.com/matthewhall/matt-tabs">github.com/matthewhall/matt-tabs</a> |
 | multiselect | 2.5.5 | <a href="https://github.com/crlcu/multiselect">github.com/crlcu/multiselect</a> |
 | normalize | 8.0.1 | <a href="https://github.com/necolas/normalize.css">github.com/necolas/normalize.css</a> |
