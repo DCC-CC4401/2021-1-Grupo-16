@@ -101,3 +101,11 @@ Header tools item
 	padding-right: 1.1rem;
 	padding-top: 0.1rem;
 }
+
+/**
+Header links
+ */
+#header-component a {
+	color: #000000;
+	text-decoration: none;
+}
