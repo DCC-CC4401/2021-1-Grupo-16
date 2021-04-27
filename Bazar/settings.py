@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'inventories',
+    'stores',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -73,8 +76,12 @@ WSGI_APPLICATION = 'Bazar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'bazardb',
+        'USER': 'postgres',
+        'PASSWORD': 'grupo16',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -95,6 +102,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
