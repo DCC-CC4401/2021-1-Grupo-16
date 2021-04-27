@@ -72,6 +72,7 @@ function __CORE_LibraryManager() {
         JQUERYSCROLLTO: 'jquery.scrollTo',
         JQUERYTIMEAGO: 'jquery-timeago',
         JQUERYTOAST: 'jquery.toast',
+        JQUERYTRANSIT: 'jquery.transit',
         JSTREE: 'jstree',
         MBURGER: 'mburger',
         MD5: 'md5',
@@ -982,6 +983,13 @@ function __CORE_LibraryManager() {
                 break;
 
             /**
+             * Jquery.transit
+             */
+            case self.lib.JQUERYTRANSIT:
+                self._getScriptAsyncCallback($library, '/static/lib/jquery.transit/jquery.transit.min.js', $callback, $params);
+                break;
+
+            /**
              * Jquery-confirm
              */
             case self.lib.JQUERYCONFIRM:
@@ -1013,10 +1021,10 @@ function __CORE_LibraryManager() {
                 break;
 
             /**
-             * Bootstrap scss
+             * Bootstrap css
              */
             case self.lib.BOOTSTRAP:
-                self.loadCssLib($library, 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+                self.loadCssLib($library, 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css');
                 self._getScriptAsyncCallback($library, self._jsbootstrap, $callback, $params);
                 break;
 
@@ -1024,17 +1032,17 @@ function __CORE_LibraryManager() {
              * Bootstrap.js
              */
             case self.lib.BOOTSTRAPJS:
-                self._getScriptAsyncCallback($library, 'https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js', $callback, $params);
+                self._getScriptAsyncCallback($library, 'https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js', $callback, $params);
                 break;
 
             /**
              * Mmenu
              */
             case self.lib.MMENU:
-                self.loadCssLib($library, 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/8.5.20/mmenu.min.css');
+                self.loadCssLib($library, 'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/8.5.22/mmenu.min.css');
                 self._getScriptAsyncCallback(
                     $library,
-                    'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/8.5.20/mmenu.js',
+                    'https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/8.5.22/mmenu.js',
                     function ($e) {
                         self.addLibToQueue(self.lib.HAMMER);
                         self._getScriptAsyncCallback(self.lib.HAMMER, '/static/lib/hammer/hammer.min.js', $e.c, $e.p);
@@ -1443,6 +1451,7 @@ const app_library_manager = new __CORE_LibraryManager();
 app_library_manager.addLibToQueue(app_library_manager.lib.AMARANJS);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYACTUAL);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYCONFIRM);
+app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYTRANSIT);
 app_library_manager.addLibToQueue(app_library_manager.lib.MD5);
 app_library_manager.addLibToQueue(app_library_manager.lib.NOTIFICATIONJS);
 app_library_manager.addLibToQueue(app_library_manager.lib.SCROLLLOCK);
