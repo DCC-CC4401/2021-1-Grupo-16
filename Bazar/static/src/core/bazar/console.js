@@ -84,7 +84,7 @@ function __CORE_Console() {
     this.info = function ($msg) {
 
         if (!cfg_verbose) return;
-        $msg = self._format($msg);
+        $msg = self._format($msg.toString());
         self._resetMessages();
         if (show_console_total_messages) {
             console.log('[{2}@{0}] {1}'.format(Date.dateFormat(new Date(), self._msg_date_format), $msg, self._total_console_messages));

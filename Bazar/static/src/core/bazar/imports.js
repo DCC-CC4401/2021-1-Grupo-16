@@ -1449,6 +1449,7 @@ const app_library_manager = new __CORE_LibraryManager();
  * ----------------------------------------------------------------------------
  */
 app_library_manager.addLibToQueue(app_library_manager.lib.AMARANJS);
+app_library_manager.addLibToQueue(app_library_manager.lib.BOOTSTRAP);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYACTUAL);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYCONFIRM);
 app_library_manager.addLibToQueue(app_library_manager.lib.JQUERYTRANSIT);
@@ -1468,7 +1469,6 @@ function afterLoadImports() {
 
     app_library_manager.importAsyncLibrary(app_library_manager.lib.ANIMATE);
     app_library_manager.importAsyncLibrary(app_library_manager.lib.BACKTOTOP);
-    app_library_manager.importAsyncLibrary(app_library_manager.lib.BOOTSTRAP);
     app_library_manager.importAsyncLibrary(app_library_manager.lib.FONTAWESOME);
     app_library_manager.importAsyncLibrary(app_library_manager.lib.HOVERCSS);
     app_library_manager.importAsyncLibrary(app_library_manager.lib.NORMALIZE);

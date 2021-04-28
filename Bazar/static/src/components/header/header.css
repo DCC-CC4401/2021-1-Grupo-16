@@ -20,8 +20,9 @@ Header component.
 
 #header-component #header-title {
 	cursor: default;
-	font-weight: 600;
+	font-family: serif;
 	font-size: 1.75rem;
+	font-weight: 600;
 }
 
 #header-component .header-tool-icon {
@@ -100,4 +101,12 @@ Header tools item
 	padding-left: 1.1rem;
 	padding-right: 1.1rem;
 	padding-top: 0.1rem;
+}
+
+/**
+Header links
+ */
+#header-component a {
+	color: #000000;
+	text-decoration: none;
 }

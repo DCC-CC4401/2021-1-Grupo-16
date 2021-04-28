@@ -93,7 +93,7 @@ function HeaderComponent() {
      * @private
      */
     this._runToolsWithListener = function () {
-        app_dom.window.on('resize', self._toolsPopupThread);
+        app_dom.window.on('resize.PopUpThreadListener', self._toolsPopupThread);
         self._toolsPopupThread();
         setTimeout(self._toolsPopupThread, 200);
     };
