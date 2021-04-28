@@ -7,6 +7,7 @@ Bazar project.
 For running the app, execute the following commands in a terminal shell:
 
 ```bash
+python3 manage.py makemigrations
 python3 manage.py migrate
 python3 manage.py runserver
 ```

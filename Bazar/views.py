@@ -12,17 +12,18 @@ def view_home(request: 'HttpRequest') -> 'HttpResponse':
     """
     Home.
     """
-    return render(request, 'modules/home.html', {})
+    return render(request, 'Bazar/home.html', {})
 
 
 def view_login(request: 'HttpRequest') -> 'HttpResponse':
     """
     Login.
     """
-    return render(request, 'modules/login.html', {})
+    return render(request, 'Bazar/login.html', {})
+
 
 def view_signup(request: 'HttpRequest') -> 'HttpResponse':
     """
     Sign up.
     """
-    return render(request, 'modules/signup.html', {})
+    return render(request, 'Bazar/signup.html', {})
