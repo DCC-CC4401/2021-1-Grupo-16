@@ -14,5 +14,5 @@ Bazar/static/lib/chart.js/Chart.bundle.js
 
 # Ignore migrations apps
 inventories/migrations/**.py
-users/migrations/**.py
 stores/migrations/**.py
+users/migrations/**.py
