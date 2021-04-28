@@ -120,4 +120,18 @@ Contents
 	background: rgb(89, 48, 160) !important;
 	background: linear-gradient(0deg, rgba(89, 48, 160, 1) 0%, rgba(205, 92, 172, 1) 63%, rgba(227, 114, 172, 1) 100%) !important;
 	padding: 0.5rem;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+/* Contents centered vertically */
+#contents.centered-vertically {
+	display: table;
+}
+
+#contents .contents-centered-box {
+	display: table-cell;
+	vertical-align: middle;
 }

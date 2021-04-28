@@ -21,30 +21,31 @@
 
 {% block body %}
     {% include 'components/header.html' with type='body' %}
-    <div id="contents">
-        <div id="login-box">
-            <form id="login-form" method="post">
-                <div class="login-line">
-                    <div class="row">
-                        <div class="col-4 login-item"><i class="far fa-envelope"></i> E-mail</div>
-                        <div class="col-8"><input type="email" name="email" placeholder="example@domain.com"/></div>
+    <div id="contents" class="centered-vertically">
+        <div class="contents-centered-box">
+            <div id="login-box">
+                <form id="login-form" method="post">
+                    <div class="login-line">
+                        <div class="row">
+                            <div class="col-4 login-item"><i class="far fa-envelope"></i> E-mail</div>
+                            <div class="col-8"><input type="email" name="email" placeholder="example@domain.com"/></div>
+                        </div>
                     </div>
-                </div>
-                <div class="login-line">
-                    <div class="row">
-                        <div class="col-4 login-item">Password</div>
-                        <div class="col-8"><input type="password" name="pass"/></div>
+                    <div class="login-line">
+                        <div class="row">
+                            <div class="col-4 login-item">Password</div>
+                            <div class="col-8"><input type="password" name="pass"/></div>
+                        </div>
                     </div>
-                </div>
-                <div class="login-line" style="text-align: center;">
-                    <div class="button-container">
-                        <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">Login</button>
-                        <button type="button" class="btn btn-secondary">Registrarse</button>
+                    <div class="login-line" style="text-align: center;">
+                        <div class="button-container">
+                            <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">Login</button>
+                            <button type="button" class="btn btn-secondary">Registrarse</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-
     </div>
     {% include 'components/footer.html' with type='body' %}
 {% endblock %}
