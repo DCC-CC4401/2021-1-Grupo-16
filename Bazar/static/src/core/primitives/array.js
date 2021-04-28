@@ -129,6 +129,18 @@ Array.prototype.hasItem = function ($item) {
 
 };
 
+/**
+ * Returns a random element of an array.
+ *
+ * @returns {*}
+ */
+Array.prototype.randomElement = function () {
+
+    let $i = Math.floor(Math.random() * this.length);
+    return this[$i];
+
+};
+
 // noinspection JSUnusedGlobalSymbols
 /**
  * Remove all objects from array.
