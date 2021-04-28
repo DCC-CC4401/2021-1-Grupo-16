@@ -21,13 +21,6 @@ function HomeModule() {
     let self = this;
 
     /**
-     * Creates header component
-     * @type {HeaderComponent}
-     * @private
-     */
-    this._header = null;
-
-    /**
      * Search object
      * @type {HomeModuleSearchComponent}
      * @private
@@ -44,25 +37,20 @@ function HomeModule() {
         let $contents = $('#contents');
 
         // Init header
-        self._header = new HeaderComponent();
-        self._header.setTitle('Bazar');
-        self._header.init();
+        self.initBasicHeader('Bazar');
         self._header.registerToolPopupCloseElement($contents);
 
-        // Init footer
-        let $footer = new FooterComponent();
-        $footer.init();
+        self.initBasicFooter();
 
         // Update contents height to fit window height
-        let $contents_height = app_dom.window.outerHeight() - self._header.getHeight();
-        $contents.css('min-height', $contents_height);
+        let $contents_height = self.extendDivToMaxHeight($contents);
 
         // Setup search object
         self._search = new HomeModuleSearchComponent();
         self._search.init($contents_height);
 
-    }
+    };
 
 }
 
-app_module.registerModule('name', new HomeModule());
+app_module.registerModule('home', new HomeModule());

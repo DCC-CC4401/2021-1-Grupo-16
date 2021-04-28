@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/*
+LOGIN
+Login module.
+*/
+
+#login-box {
+	background-color: #ffffff;
+	box-shadow: 0 0 7px 0 rgb(0 0 0 / 24%);
+	font-size: 1rem;
+	margin: 0 auto;
+	max-width: 50%;
+	min-width: 380px;
+	padding: 2em 2em 1em;
+	border-radius: 1rem;
+	opacity: 0;
+}
+
+#login-box .login-line {
+	display: block;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+#login-box .login-item {
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 2rem;
+	text-align: right;
+	vertical-align: middle;
+}
+
+#login-box .login-item i {
+	margin-right: 0.5em;
+}
+
+#login-box input {
+	border: 1px solid #aaaaaa;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+#login-box .button-container {
+	padding-top: 2rem;
+	margin: 0 auto;
+}

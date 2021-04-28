@@ -17,9 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from Bazar.views import view_home
+from Bazar.views import view_home, view_login
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', view_home)
+    path('home/', view_home),
+    path('login/', view_login)
 ]

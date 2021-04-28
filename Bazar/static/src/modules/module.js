@@ -21,6 +21,44 @@ function Module() {
     let self = this;
 
     /**
+     * Creates header component
+     * @type {HeaderComponent}
+     */
+    this._header = null;
+
+    /**
+     * This function inits a simple header.
+     *
+     * @param {string} $title - Header title
+     */
+    this.initBasicHeader = function ($title) {
+        self._header = new HeaderComponent();
+        self._header.setTitle($title);
+        self._header.init();
+    };
+
+    /**
+     * Set the min height of an object as the difference between the window's
+     * height and the header's height.
+     *
+     * @param {jQuery} $object - Object to define
+     * @returns {number} - The height difference
+     */
+    this.extendDivToMaxHeight = function ($object) {
+        let $contents_height = app_dom.window.outerHeight() - self._header.getHeight();
+        $object.css('min-height', $contents_height);
+        return $contents_height;
+    };
+
+    /**
+     * Inits a basic footer.
+     */
+    this.initBasicFooter = function () {
+        let $footer = new FooterComponent();
+        $footer.init();
+    };
+
+    /**
      * This function inits the module.
      * @abstract
      */
@@ -51,6 +89,13 @@ function __ModuleManager() {
      * @type {Object.<string, Module>}
      */
     this._modules = {};
+
+    /**
+     * Creates header component
+     * @type {HeaderComponent}
+     * @private
+     */
+    this._header = null;
 
     /**
      * Register a module

@@ -1,0 +1,50 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'src/modules/login/login.css' %}" media="screen">
+
+    <script src="{% static 'src/modules/login/login.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    <div id="contents">
+        <div id="login-box">
+            <form id="login-form" method="post">
+                <div class="login-line">
+                    <div class="row">
+                        <div class="col-4 login-item"><i class="far fa-envelope"></i> E-mail</div>
+                        <div class="col-8"><input type="email" name="email" placeholder="example@domain.com"/></div>
+                    </div>
+                </div>
+                <div class="login-line">
+                    <div class="row">
+                        <div class="col-4 login-item">Password</div>
+                        <div class="col-8"><input type="password" name="pass"/></div>
+                    </div>
+                </div>
+                <div class="login-line" style="text-align: center;">
+                    <div class="button-container">
+                        <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">Login</button>
+                        <button type="button" class="btn btn-secondary">Registrarse</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
