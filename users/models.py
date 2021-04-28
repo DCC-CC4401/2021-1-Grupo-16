@@ -38,7 +38,7 @@ class Administration(models.Model):
         ('0',"owner"),
         ('1',"admin")
     ]
-    privilege_level = models.IntegerField(max_length=1, choices=privilege_choices)
+    privilege_level = models.CharField(max_length=1, choices=privilege_choices)
 
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
