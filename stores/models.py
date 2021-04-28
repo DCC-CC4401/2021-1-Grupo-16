@@ -38,14 +38,16 @@ class Transaction(models.Model):
     list_of_products = models.JSONField()  
 
 class Inventory(models.Model):
+    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE) 
     product_name = models.CharField(max_length=20)
     price = models.IntegerField()
     stock = models.IntegerField()
     short_description = models.CharField(max_length=255)
-    long_description = models.CharField(max_length=4000)
-    likes = models.IntegerField()
+    long_description = models.CharField(max_length=4000, blank=True)
+    
+    # TODO: When a product is added to the table it MUST have likes = dislikes = 0.
+    likes = models.IntegerField()       
     dislikes = models.IntegerField()
-    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE) 
 
 
     
