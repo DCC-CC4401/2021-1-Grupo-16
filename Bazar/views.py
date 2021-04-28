@@ -23,6 +23,6 @@ def view_login(request: 'HttpRequest') -> 'HttpResponse':
 
 def view_signup(request: 'HttpRequest') -> 'HttpResponse':
     """
-    Sign in.
+    Sign up.
     """
-    return render(request, 'modules/signin.html', {})
+    return render(request, 'modules/signup.html', {})
