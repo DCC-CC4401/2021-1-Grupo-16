@@ -23,7 +23,7 @@ from Bazar.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', view_home),
-    path('login/', view_login)
-    path('', include("users.urls"))
-    path('', include("stores.urls"))
+    path('login/', view_login),
+    path('', include("users.urls")),
+    path('', include("stores.urls")),
 ]

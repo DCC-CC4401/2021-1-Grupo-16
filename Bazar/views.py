@@ -20,3 +20,9 @@ def view_login(request: 'HttpRequest') -> 'HttpResponse':
     Login.
     """
     return render(request, 'modules/login.html', {})
+
+def view_signup(request: 'HttpRequest') -> 'HttpResponse':
+    """
+    Sign in.
+    """
+    return render(request, 'modules/signin.html', {})
