@@ -41,7 +41,7 @@ class Store(models.Model):
 class Transaction(models.Model):
     store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
-    transaction_date = models.DateTimeField(default=datetime.today())
+    transaction_date = models.DateTimeField()
     amount_payed = models.IntegerField()
 
     # TODO: when a buys a set of products in a store, those items MUST
