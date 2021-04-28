@@ -31,7 +31,7 @@ class UserAddress(models.Model):
 
     road = models.CharField(max_length=40)
     address_number = models.IntegerField()
-    apartament_number = models.IntegerField() 
+    apartament_number = models.IntegerField(blank=True) 
 
 class Administration(models.Model):
     privilege_choices = [
