@@ -20,16 +20,6 @@ function LoginModule() {
      */
     let self = this;
 
-    this.centerLoginBox = function () {
-
-        let $box = $('#login-box');
-        // let $parent = $box.parent();
-        let $parent = app_dom.window;
-        $box.css('margin-top', Math.max(25, ($parent.height() - $box.height()) / 2 - 50));
-        $box.fadeTo('slow', 1);
-
-    };
-
     /**
      * Inits the module.
      */
@@ -48,12 +38,6 @@ function LoginModule() {
 
         // Set the contents max height
         self.extendDivToMaxHeight($contents);
-
-        // Center the login box
-        setTimeout(self.centerLoginBox, 250);
-        setTimeout(function () {
-
-        }, 300);
 
     };
 

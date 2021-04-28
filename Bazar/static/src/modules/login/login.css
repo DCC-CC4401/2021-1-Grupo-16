@@ -6,20 +6,19 @@ Login module.
 
 #login-box {
 	background-color: #ffffff;
+	border-radius: 1rem;
 	box-shadow: 0 0 7px 0 rgb(0 0 0 / 24%);
 	font-size: 1rem;
 	margin: 0 auto;
 	max-width: 50%;
 	min-width: 380px;
 	padding: 2em 2em 1em;
-	border-radius: 1rem;
-	opacity: 0;
 }
 
 #login-box .login-line {
 	display: block;
-	width: 100%;
 	margin-bottom: 1rem;
+	width: 100%;
 }
 
 #login-box .login-item {
@@ -42,6 +41,6 @@ Login module.
 }
 
 #login-box .button-container {
-	padding-top: 2rem;
 	margin: 0 auto;
+	padding-top: 2rem;
 }
