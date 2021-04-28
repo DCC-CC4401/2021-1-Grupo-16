@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/*
+SIGN UP
+Sign up module.
+*/
+
+#signup-box {
+	background-color: #ffffff;
+	border-radius: 1rem;
+	box-shadow: 0 0 7px 0 rgb(0 0 0 / 24%);
+	font-size: 1rem;
+	margin: 0 auto;
+	max-width: 50%;
+	min-width: 380px;
+	padding: 2em 2em 1em;
+}
+
+#signup-box .signup-line {
+	display: block;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+
+#signup-box .signup-item {
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 2rem;
+	text-align: right;
+	vertical-align: middle;
+}
+
+#signup-box .signup-item i {
+	margin-right: 0.5em;
+}
+
+#signup-box input {
+	border: 1px solid #aaaaaa;
+	padding: 0.5rem;
+	width: 100%;
+}
+
+#signup-box .button-container {
+	margin: 0 auto;
+	padding-top: 2rem;
+}

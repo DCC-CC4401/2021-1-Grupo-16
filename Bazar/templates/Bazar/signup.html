@@ -1,0 +1,68 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'Bazar/signup/signup.css' %}" media="screen">
+
+    <script src="{% static 'Bazar/signup/signup.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    <div id="contents" class="centered-vertically">
+        <div class="contents-centered-box">
+            <div id="signup-box">
+                <form id="signup-form" method="post">
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="text" name="first_name" placeholder="Nombre"/></div>
+                            <div class="col"><input type="text" name="last_name" placeholder="Apellido"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="email" name="email" placeholder="Correo electrónico"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="password" name="pass" placeholder="Contraseña"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="text" name="day" placeholder="Dia"/></div>
+                            <div class="col"><input type="text" name="month" placeholder="Mes"/></div>
+                            <div class="col"><input type="text" name="year" placeholder="Año"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="text" name="day" placeholder="Masculino"/></div>
+                            <div class="col"><input type="text" name="month" placeholder="Femenino"/></div>
+                            <div class="col"><input type="text" name="year" placeholder="Otro"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line" style="text-align: center;">
+                        <div class="button-container">
+                            <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
