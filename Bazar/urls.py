@@ -23,9 +23,9 @@ from users.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', view_home),
-    path('login/', view_login),
-    path('signup/', view_signup),
+    path('home/', view_home, name="home"),
+    path('login/', view_login, name="login"),
+    path('signup/', view_signup, name="signup"),
     path('', include('users.urls')),
     path('', include('stores.urls'))
 ]
