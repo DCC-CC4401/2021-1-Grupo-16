@@ -71,11 +71,13 @@ twbs bootstrap
 -------------------------------------------------------------------------------
  */
 
+/**
 @media screen and (max-width: 576px) {
 	.form-control {
 		font-size: 0.8rem !important;
 	}
 }
+ */
 
 /**
 Buttons
@@ -84,12 +86,14 @@ Buttons
 	background-color: rgb(221, 221, 221);
 }
 
+/**
 @media screen and (max-width: 576px) {
 	.btn {
 		font-size: 0.80rem !important;
 		padding: 0.2rem 0.4rem !important;
 	}
 }
+ */
 
 .btn.focus, /* Button shadow when focused */
 .btn:focus {

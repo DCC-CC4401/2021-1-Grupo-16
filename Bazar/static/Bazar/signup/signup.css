@@ -11,14 +11,33 @@ Sign up module.
 	font-size: 1rem;
 	margin: 0 auto;
 	max-width: 25%;
-	min-width: 450px;
-	padding: 2em 2em 1em;
+	min-width: 550px;
+	padding: 2em 3em 1em;
 }
 
-#signup-box .form-check-input{
-	margin-top: .3rem;
-	width: 10px;
+@media screen and (max-width: 850px) {
+	#signup-box {
+		min-width: 450px;
+		padding: 2em 2em 1em;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#signup-box {
+		min-width: fit-content;
+		width: 95%;
+	}
+
+	#signup-box .col {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+}
+
+#signup-box .form-check-input {
+	margin-top: 0.3rem;
 	position: relative;
+	width: 10px;
 }
 
 #signup-box .signup-line {
@@ -41,12 +60,11 @@ Sign up module.
 	color: rgb(92, 97, 100);
 }
 
-#signup-box .btn.btn-primary.btn-block{
-	font-family: Helvetica;
+#signup-box .btn.btn-primary.btn-block {
+	font-family: "Helvetica", serif;
 	font-weight: 550;
 	background-color: #0095f6;
 	border-color: #0095f6;
-
 }
 
 #signup-box .signup-item {
@@ -63,16 +81,16 @@ Sign up module.
 }
 
 #signup-box .signup-title {
-	font-family: Helvetica;
+	font-family: "Helvetica", serif;
 	font-weight: bold;
 	font-size: xx-large;
 	display: block;
-	margin-bottom: 0rem;
+	margin-bottom: 0;
 	width: 100%;
 }
 
 #signup-box .signup-subtitle {
-	font-family: Helvetica;
+	font-family: "Helvetica", serif;
 	font-size: medium;
 	display: block;
 	margin-bottom: 1rem;
@@ -81,11 +99,15 @@ Sign up module.
 }
 
 #signup-box .form-check.radio-container {
-	display: flex;
-    border: 1px solid #aaaaaa;
-    padding: 0.5rem;
-    justify-content: space-between;
 	border-radius: 0.3rem;
+	border: 1px solid #aaaaaa;
+	color: #495057;
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+	padding: 0.4rem 0.8rem;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #signup-box input {

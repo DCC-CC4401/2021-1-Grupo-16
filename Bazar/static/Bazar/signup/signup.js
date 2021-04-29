@@ -39,6 +39,9 @@ function SignUpModule() {
         // Set the contents max height
         self.extendDivToMaxHeight($contents);
 
+        // Inits the dates
+        initDatesFormBirthDate();
+
     };
 
 }

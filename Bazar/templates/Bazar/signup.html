@@ -39,18 +39,26 @@
                     {% csrf_token %}
                     <div class="signup-line">
                         <div class="row">
-                            <div class="col"><input type="text" name="first_name" placeholder="Nombre"/></div>
-                            <div class="col"><input type="text" name="last_name" placeholder="Apellido"/></div>
+                            <div class="col">
+                                <input type="text" name="first_name" placeholder="Nombre" class="form-control"/>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="last_name" placeholder="Apellido" class="form-control"/>
+                            </div>
                         </div>
                     </div>
                     <div class="signup-line">
                         <div class="row">
-                            <div class="col"><input type="email" name="email" placeholder="Correo electrónico"/></div>
+                            <div class="col">
+                                <input type="email" name="email" placeholder="Correo electrónico" class="form-control"/>
+                            </div>
                         </div>
                     </div>
                     <div class="signup-final-line">
                         <div class="row">
-                            <div class="col"><input type="password" name="password" placeholder="Contraseña"/></div>
+                            <div class="col">
+                                <input type="password" name="password" placeholder="Contraseña" class="form-control"/>
+                            </div>
                         </div>
                     </div>
                     <div class="signup-line-label">
@@ -60,9 +68,17 @@
                     </div>
                     <div class="signup-final-line">
                         <div class="row">
-                            <div class="col"><select name="day" id="day"></select></div>
-                            <div class="col"><select name="month" id="month" onchange="change_month(this)"></select></div>
-                            <div class="col"><select name="year" id="year" onchange="change_year(this)"></select></div>
+                            <div class="col">
+                                <select name="day" id="day" class="form-control"></select>
+                            </div>
+                            <div class="col">
+                                <select name="month" id="month" class="form-control"
+                                        onchange="change_month(this)"></select>
+                            </div>
+                            <div class="col">
+                                <select name="year" id="year" class="form-control"
+                                        onchange="change_year(this)"></select>
+                            </div>
                         </div>
                     </div>
                     <div class="signup-line-label">
@@ -94,7 +110,9 @@
                     </div>
                     <div class="signup-line" style="text-align: center;">
                         <div class="button-container">
-                            <button type="submit" class="btn btn-primary btn-block" style="margin-right: 1.5rem;" value="Submit">Registrarte</button>
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-right: 1.5rem;"
+                                    value="Submit">Registrarte
+                            </button>
                         </div>
                     </div>
                 </form>

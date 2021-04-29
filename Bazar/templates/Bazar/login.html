@@ -27,20 +27,32 @@
                 <form id="login-form" method="post">
                     <div class="login-line">
                         <div class="row">
-                            <div class="col-4 login-item"><i class="far fa-envelope"></i> E-mail</div>
-                            <div class="col-8"><input type="email" name="email" placeholder="example@domain.com"/></div>
+                            <div class="col-sm-5 login-item">
+                                <i class="far fa-envelope"></i> E-mail
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="email" name="email" placeholder="example@domain.com" class="form-control"/>
+                            </div>
                         </div>
                     </div>
                     <div class="login-line">
                         <div class="row">
-                            <div class="col-4 login-item">Password</div>
-                            <div class="col-8"><input type="password" name="pass"/></div>
+                            <div class="col-sm-5 login-item">
+                                <i class="fas fa-key"></i> Password
+                            </div>
+                            <div class="col-sm-7">
+                                <input type="password" name="pass" class="form-control"/>
+                            </div>
                         </div>
                     </div>
-                    <div class="login-line" style="text-align: center;">
+                    <div class="login-line">
                         <div class="button-container">
-                            <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">Login</button>
-                            <button type="button" class="btn btn-secondary">Registrarse</button>
+                            <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">
+                                Login
+                            </button>
+                            <button type="button" class="btn btn-secondary">
+                                <a href="http://127.0.0.1:8000/signup/">Registrarse</a>
+                            </button>
                         </div>
                     </div>
                 </form>
