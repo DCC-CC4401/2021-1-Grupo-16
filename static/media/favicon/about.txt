@@ -1,0 +1,11 @@
+This favicon was generated using the following font:
+https://favicon.io/favicon-generator/
+
+- Font Title: Buenard
+- Font Author: Copyright (c) 2011, FontFuror (info@fontfuror.com), with Reserved Font Names "Buenard" and "Buenard Pro".
+- Font Source: http://fonts.gstatic.com/s/buenard/v12/OD5DuM6Cyma8FnnsPzf9qGi9HL4.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL)
+- Font Size: 130
+
+- Font color #528
+- Background color: #FAD
