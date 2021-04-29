@@ -165,7 +165,16 @@ function HomeModuleSearchComponent() {
         self._results_box = $('#search-results');
 
         // Update box margin
-        self._search_box.css('margin-top', $contents_height * 0.1);
+        let $update_box_margin = () => {
+            if (app_dom.window.width() < 640) {
+                self._search_box.css('margin-top', $contents_height * 0.05);
+            } else {
+                self._search_box.css('margin-top', $contents_height * 0.1);
+            }
+        }
+        $update_box_margin();
+        app_dom.window.on('resize.updateSearchboxTopMargin', $update_box_margin);
+
         // self._results_box.css({
         //     'margin-bottom': -$contents_height * 0.7,
         //     'top': -$contents_height * 0.7

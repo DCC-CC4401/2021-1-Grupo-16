@@ -16,12 +16,12 @@ let app_theme;
  */
 let __theme_db = {
     "default": {
-        "backgroundColor": "#fdfdfd", // Background color of the application (#e3e7ed)
+        "backgroundColor": "#ffffff", // Background color of the application (#e3e7ed)
         "backToTopScrollPxTrigger": 300, // Trigger px of the button
         "backToTopShow": true, // Show back to top button
         "backToTopSize": 65, // Size of the button (px)
         "chartjsFontColor": "#000000", // Chart js font color
-        "headerBgColor": "#24292e", // Header background color (#1e2530)
+        "headerBgColor": "#e372ac", // Header background color
         "leanModalBackgroundBlur": 1.0, // Background blur in px (popup)
         "leanModalBackgroundColor": "#000000", // Leanmodal background color (popup)
         "leanModalBackgroundOpacity": 0.4, // Background opacity (popup)
