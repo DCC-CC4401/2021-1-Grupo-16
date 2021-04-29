@@ -6,11 +6,13 @@ Header component.
 
 #header-component {
 	background-color: #ffffff;
-	padding: 0.4rem 0;
+	box-shadow: 0 3px 5px 0 rgb(0 0 0 / 22%);
 	display: block;
 	opacity: 0.99;
-	/* noinspection CssInvalidFunction */
-	box-shadow: 0 6px 7px 0 rgb(0 0 0 / 10%);
+	padding: 0.4rem 0;
+	position: relative;
+	width: 100%;
+	z-index: 999999;
 }
 
 #header-component .row {
@@ -20,9 +22,18 @@ Header component.
 
 #header-component #header-title {
 	cursor: default;
-	font-family: serif;
 	font-size: 1.75rem;
 	font-weight: 600;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@media screen and (max-width: 640px) {
+	#header-component #header-title {
+		font-size: 1.25rem;
+		line-height: 2.55rem;
+	}
 }
 
 #header-component .header-tool-icon {
@@ -106,7 +117,13 @@ Header tools item
 /**
 Header links
  */
-#header-component a {
+#header-tool-container a:hover {
 	color: #000000;
+	text-decoration: none;
+}
+
+#header-component .header-tool-icon a,
+#header-tool-container .header-tool-icon a {
+	color: #494949;
 	text-decoration: none;
 }
