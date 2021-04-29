@@ -36,6 +36,7 @@
                     </div>
                 </div>
                 <form id="signup-form" method="post">
+                    {% csrf_token %}
                     <div class="signup-line">
                         <div class="row">
                             <div class="col"><input type="text" name="first_name" placeholder="Nombre"/></div>
@@ -49,7 +50,7 @@
                     </div>
                     <div class="signup-final-line">
                         <div class="row">
-                            <div class="col"><input type="password" name="pass" placeholder="Contraseña"/></div>
+                            <div class="col"><input type="password" name="password" placeholder="Contraseña"/></div>
                         </div>
                     </div>
                     <div class="signup-line-label">
@@ -93,7 +94,7 @@
                     </div>
                     <div class="signup-line" style="text-align: center;">
                         <div class="button-container">
-                            <button type="button" class="btn btn-primary btn-block" style="margin-right: 1.5rem;">Registrarte</button>
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-right: 1.5rem;" value="Submit">Registrarte</button>
                         </div>
                     </div>
                 </form>
