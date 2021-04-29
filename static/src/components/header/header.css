@@ -29,6 +29,13 @@ Header component.
 	white-space: nowrap;
 }
 
+@media screen and (max-width: 640px) {
+	#header-component #header-title {
+		font-size: 1.25rem;
+		line-height: 2.55rem;
+	}
+}
+
 #header-component .header-tool-icon {
 	color: #494949;
 	cursor: pointer;
@@ -110,7 +117,13 @@ Header tools item
 /**
 Header links
  */
-#header-component a {
+#header-tool-container a:hover {
 	color: #000000;
+	text-decoration: none;
+}
+
+#header-component .header-tool-icon a,
+#header-tool-container .header-tool-icon a {
+	color: #494949;
 	text-decoration: none;
 }

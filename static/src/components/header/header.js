@@ -69,6 +69,13 @@ function HeaderComponent() {
     this._popup_closed = true;
 
     /**
+     * Callbacks after popup
+     * @type {{}}
+     * @private
+     */
+    this._popup_close_callbacks = {};
+
+    /**
      * Set app title.
      *
      * @param {string} $title
@@ -169,7 +176,7 @@ function HeaderComponent() {
         self._tools_dom = $('#header-tools');
         if (!self._show_middle) {
             header.find('#header-middle').hide();
-            header.find('#header-tools').removeClass('col-5').addClass('col-7');
+            header.find('#header-title').removeClass('col-5').addClass('col-7');
         }
 
         // Raises listener for the tools, if multiline creates a popup

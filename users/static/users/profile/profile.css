@@ -10,7 +10,13 @@ Profile module.
 
 #profile-contents {
 	background-color: #ffffff;
-	padding: 2rem;
+	padding: 2rem 1rem;
+}
+
+@media screen and (max-width: 640px) {
+	#profile-contents {
+		padding: 1rem;
+	}
 }
 
 #profile-menu {
@@ -122,4 +128,92 @@ Profile module.
 	#profile-menu .menu-options .menu-item {
 		font-size: 0.95rem;
 	}
+}
+
+/**
+Profile page contents
+ */
+#profile-contents .profile-title {
+	border-bottom: 2px solid #e91e63;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 640px) {
+	#profile-contents .profile-title {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+}
+
+/* noinspection Stylelint */
+#profile-contents .profile-title i {
+	margin-right: 0.75rem;
+}
+
+#profile-contents .profile-input-line {
+	margin-left: 1.5rem;
+	margin-bottom: 1.2rem;
+}
+
+@media screen and (max-width: 640px) {
+	#profile-contents .profile-input-line {
+		margin-left: 1.1rem;
+	}
+}
+
+#profile-contents .profile-input-line .col-sm-4 {
+	align-items: center;
+	display: flex;
+	font-size: 1.1rem;
+	font-weight: 600;
+	justify-content: flex-start;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 750px) {
+	#profile-contents .profile-input-line .col-sm-4 {
+		font-size: 1rem;
+	}
+}
+
+#profile-contents .profile-input-line .col-sm-8 .form-control {
+	max-width: 75%;
+}
+
+@media screen and (max-width: 640px) {
+	#profile-contents .profile-input-line .col-sm-8 .form-control {
+		max-width: 85%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#profile-contents .profile-input-line .col-sm-8 .form-control {
+		max-width: 100%;
+	}
+}
+
+#profile-contents .profile-group {
+	cursor: default;
+}
+
+#profile-contents .profile-group + div.profile-group {
+	margin-top: 3rem;
+}
+
+@media screen and (max-width: 640px) {
+	#profile-contents .profile-group + div.profile-group {
+		margin-top: 2rem;
+	}
+}
+
+#profile-contents .profile-group.group-buttons {
+	text-align: center;
+	padding-top: 1rem;
+}
+
+#profile-contents .profile-group.group-buttons .btn {
+	margin-left: 1rem;
+	margin-right: 1rem;
 }

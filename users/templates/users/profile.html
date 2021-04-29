@@ -23,6 +23,7 @@
     {% include 'components/header.html' with type='body' %}
     <div id="contents">
         <div class="row no-margin">
+
             <div class="col-3" id="menu-left-container">
                 <div class="menu-left-table">
                     <div class="menu-centered">
@@ -56,9 +57,85 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-9" id="profile-contents">
-                contents
+                <div class="profile-group">
+                    <div class="profile-title"><i class="far fa-user-circle"></i> Datos personales</div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Nombre</div>
+                            <div class="col-sm-8"><input type="text" value="José Perez" class="form-control"/></div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Apellido</div>
+                            <div class="col-sm-8"><input type="text" value="José Perez" class="form-control"/></div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Correo electrónico</div>
+                            <div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-group">
+                    <div class="profile-title"><i class="fas fa-sign-in-alt"></i> Inicio de sesión</div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Username</div>
+                            <div class="col-sm-8"><input type="text" value="@ppizarror" class="form-control"/></div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Password</div>
+                            <div class="col-sm-8"><input type="password" value="12345" class="form-control"/></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-group">
+                    <div class="profile-title"><i class="fas fa-compass"></i> Dirección de envío</div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Dirección</div>
+                            <div class="col-sm-8"><input type="text" value="Av. Apoquindo #1200" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Región</div>
+                            <div class="col-sm-8">
+                                <select class="form-control">
+                                    <option selected>Región Metopolitana</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Comuna</div>
+                            <div class="col-sm-8">
+                                <select class="form-control">
+                                    <option selected>Las Condes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-group group-buttons">
+                    <button type="button" class="btn btn-primary">Guardar cambios</button>
+                    <button type="button" class="btn btn-secondary">Deshacer cambios</button>
+                </div>
+
             </div>
+
         </div>
     </div>
     {% include 'components/footer.html' with type='body' %}

@@ -84,6 +84,16 @@ function UserProfileModule() {
         $toggle_icons();
         app_dom.window.on('resize.toggleMenuIcons', $toggle_icons);
 
+        // Init tooltipster for icons
+        self._menu_container.find('.menu-item i').each(function () {
+            let $obj = $(this);
+            app_ui_utils.initTooltipster($obj, $obj.parent().find('span').html(),
+                {
+                    delay: 200,
+                    side: 'right'
+                })
+        });
+
         // Fix the menu
         let $fix_menu = self._menu_container;
         self._menu_fix_offset_top = $fix_menu.offset().top;
