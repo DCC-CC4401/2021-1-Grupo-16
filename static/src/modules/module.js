@@ -22,9 +22,17 @@ function Module() {
 
     /**
      * Creates header component
+     * @protected
      * @type {HeaderComponent}
      */
     this._header = null;
+
+    /**
+     * Bazar main title
+     * @type {string}
+     * @protected
+     */
+    this._bazar_main_title = '<span style="font-family: serif;">Bazar</span>';
 
     /**
      * This function inits a simple header.

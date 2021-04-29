@@ -95,16 +95,16 @@ function UserProfileModule() {
 
         app_dom.window.on('scroll.centerProfileMenu', function () { // assign scroll event listener
             if (self._menu_fix_offset_top === 0) self._menu_fix_offset_top = $fix_menu.offset().top;
-            let $current_scroll = $(window).scrollTop(); // get current position
+            let $current_scroll = app_dom.window.scrollTop(); // get current position
 
             if ($current_scroll >= self._menu_fix_offset_top) { // apply position: fixed if you
                 let $margin = $menu_left_col.outerHeight() - $fix_menu.outerHeight() -
-                    $current_scroll + $('#menu-left-container').offset().top;
+                    $current_scroll + $menu_left_col.offset().top;
                 if ($margin > 0) $margin = 0;
                 $fix_menu.css({ // scroll to that element or below it
                     position: 'fixed',
                     top: $margin,
-                    left: '0',
+                    left: -app_dom.window.scrollLeft(),
                     width: $menu_left_col.width()
                 });
             } else { // apply position: static
@@ -131,7 +131,7 @@ function UserProfileModule() {
         $(window).scrollTop(0);
 
         // Init header
-        self.initBasicHeader('Bazar - Perfil de Usuario');
+        self.initBasicHeader('{0} — Perfil de Usuario'.format(self._bazar_main_title));
         self._header.registerToolPopupCloseElement($contents);
 
         self.initBasicFooter();

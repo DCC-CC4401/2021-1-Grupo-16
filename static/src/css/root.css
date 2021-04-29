@@ -80,6 +80,11 @@ button.disabled:hover {
 	cursor: default !important;
 }
 
+.row.no-margin {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
 /**
 Disable selection of elements
  */
