@@ -95,7 +95,7 @@ Last search elements
 	font-weight: 500;
 	height: 2.8rem;
 	line-height: 2rem;
-	overflow-x: hidden;
+	overflow: hidden;
 	padding-top: 0.8rem;
 }
 
@@ -106,7 +106,13 @@ Last search elements
 	font-size: 0.9rem;
 	font-weight: 400;
 	margin-left: 0.5rem;
+	opacity: 0.9;
 	padding: 0.2em 0.8em;
+}
+
+#search-box-last-queries span:hover {
+	box-shadow: 0 0 5px 0 rgb(0 0 0 / 25%);
+	opacity: 1;
 }
 
 #search-input-box .fa-search {
@@ -128,7 +134,7 @@ Search results
 #search-results {
 	padding-bottom: 5rem;
 	padding-left: 2.5%;
-	padding-top: 3rem;
+	padding-top: 2rem;
 	position: relative;
 	text-align: center;
 	width: 100%;
@@ -157,9 +163,15 @@ Search results
 	width: 200px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1080px) {
 	#search-results .results-card-box {
 		margin-right: 2rem;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	#search-results .results-card-box {
+		margin-right: 1.5rem;
 	}
 }
 
@@ -223,4 +235,14 @@ Search results
 	position: absolute;
 	text-align: justify;
 	word-break: break-all;
+}
+
+@media screen and (max-width: 480px) {
+	#search-results .results-card-box {
+		width: 300px;
+	}
+
+	#search-results .results-card-description {
+		max-width: 300px;
+	}
 }

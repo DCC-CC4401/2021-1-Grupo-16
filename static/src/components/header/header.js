@@ -69,6 +69,13 @@ function HeaderComponent() {
     this._popup_closed = true;
 
     /**
+     * Callbacks after popup
+     * @type {{}}
+     * @private
+     */
+    this._popup_close_callbacks = {};
+
+    /**
      * Set app title.
      *
      * @param {string} $title
@@ -105,12 +112,15 @@ function HeaderComponent() {
      * @private
      */
     this._toolsPopupThread = function () {
+
         // if (app_dom.window.width() > self.tools_popup_pixels_threshold) return;
         let $tool_container = $('#header-tool-container');
         let $tool_button = $('#header-tool-container-button');
+
         // $tool_container.show();
         $tool_container.appendTo(self._tools_dom);
         let $force = false;
+
         if (self._tools_dom.actual('height') > convertRemToPixels(3)
             || $force
             || app_dom.window.width() < self.tools_popup_pixels_threshold) {
@@ -126,6 +136,7 @@ function HeaderComponent() {
             $tool_button.hide();
             $tool_container.show();
         }
+
     };
 
     /**
@@ -165,7 +176,7 @@ function HeaderComponent() {
         self._tools_dom = $('#header-tools');
         if (!self._show_middle) {
             header.find('#header-middle').hide();
-            header.find('#header-tools').removeClass('col-5').addClass('col-9');
+            header.find('#header-title').removeClass('col-5').addClass('col-7');
         }
 
         // Raises listener for the tools, if multiline creates a popup

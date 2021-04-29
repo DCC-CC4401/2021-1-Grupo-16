@@ -37,7 +37,7 @@ function HomeModule() {
         let $contents = $('#contents');
 
         // Init header
-        self.initBasicHeader('Bazar');
+        self.initBasicHeader(self._bazar_main_title);
         self._header.registerToolPopupCloseElement($contents);
 
         self.initBasicFooter();
