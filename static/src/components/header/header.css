@@ -20,7 +20,6 @@ Header component.
 
 #header-component #header-title {
 	cursor: default;
-	font-family: serif;
 	font-size: 1.75rem;
 	font-weight: 600;
 }

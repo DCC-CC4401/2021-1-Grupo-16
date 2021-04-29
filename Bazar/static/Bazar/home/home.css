@@ -106,7 +106,13 @@ Last search elements
 	font-size: 0.9rem;
 	font-weight: 400;
 	margin-left: 0.5rem;
+	opacity: 0.9;
 	padding: 0.2em 0.8em;
+}
+
+#search-box-last-queries span:hover {
+	box-shadow: 0 0 5px 0 rgb(0 0 0 / 25%);
+	opacity: 1;
 }
 
 #search-input-box .fa-search {
@@ -157,9 +163,15 @@ Search results
 	width: 200px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1080px) {
 	#search-results .results-card-box {
 		margin-right: 2rem;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	#search-results .results-card-box {
+		margin-right: 1.5rem;
 	}
 }
 

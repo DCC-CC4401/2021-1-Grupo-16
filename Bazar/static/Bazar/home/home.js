@@ -37,7 +37,7 @@ function HomeModule() {
         let $contents = $('#contents');
 
         // Init header
-        self.initBasicHeader('Bazar');
+        self.initBasicHeader('<span style="font-family: serif;">Bazar</span>');
         self._header.registerToolPopupCloseElement($contents);
 
         self.initBasicFooter();
