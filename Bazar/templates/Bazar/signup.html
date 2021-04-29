@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'Bazar/signup/signup.css' %}" media="screen">
 
     <script src="{% static 'Bazar/signup/signup.js' %}"></script>
+    <script src="{% static 'Bazar/signup/birthdate.js' %}"></script>
 
     {% comment %} Import components templates {% endcomment %}
     {% include 'components/header.html' with type='head' %}
@@ -24,6 +25,16 @@
     <div id="contents" class="centered-vertically">
         <div class="contents-centered-box">
             <div id="signup-box">
+                <div class="signup-title">
+                    <div class="row">
+                        <div class="col">Registrarte</div>
+                    </div>
+                </div>
+                <div class="signup-subtitle">
+                    <div class="row">
+                        <div class="col">Es rápido y fácil.</div>
+                    </div>
+                </div>
                 <form id="signup-form" method="post">
                     <div class="signup-line">
                         <div class="row">
@@ -36,28 +47,53 @@
                             <div class="col"><input type="email" name="email" placeholder="Correo electrónico"/></div>
                         </div>
                     </div>
-                    <div class="signup-line">
+                    <div class="signup-final-line">
                         <div class="row">
                             <div class="col"><input type="password" name="pass" placeholder="Contraseña"/></div>
                         </div>
                     </div>
-                    <div class="signup-line">
+                    <div class="signup-line-label">
                         <div class="row">
-                            <div class="col"><input type="text" name="day" placeholder="Dia"/></div>
-                            <div class="col"><input type="text" name="month" placeholder="Mes"/></div>
-                            <div class="col"><input type="text" name="year" placeholder="Año"/></div>
+                            <div class="col">Fecha de nacimiento</div>
+                        </div>
+                    </div>
+                    <div class="signup-final-line">
+                        <div class="row">
+                            <div class="col"><select name="day" id="day"></select></div>
+                            <div class="col"><select name="month" id="month" onchange="change_month(this)"></select></div>
+                            <div class="col"><select name="year" id="year" onchange="change_year(this)"></select></div>
+                        </div>
+                    </div>
+                    <div class="signup-line-label">
+                        <div class="row">
+                            <div class="col">Sexo</div>
                         </div>
                     </div>
                     <div class="signup-line">
                         <div class="row">
-                            <div class="col"><input type="text" name="day" placeholder="Masculino"/></div>
-                            <div class="col"><input type="text" name="month" placeholder="Femenino"/></div>
-                            <div class="col"><input type="text" name="year" placeholder="Otro"/></div>
+                            <div class="col">
+                                <div class="form-check radio-container">
+                                    <label class="form-check-label" for="female">Femenino</label>
+                                    <input class="form-check-input" type="radio" name="sex" value="F" id="female">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check radio-container">
+                                    <label class="form-check-label" for="male">Masculino</label>
+                                    <input class="form-check-input" type="radio" name="sex" value="M" id="male">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check radio-container">
+                                    <label class="form-check-label" for="other">Otro</label>
+                                    <input class="form-check-input" type="radio" name="sex" value="F" id="other">
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="signup-line" style="text-align: center;">
                         <div class="button-container">
-                            <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">Sign Up</button>
+                            <button type="button" class="btn btn-primary btn-block" style="margin-right: 1.5rem;">Registrarte</button>
                         </div>
                     </div>
                 </form>

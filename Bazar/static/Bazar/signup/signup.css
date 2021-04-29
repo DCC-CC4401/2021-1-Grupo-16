@@ -10,15 +10,43 @@ Sign up module.
 	box-shadow: 0 0 7px 0 rgb(0 0 0 / 24%);
 	font-size: 1rem;
 	margin: 0 auto;
-	max-width: 50%;
-	min-width: 380px;
+	max-width: 25%;
+	min-width: 450px;
 	padding: 2em 2em 1em;
+}
+
+#signup-box .form-check-input{
+	margin-top: .3rem;
+	width: 10px;
+	position: relative;
 }
 
 #signup-box .signup-line {
 	display: block;
 	margin-bottom: 1rem;
 	width: 100%;
+}
+
+#signup-box .signup-final-line {
+	display: block;
+	margin-bottom: 0.5rem;
+	width: 100%;
+}
+
+#signup-box .signup-line-label {
+	display: block;
+	margin-bottom: 0.1rem;
+	width: 100%;
+	font-size: small;
+	color: rgb(92, 97, 100);
+}
+
+#signup-box .btn.btn-primary.btn-block{
+	font-family: Helvetica;
+	font-weight: 550;
+	background-color: #0095f6;
+	border-color: #0095f6;
+
 }
 
 #signup-box .signup-item {
@@ -34,13 +62,42 @@ Sign up module.
 	margin-right: 0.5em;
 }
 
+#signup-box .signup-title {
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: xx-large;
+	display: block;
+	margin-bottom: 0rem;
+	width: 100%;
+}
+
+#signup-box .signup-subtitle {
+	font-family: Helvetica;
+	font-size: medium;
+	display: block;
+	margin-bottom: 1rem;
+	width: 100%;
+	color: rgb(92, 97, 100);
+}
+
+#signup-box .form-check.radio-container {
+	display: flex;
+    border: 1px solid #aaaaaa;
+    padding: 0.5rem;
+    justify-content: space-between;
+	border-radius: 0.3rem;
+}
+
 #signup-box input {
 	border: 1px solid #aaaaaa;
 	padding: 0.5rem;
 	width: 100%;
+	border-radius: 0.3rem;
 }
 
-#signup-box .button-container {
-	margin: 0 auto;
-	padding-top: 2rem;
+#signup-box select {
+	border: 1px solid #aaaaaa;
+	padding: 0.5rem;
+	width: 100%;
+	border-radius: 0.3rem;
 }

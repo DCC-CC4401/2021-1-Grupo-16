@@ -6,6 +6,7 @@ Implements the main views of the app.
 
 from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render
+from datetime import date
 
 
 def view_home(request: 'HttpRequest') -> 'HttpResponse':
