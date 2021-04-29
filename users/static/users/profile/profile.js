@@ -31,23 +31,19 @@ function HomeModule() {
      * Inits the module.
      */
     this.init = function () {
-        app_console.info('Initializing home module');
+        app_console.info('Initializing user profile module');
 
         // Load DOM objects
         let $contents = $('#contents');
 
         // Init header
-        self.initBasicHeader('Bazar');
+        self.initBasicHeader('Bazar - Perfil');
         self._header.registerToolPopupCloseElement($contents);
 
         self.initBasicFooter();
 
         // Update contents height to fit window height
         let $contents_height = self.extendDivToMaxHeight($contents);
-
-        // Setup search object
-        self._search = new HomeModuleSearchComponent();
-        self._search.init($contents_height);
 
     };
 

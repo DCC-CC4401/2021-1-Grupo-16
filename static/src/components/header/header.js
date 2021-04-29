@@ -105,12 +105,15 @@ function HeaderComponent() {
      * @private
      */
     this._toolsPopupThread = function () {
+
         // if (app_dom.window.width() > self.tools_popup_pixels_threshold) return;
         let $tool_container = $('#header-tool-container');
         let $tool_button = $('#header-tool-container-button');
+
         // $tool_container.show();
         $tool_container.appendTo(self._tools_dom);
         let $force = false;
+
         if (self._tools_dom.actual('height') > convertRemToPixels(3)
             || $force
             || app_dom.window.width() < self.tools_popup_pixels_threshold) {
@@ -126,6 +129,7 @@ function HeaderComponent() {
             $tool_button.hide();
             $tool_container.show();
         }
+
     };
 
     /**

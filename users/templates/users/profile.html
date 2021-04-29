@@ -1,0 +1,35 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/profile/profile.css' %}" media="screen">
+
+    <script src="{% static 'users/profile/profile.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    <div id="contents">
+        <div class="row">
+            <div class="col-3">
+                menu
+            </div>
+            <div class="col-9" id="profile-contents">
+                contents
+            </div>
+        </div>
+    </div>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
