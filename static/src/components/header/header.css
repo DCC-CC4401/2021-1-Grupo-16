@@ -6,11 +6,13 @@ Header component.
 
 #header-component {
 	background-color: #ffffff;
-	padding: 0.4rem 0;
+	box-shadow: 0 3px 5px 0 rgb(0 0 0 / 22%);
 	display: block;
 	opacity: 0.99;
-	/* noinspection CssInvalidFunction */
-	box-shadow: 0 6px 7px 0 rgb(0 0 0 / 10%);
+	padding: 0.4rem 0;
+	position: relative;
+	width: 100%;
+	z-index: 999999;
 }
 
 #header-component .row {
@@ -22,6 +24,9 @@ Header component.
 	cursor: default;
 	font-size: 1.75rem;
 	font-weight: 600;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 #header-component .header-tool-icon {

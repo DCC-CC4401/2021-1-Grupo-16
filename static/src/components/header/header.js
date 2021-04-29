@@ -169,7 +169,7 @@ function HeaderComponent() {
         self._tools_dom = $('#header-tools');
         if (!self._show_middle) {
             header.find('#header-middle').hide();
-            header.find('#header-tools').removeClass('col-5').addClass('col-9');
+            header.find('#header-tools').removeClass('col-5').addClass('col-7');
         }
 
         // Raises listener for the tools, if multiline creates a popup

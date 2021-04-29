@@ -42,11 +42,13 @@ function Module() {
      * height and the header's height.
      *
      * @param {jQuery} $object - Object to define
+     * @param {number=} $factor - Increment the height by a factor
      * @returns {number} - The height difference
      */
-    this.extendDivToMaxHeight = function ($object) {
+    this.extendDivToMaxHeight = function ($object, $factor) {
         let $contents_height = app_dom.window.outerHeight() - self._header.getHeight();
-        $object.css('min-height', $contents_height);
+        if (isNullUndf($factor)) $factor = 1;
+        $object.css('min-height', $contents_height * $factor);
         return $contents_height;
     };
 

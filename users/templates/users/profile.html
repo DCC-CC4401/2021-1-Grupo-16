@@ -23,8 +23,38 @@
     {% include 'components/header.html' with type='body' %}
     <div id="contents">
         <div class="row">
-            <div class="col-3">
-                menu
+            <div class="col-3" id="menu-left-container">
+                <div class="menu-left-table">
+                    <div class="menu-centered">
+                        <div id="profile-menu">
+                            <div class="menu-header">
+                                <div class="menu-header-image">
+                                    <img src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario"/>
+                                </div>
+                                <div class="menu-header-title name-full">
+                                    Nombre Completo
+                                </div>
+                                <div class="menu-header-title name-abbv">
+                                    Nombre C.
+                                </div>
+                            </div>
+                            <div class="menu-options">
+                                <div class="menu-item item-active">
+                                    <i class="fas fa-info-circle"></i> <span>Información principal</span>
+                                </div>
+                                <div class="menu-item">
+                                    <i class="fas fa-database"></i> <span>Datos adicionales</span>
+                                </div>
+                                <div class="menu-item">
+                                    <i class="fas fa-shopping-cart"></i> <span>Mis Compras</span>
+                                </div>
+                                <div class="menu-item">
+                                    <i class="fas fa-store"></i> <span>Mis Tiendas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-9" id="profile-contents">
                 contents
