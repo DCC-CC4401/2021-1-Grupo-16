@@ -2,5 +2,5 @@ from django.urls import path
 from users.views import view_profile
 
 urlpatterns = [
-    path('user_profile', view_profile),
+    path('uprofile/', view_profile, name="user_profile"),
 ]

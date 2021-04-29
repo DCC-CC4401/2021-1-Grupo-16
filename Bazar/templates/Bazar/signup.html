@@ -1,0 +1,105 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Sign Up
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'Bazar/signup/signup.css' %}" media="screen">
+
+    <script src="{% static 'Bazar/signup/signup.js' %}"></script>
+    <script src="{% static 'Bazar/signup/birthdate.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    <div id="contents" class="centered-vertically">
+        <div class="contents-centered-box">
+            <div id="signup-box">
+                <div class="signup-title">
+                    <div class="row">
+                        <div class="col">Registrarte</div>
+                    </div>
+                </div>
+                <div class="signup-subtitle">
+                    <div class="row">
+                        <div class="col">Es rápido y fácil.</div>
+                    </div>
+                </div>
+                <form id="signup-form" method="post">
+                    {% csrf_token %}
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="text" name="first_name" placeholder="Nombre"/></div>
+                            <div class="col"><input type="text" name="last_name" placeholder="Apellido"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col"><input type="email" name="email" placeholder="Correo electrónico"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-final-line">
+                        <div class="row">
+                            <div class="col"><input type="password" name="password" placeholder="Contraseña"/></div>
+                        </div>
+                    </div>
+                    <div class="signup-line-label">
+                        <div class="row">
+                            <div class="col">Fecha de nacimiento</div>
+                        </div>
+                    </div>
+                    <div class="signup-final-line">
+                        <div class="row">
+                            <div class="col"><select name="day" id="day"></select></div>
+                            <div class="col"><select name="month" id="month" onchange="change_month(this)"></select></div>
+                            <div class="col"><select name="year" id="year" onchange="change_year(this)"></select></div>
+                        </div>
+                    </div>
+                    <div class="signup-line-label">
+                        <div class="row">
+                            <div class="col">Genero</div>
+                        </div>
+                    </div>
+                    <div class="signup-line">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check radio-container">
+                                    <label class="form-check-label" for="female">Femenino</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="F" id="female">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check radio-container">
+                                    <label class="form-check-label" for="male">Masculino</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="M" id="male">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-check radio-container">
+                                    <label class="form-check-label" for="other">Otro</label>
+                                    <input class="form-check-input" type="radio" name="gender" value="F" id="other">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="signup-line" style="text-align: center;">
+                        <div class="button-container">
+                            <button type="submit" class="btn btn-primary btn-block" style="margin-right: 1.5rem;" value="Submit">Registrarte</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
