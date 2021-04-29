@@ -138,7 +138,7 @@ function UserProfileModule() {
 
         // Update contents height to fit window height
         self.extendDivToMaxHeight($contents);
-        self.extendDivToMaxHeight(self._profile_container, 2);
+        self.extendDivToMaxHeight(self._profile_container);
         self.extendDivToMaxHeight(self._menu_container.parent().parent());
 
         // Init the menu
