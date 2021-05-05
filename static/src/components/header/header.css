@@ -5,125 +5,126 @@ Header component.
 */
 
 #header-component {
-	background-color: #ffffff;
-	box-shadow: 0 3px 5px 0 rgb(0 0 0 / 22%);
-	display: block;
-	opacity: 0.99;
-	padding: 0.4rem 0;
-	position: relative;
-	width: 100%;
-	z-index: 999999;
+    background-color: #ffffff;
+    box-shadow: 0 3px 5px 0 rgb(0 0 0 / 22%);
+    display: block;
+    opacity: 0.99;
+    padding: 0.4rem 0;
+    position: relative;
+    width: 100%;
+    z-index: 999999;
 }
 
 #header-component .row {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 
 #header-component #header-title {
-	cursor: default;
-	font-size: 1.75rem;
-	font-weight: 600;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+    cursor: default;
+    font-size: 1.75rem;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 640px) {
-	#header-component #header-title {
-		font-size: 1.25rem;
-		line-height: 2.55rem;
-	}
+    #header-component #header-title {
+        font-size: 1.25rem;
+        line-height: 2.55rem;
+    }
 }
 
 #header-component .header-tool-icon {
-	color: #494949;
-	cursor: pointer;
-	display: inline-block;
-	float: right;
-	font-size: 1rem;
-	font-weight: 400;
-	padding: 0.57rem 0.75rem;
+    color: #494949;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.57rem 0.75rem;
 }
 
 @media screen and (max-width: 640px) {
-	#header-component .header-tool-icon {
-		font-size: 0.9rem;
-		padding: 0.67rem 0.75rem;
-	}
+    #header-component .header-tool-icon {
+        font-size: 0.9rem;
+        padding: 0.67rem 0.75rem;
+    }
 }
 
 #header-component .header-tool-icon:hover {
-	color: #000000;
+    color: #000000;
 }
 
 #header-popup-container {
-	height: 0;
+    height: 0;
 }
 
 #header-tool-container.header-tools-popup {
-	background-color: #ffffff;
-	border-radius: var(--border-loading-px);
-	box-shadow: 0 0 10px rgb(0 0 0 / 20%);
-	display: flex;
-	flex-direction: column-reverse;
-	float: right;
-	min-width: 200px;
-	padding: 0.75rem 0.5rem;
-	position: fixed;
-	right: 1rem;
-	top: 4.5rem;
+    background-color: #ffffff;
+    border-radius: var(--border-loading-px);
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    display: flex;
+    flex-direction: column-reverse;
+    float: right;
+    min-width: 200px;
+    padding: 0.75rem 0.5rem;
+    position: fixed;
+    right: 1rem;
+    top: 4.5rem;
+    z-index: 999;
 }
 
 #header-tool-container.header-tools-popup:before {
-	content: "";
-	background: #ffffff;
-	/* -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 30%); */
-	/* box-shadow: 0 2px 10px rgb(0 0 0 / 30%); */
-	display: block;
-	width: 15px;
-	height: 15px;
-	right: 15px;
-	top: -8px;
-	position: absolute;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	transform: rotate(45deg);
+    content: "";
+    background: #ffffff;
+    /* -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 30%); */
+    /* box-shadow: 0 2px 10px rgb(0 0 0 / 30%); */
+    display: block;
+    width: 15px;
+    height: 15px;
+    right: 15px;
+    top: -8px;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
 }
 
 /*
 Header tools item
  */
 #header-tool-container.header-tools-popup .header-tool-icon {
-	font-size: 1.1rem;
-	padding: 0.25rem;
+    font-size: 1.1rem;
+    padding: 0.25rem;
 }
 
 #header-tool-container.header-tools-popup .header-tool-icon:hover {
-	background-color: #ececec;
-	cursor: pointer;
+    background-color: #ececec;
+    cursor: pointer;
 }
 
 #header-tool-container-button {
-	cursor: pointer;
-	display: none;
-	float: right;
-	font-size: 1.7rem;
-	padding-left: 1.1rem;
-	padding-right: 1.1rem;
-	padding-top: 0.1rem;
+    cursor: pointer;
+    display: none;
+    float: right;
+    font-size: 1.7rem;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+    padding-top: 0.1rem;
 }
 
 /**
 Header links
  */
 #header-tool-container a:hover {
-	color: #000000;
-	text-decoration: none;
+    color: #000000;
+    text-decoration: none;
 }
 
 #header-component .header-tool-icon a,
 #header-tool-container .header-tool-icon a {
-	color: #494949;
-	text-decoration: none;
+    color: #494949;
+    text-decoration: none;
 }
