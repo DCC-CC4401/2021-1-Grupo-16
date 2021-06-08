@@ -86,3 +86,6 @@ def view_signup(request: 'HttpRequest') -> 'HttpResponse':
         return HttpResponseRedirect('/home/')
 
 #todo LOGOUT 
+def view_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/home/')
