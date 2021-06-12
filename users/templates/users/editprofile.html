@@ -3,25 +3,27 @@
 {% load widget_tweaks %}
 
 {% block title %}
-    Profile
+Profile
 {% endblock %}
 
 {% block static-files %}
 
-    {% comment %} Import module libraries {% endcomment %}
-    <!--suppress HtmlFormInputWithoutLabel -->
-    <link rel="stylesheet" type="text/css" href="{% static 'users/profile/profile.css' %}" media="screen">
+{% comment %} Import module libraries {% endcomment %}
+<!--suppress HtmlFormInputWithoutLabel -->
+<link rel="stylesheet" type="text/css" href="{% static 'users/profile/profile.css' %}" media="screen">
 
-    <script src="{% static 'users/profile/profile.js' %}"></script>
+<script src="{% static 'users/profile/cargarComuna.js' %}"></script>
+<script src="{% static 'users/profile/profile.js' %}"></script>
 
-    {% comment %} Import components templates {% endcomment %}
-    {% include 'components/header.html' with type='head' %}
-    {% include 'components/footer.html' with type='head' %}
+
+{% comment %} Import components templates {% endcomment %}
+{% include 'components/header.html' with type='head' %}
+{% include 'components/footer.html' with type='head' %}
 
 {% endblock %}
 
 {% block body %}
-    {% include 'components/header.html' with type='body' %}
+{% include 'components/header.html' with type='body' %}
 <form method="post">
     {% csrf_token %}
     <div id="contents">
@@ -32,13 +34,13 @@
                         <div id="profile-menu">
                             <div class="menu-header">
                                 <div class="menu-header-image">
-                                    <img src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario"/>
+                                    <img src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario" />
                                 </div>
                                 <div class="menu-header-title name-full">
                                     {{user.first_name}} {{user.last_name}}
                                 </div>
-                                <div class="menu-header-title name-abbv"> 
-                                    Nombre C.
+                                <div class="menu-header-title name-abbv">
+                                    {{user.first_name}}
                                 </div>
                             </div>
                             <div class="menu-options">
@@ -65,24 +67,16 @@
                     <div class="profile-title"><i class="far fa-user-circle"></i> Datos personales</div>
                     <div class="profile-input-line">
                         <div class="row">
-                            <div class="col-sm-4">Username</div>
-                            <!--<div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
-                            </div> -->
-                            <div class="col-sm-8"> {{user.username}} </div>
-                        </div>
-                    </div>
-                    <div class="profile-input-line">
-                        <div class="row">
                             <div class="col-sm-4">Nombre</div>
-                          <!--  <div class="col-sm-8"><input type="text" value="{{user.first_name}}" class="form-control"/></div> -->
-                          <div class="col-sm-8"> {{user.first_name}}</div>
+                            <!--  <div class="col-sm-8"><input type="text" value="{{user.first_name}}" class="form-control"/></div> -->
+                            <div class="col-sm-8"> {{u_form.first_name|add_class:"form-control"}}</div>
                         </div>
                     </div>
                     <div class="profile-input-line">
                         <div class="row">
                             <div class="col-sm-4">Apellido</div>
-                           <!--  <div class="col-sm-8"><input type="text" value="José Perez" class="form-control"/></div> -->
-                           <div class="col-sm-8"> {{user.last_name}}</div>
+                            <!--  <div class="col-sm-8"><input type="text" value="José Perez" class="form-control"/></div> -->
+                            <div class="col-sm-8"> {{u_form.last_name|add_class:"form-control"}}</div>
                         </div>
                     </div>
                     <div class="profile-input-line">
@@ -90,11 +84,7 @@
                             <div class="col-sm-4">Rut</div>
                             <!--<div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
                             </div> -->
-                            {% if user.rut != "" %}
-                            <div class="col-sm-8"> {{user.rut}} </div>
-                            {% else %}
-                            <div class="col-sm-8"> No has registrado tu rut todavía </div>
-                            {% endif %}
+                            <div class="col-sm-8"> {{u_form.rut|add_class:"form-control"}} </div>
                         </div>
                     </div>
                     <div class="profile-input-line">
@@ -102,62 +92,70 @@
                             <div class="col-sm-4">Correo electrónico</div>
                             <!--<div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
                             </div> -->
-                            <div class="col-sm-8"> {{user.email}} </div>
+                            <div class="col-sm-8"> {{u_form.email|add_class:"form-control"}}</div>
                         </div>
-                    </div>   
+                    </div>
                     <div class="profile-input-line">
                         <div class="row">
                             <div class="col-sm-4">Numero de teléfono</div>
                             <!--<div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
                             </div> -->
-                            {% if user.phone_number != "" %}
-                            <div class="col-sm-8"> {{user.phone_number}} </div>
-                            {% else %}
-                            <div class="col-sm-8"> Número de teléfono no registrado </div>
-                            {% endif %}
-                        </div>
-                    </div>
+                            <div class="col-sm-8"> {{u_form.phone_number|add_class:"form-control"}}</div>
 
-
-                    <div class="profile-input-line">
-                        <div class="row">
-                            <div class="col-sm-4">Cumpleaños 🎂</div>
-                            <!--<div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
-                            </div> -->
-                            <div class="col-sm-8"> {{user.birthday}} </div>
                         </div>
                     </div>
-                    <div class="profile-input-line">
-                        <div class="row">
-                            <div class="col-sm-4">Género</div>
-                            <!--<div class="col-sm-8"><input type="email" value="jose@perez.com" class="form-control"/>
-                            </div> -->
-                            {% if user.gender == "O" %}
-                            <div class="col-sm-8"> Otro </div>
-                            {% elif user.gender == "M" %}
-                            <div class="col-sm-8"> Hombre </div>
-                            {% else %} 
-                            <div class="col-sm-8"> Mujer </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    
                 </div>
+                <!--
+                <div class="profile-group">
+                    <div class="profile-title"><i class="fas fa-sign-in-alt"></i> Inicio de sesión</div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Username</div>
+                            <div class="col-sm-8"> {{u_form.username|add_class:"form-control"}}</div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Password</div>
+                            <div class="col-sm-8"><input type="password" value="12345" class="form-control"/></div>
+                        </div>
+                    </div>
+                </div>
+                -->
+
                 <div class="profile-group">
                     <div class="profile-title"><i class="fas fa-compass"></i> Dirección de envío</div>
                     <div class="profile-input-line">
                         <div class="row">
                             <div class="col-sm-4">Dirección</div>
-                           <!--- <div class="col-sm-8"><input type="text" value="Av. Apoquindo #1200" class="form-control"/>
+                            <!--- <div class="col-sm-8"><input type="text" value="Av. Apoquindo #1200" class="form-control"/>
                             </div> -->
-                            <div class="col-sm-8">{{address.road}}</div>
+                            <div class="col-sm-8">{{address_form.road|add_class:"form-control"}}</div>
                         </div>
                     </div>
                     <div class="profile-input-line">
                         <div class="row">
                             <div class="col-sm-4">Región</div>
                             <div class="col-sm-8">
-                                <div class="col-sm-8">{{address.region}}</div>
+                                <select name="region" id="region" class="form-control" onchange="cargarComunas()"  required="required">
+                                    <option value="" disabled selected hidden>Seleccione región</option>
+                                    <option value="Arica y Parinacota">Arica y Parinacota</option>
+                                    <option value="Tarapacá">Tarapacá</option>
+                                    <option value="Antofagasta">Antofagasta</option>
+                                    <option value="Atacama">Atacama</option>
+                                    <option value="Coquimbo">Coquimbo</option>
+                                    <option value="Valparaíso">Valparaíso </option>
+                                    <option value="RM">RM</option>
+                                    <option value="Libertador Gral. Bernardo O’Higgins">Libertador Gral. Bernardo O’Higgins</option>
+                                    <option value="Maule">Maule</option>
+                                    <option value="Ñuble">Ñuble</option>
+                                    <option value="Biobío">Biobío</option>
+                                    <option value="Araucanía"> Araucanía</option>
+                                    <option value="Los Ríos">Los Ríos</option>
+                                    <option value="Los Lagos">Los Lagos </option>
+                                    <option value="Aisén del Gral. Carlos Ibáñez del Campo"> Aisén del Gral. Carlos Ibáñez del Campo </option>
+                                    <option value="Magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -165,14 +163,23 @@
                         <div class="row">
                             <div class="col-sm-4">Comuna</div>
                             <div class="col-sm-8">
-                                <div class="col-sm-8">{{address.commune}}</div>
+                                <!--<select class="form-control">
+                                    <option selected>Las Condes</option>
+                                </select>-->
+                                <div onchange="cargarComunas()">
+                                <select name="commune" id="commune" class="form-control" required="required">
+                                    <option value="" disabled selected hidden>Seleccione comuna</option>
+                                </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="profile-group group-buttons">
-                    <a href="http://127.0.0.1:8000/uprofile/edit/">Editar perfil</a>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="button" class="btn btn-secondary">Deshacer cambios</button>
+                    <a href="http://127.0.0.1:8000/uprofile/">Volver</a>
                 </div>
 
             </div>
@@ -180,5 +187,5 @@
         </div>
     </div>
 </form>
-    {% include 'components/footer.html' with type='body' %}
+{% include 'components/footer.html' with type='body' %}
 {% endblock %}
