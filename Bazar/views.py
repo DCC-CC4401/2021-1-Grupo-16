@@ -5,10 +5,15 @@ Implements the main views of the app.
 """
 
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
-from django.shortcuts import render
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from datetime import date
-from users.models import User
+from users.models import User, UserAddress
+
+
+
 
 def is_used(an_username: str) -> bool:
     """
@@ -23,6 +28,7 @@ def generate_username(an_username: str) -> str:
     Gets an_username and generates a_new_username that isn't
     in use.
     """
+    k=0
     a_new_username = an_username
     while(is_used(a_new_username)):
         a_new_username = an_username + '_' + str(k)
@@ -33,6 +39,7 @@ def view_home(request: 'HttpRequest') -> 'HttpResponse':
     """
     Home.
     """
+    #TODO, MAKE RESPONSIVE WITH DABASE  
     return render(request, 'Bazar/home.html', {})
 
 
@@ -40,7 +47,19 @@ def view_login(request: 'HttpRequest') -> 'HttpResponse':
     """
     Login.
     """
-    return render(request, 'Bazar/login.html', {})
+    if request.method == 'GET':
+        return render(request, 'Bazar/login.html')
+    
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        usuario = authenticate(username=username,password=password)
+        if usuario is not None:
+            login(request,usuario)
+            return HttpResponseRedirect('/home/')
+        else:
+            #tirar un mensaje diciendo que no tiene la cuenta y se tiene que crear una
+            return HttpResponseRedirect('/signup/')    
 
 
 def view_signup(request: 'HttpRequest') -> 'HttpResponse':
@@ -63,4 +82,10 @@ def view_signup(request: 'HttpRequest') -> 'HttpResponse':
 
         # Adding the new user to the User table.
         user = User.objects.create_user(first_name=a_first_name, last_name=a_last_name, email=an_email, password=a_password, username=an_username, birthday=date(a_year,a_month,a_day), date_of_creation=timezone.now())
+        user_address = UserAddress.objects.create(user=user)
         return HttpResponseRedirect('/home/')
+
+#todo LOGOUT 
+def view_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/home/')

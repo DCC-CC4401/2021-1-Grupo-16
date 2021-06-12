@@ -25,13 +25,14 @@
         <div class="contents-centered-box">
             <div id="login-box">
                 <form id="login-form" method="post">
+                    {% csrf_token %}
                     <div class="login-line">
                         <div class="row">
                             <div class="col-sm-5 login-item">
                                 <i class="far fa-envelope"></i> E-mail
                             </div>
                             <div class="col-sm-7">
-                                <input type="email" name="email" placeholder="example@domain.com" class="form-control"/>
+                                <input  name="username" placeholder="username" class="form-control"/>
                             </div>
                         </div>
                     </div>
@@ -41,13 +42,13 @@
                                 <i class="fas fa-key"></i> Password
                             </div>
                             <div class="col-sm-7">
-                                <input type="password" name="pass" class="form-control"/>
+                                <input type="password" name="password" class="form-control"/>
                             </div>
                         </div>
                     </div>
                     <div class="login-line">
                         <div class="button-container">
-                            <button type="button" class="btn btn-primary" style="margin-right: 1.5rem;">
+                            <button type="submit" class="btn btn-primary" style="margin-right: 1.5rem;">
                                 Login
                             </button>
                             <button type="button" class="btn btn-secondary">

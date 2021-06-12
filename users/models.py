@@ -24,16 +24,16 @@ class User(AbstractUser):
 
 class UserAddress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    alias = models.CharField(max_length=20)
-    shipping_comment = models.CharField(blank=True, max_length=255)  # OPTIONAL
+    alias = models.CharField(max_length=20,  blank=True, null=True)
+    shipping_comment = models.CharField(blank=True, max_length=255, null=True)  # OPTIONAL
 
     # TODO: create choices for each region and commune.
-    region = models.CharField(max_length=20)
-    commune = models.CharField(max_length=20)
+    region = models.CharField(max_length=20, blank=True, null=True)
+    commune = models.CharField(max_length=20, blank=True, null=True)
 
-    road = models.CharField(max_length=40)
-    address_number = models.IntegerField()
-    apartament_number = models.IntegerField(blank=True)
+    road = models.CharField(max_length=40, blank=True, null=True)
+    address_number = models.IntegerField(blank=True, null=True)
+    apartament_number = models.IntegerField(blank=True, null=True)
 
 
 class Administration(models.Model):
