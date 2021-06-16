@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
 from datetime import datetime
 from django.core.validators import MaxValueValidator, MinValueValidator
 
@@ -26,16 +25,16 @@ class Store(models.Model):
 
     # TODO: when the store is created, the date of creation MUST be 
     # datetime.datetime.today()
-    date_of_creation = models.DateTimeField()
+    date_of_creation = models.DateTimeField(default=datetime.today())
 
-    stars = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0), ])
+    stars = models.FloatField(validators=[MinValueValidator(0.0), MaxValueValidator(5.0), ], default=0.0)
 
     # TODO: when a store sets it social media links they MUST be mapped
     # to a JSON and then stored in the table.
 
     # Ex: the JSON must be like this:
     # {'instagram': link_instagram, 'facebook': link_facebook, 'twitter': link_twitter, 'linkedin': link_linkedin, 'youtube': link_youtube}
-    social_media_links = models.JSONField()
+    social_media_links = models.JSONField(default=dict)
 
 
 class Transaction(models.Model):

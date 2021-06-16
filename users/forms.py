@@ -1,5 +1,5 @@
 from django import forms
-from .models import User, UserAddress
+from .models import *
 from django.contrib.auth.forms import UserCreationForm #Ver esto para el register
 
 class UserUpdateForm(forms.ModelForm): #ESTO ES PARA PODER CAMBIAR LA INFO DEL USUARIO

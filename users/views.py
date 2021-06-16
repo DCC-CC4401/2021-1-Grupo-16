@@ -6,8 +6,10 @@ Implements the main views of the app.
 
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
 from django.shortcuts import render, redirect
-from .models import UserAddress, User
+from .models import Administration, UserAddress, User
+from stores.models import Store
 from .forms import UserUpdateForm, UserAddressUpdateForm
+from stores.forms import *
 
 #TODO Edit fonts for aesthetics
 def edit_profile(request: 'HttpRequest') -> 'HttpResponse':
@@ -40,7 +42,7 @@ def edit_profile(request: 'HttpRequest') -> 'HttpResponse':
         'user_address': user_address, #AGREGAR MAS FORMULARIOS SEGUN REQUIERA             
         }
 
-    return render(request, "users/editprofile.html", context)   
+    return render(request, "users/edit_user_profile.html", context)   
         
 
 def view_profile(request: 'HttpRequest') -> 'HttpResponse':
@@ -49,6 +51,38 @@ def view_profile(request: 'HttpRequest') -> 'HttpResponse':
     """
     address = UserAddress.objects.get(user=request.user) #CON ESTO SE OBITNEE LA BASE DE DATOS :)
 
-    return render(request, 'users/profile.html', {'address': address})
+    return render(request, 'users/user_profile.html', {'address': address})
 
+def view_stores(request: 'HttpRequest') -> 'HttpResponse':
+    administration_info = Administration.objects.filter(user_id=request.user)
+    user_stores = []
+
+    for element in administration_info:
+        user_stores.append(element.store)
+    
+    context = {
+        'user_stores':user_stores,
+    }
+    return render(request, 'users/user_stores.html', context)
+
+
+def create_store(request: 'HttpRequest') -> 'HttpResponse':
+    if request.method == 'POST':
+        store_form = StoreForm(request.POST)    
+        if store_form.is_valid():
+            a_store = store_form.save()
+            a_user = request.user
+            a_privilege_lvl = "0"
+
+            adm = Administration(user=a_user, store=a_store, privilege_level = a_privilege_lvl)
+            adm.save()
+
+            return redirect('/ustores/')
+    else:
+        store_form = StoreForm()
+        context = {
+            'store_form': store_form,
+        }
+        return render(request, 'users/create_store.html', context)
+        
 

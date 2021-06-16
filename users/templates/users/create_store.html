@@ -1,0 +1,152 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'users/profile/profile.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/profile/user_stores.css' %}" media="screen">
+
+    <script src="{% static 'users/profile/profile.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+<form method="post">
+    {% csrf_token %}
+    <div id="contents">
+        <div class="row no-margin">
+            <div class="col-3" id="menu-left-container">
+                <div class="menu-left-table">
+                    <div class="menu-centered">
+                        <div id="profile-menu">
+                            <div class="menu-header">
+                                <div class="menu-header-image">
+                                    <img src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario"/>
+                                </div>
+                                <div class="menu-header-title name-full">
+                                    {{user.first_name}} {{user.last_name}}
+                                </div>
+                                <div class="menu-header-title name-abbv"> 
+                                    Nombre C.
+                                </div>
+                            </div>
+                            <div class="menu-options">
+                                <div class="menu-item item-active">
+                                    <i class="fas fa-info-circle"></i> <span>Información principal</span>
+                                </div>
+                                <div class="menu-item">
+                                    <i class="fas fa-database"></i> <span>Datos adicionales</span>
+                                </div>
+                                <div class="menu-item">
+                                    <i class="fas fa-shopping-cart"></i> <span>Mis Compras</span>
+                                </div>
+                                <a href="http://127.0.0.1:8000/ustores" style="text-decoration:none;">
+                                <div class="menu-item item-active">
+                                    <i class="fas fa-store"></i> <span>Mis Tiendas</span>
+                                </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9" id="store-contents">
+                <div class="profile-group">
+                    <div class="profile-title"><i class="far fa-user-circle"></i> Direccion Tienda</div>
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Nombre comercial</div>
+                                <div class="col-sm-8"> {{store_form.brand_name|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Razon Social</div>
+                                <div class="col-sm-8"> {{store_form.company_name|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Descripcion corta</div>
+                                <div class="col-sm-8"> {{store_form.short_description|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Descripcion larga</div>
+                                <div class="col-sm-8"> {{store_form.long_description|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Sitio web</div>
+                                <div class="col-sm-8"> {{store_form.website|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Numero de telefono</div>
+                                <div class="col-sm-8"> {{store_form.phone_number|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="profile-group">
+                    <div class="profile-title"><i class="far fa-compass"></i> Datos Tienda</div>
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Region</div>
+                                <div class="col-sm-8"> {{store_form.region|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Comuna</div>
+                                <div class="col-sm-8"> {{store_form.commune|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Calle</div>
+                                <div class="col-sm-8"> {{store_form.road|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Numero de edificio</div>
+                                <div class="col-sm-8"> {{store_form.address_number|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Numero de oficina</div>
+                                <div class="col-sm-8"> {{store_form.apartament_number|add_class:"form-control"}}</div>
+                            </div>
+                        </div>
+                </div>
+                <div class="profile-group group-buttons">
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    <button type="button" class="btn btn-secondary">Deshacer cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
