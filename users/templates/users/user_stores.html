@@ -43,9 +43,11 @@
                                 </div>
                             </div>
                             <div class="menu-options">
+                                <a href="http://127.0.0.1:8000/uprofile/" style="text-decoration:none;">
                                 <div class="menu-item item-active">
                                     <i class="fas fa-info-circle"></i> <span>Información principal</span>
                                 </div>
+                                </a>
                                 <div class="menu-item">
                                     <i class="fas fa-database"></i> <span>Datos adicionales</span>
                                 </div>
@@ -66,16 +68,22 @@
             <div class="col-9" id="store-contents">
 
                 <h1>Tus Tiendas:</h1>
+                <div class="create-new-store">
                 <a href="http://127.0.0.1:8000/ustores/createstore">
-                    <p>Crear una nueva tienda.</p>
+                    Crear una nueva tienda.
                 </a>
-                <ul>
+                </div>
+                
                     {% for tienda in user_stores%}
-                        <li>{{tienda.brand_name}}</li>        
+                        <div class="display-store-style"> 
+                            <img class="store-image" src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario"/>
+                            {{tienda.brand_name}} 
+                            
+                        </div>
                     {% empty %}
                         <p>Ups! no tienes tiendas</p>
                     {% endfor %}
-                </ul>
+                
             </div>
 
         </div>
