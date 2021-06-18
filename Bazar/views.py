@@ -81,7 +81,7 @@ def view_signup(request: 'HttpRequest') -> 'HttpResponse':
         an_username = generate_username(an_email.split("@")[0])
 
         # Adding the new user to the User table.
-        user = User.objects.create_user(first_name=a_first_name, last_name=a_last_name, email=an_email, password=a_password, username=an_username, birthday=date(a_year,a_month,a_day), date_of_creation=timezone.now())
+        user = User.objects.create_user(first_name=a_first_name, last_name=a_last_name, email=an_email, password=a_password, username=an_username, birthday=date(a_year,a_month,a_day), date_of_creation=timezone.now(), gender=a_gender)
         user_address = UserAddress.objects.create(user=user)
         return HttpResponseRedirect('/home/')
 

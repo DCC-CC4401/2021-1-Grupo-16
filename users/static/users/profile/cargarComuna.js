@@ -1,4 +1,5 @@
-let regiones = {
+function cargarComunas(){
+  var regiones = {
     "Arica y Parinacota": ["Gral. Lagos","Putre","Arica","Camarones"],
     "Tarapacá": ["Camiña","Huara","Pozo Almonte","Iquique","Pica","Colchane","Alto Hospicio"],
     "Antofagasta": ["Tocopilla","Maria Elena","Ollague","Calama","San Pedro Atacama","Sierra Gorda","Mejillones","Antofagasta","Taltal"],
@@ -15,22 +16,24 @@ let regiones = {
     "Los Ríos": ["San Pablo","San Juan","Osorno","Puyehue","Rio Negro","Purranque","Puerto Octay","Frutillar","Fresia","Llanquihue","Puerto Varas","Los Muermos","Puerto Montt","Maullin","Calbuco","Cochamo","Ancud","Quemchi","Dalcahue","Curaco de Velez","Castro","Chonchi","Queilen","Quellon","Quinchao","Puqueldon","Chaiten","Futaleufu","Palena","Hualaihue"],
     "Los Lagos": ["Guaitecas","Cisnes","Aysen","Coyhaique","Lago Verde","Rio Ibañez","Chile Chico","Cochrane","Tortel","O'Higins"],
     "Magallanes y de la Antártica Chilena": ["Torres del Paine","Puerto Natales","Laguna Blanca","San Gregorio","Rio Verde","Punta Arenas","Porvenir","Primavera","Timaukel","Antartica"]
-};
+  };
 
-
-function cargarComunas(){
-
-    let regionesHTML = document.getElementById("region");
-    let numeroRegion = regionesHTML.value;
-
+  var comunasHTML = document.getElementById("commune");
+  var region = document.getElementById("region").value;
+  var comunas = regiones[region];
   
-   //let comunasHTML = document.getElementById("comuna");
-    //comunasHTML.innerHTML = '<option value="" disabled selected hidden>Seleccione comuna</option>';
-  
-    for (var x in regiones[`${numeroRegion}`]){
-      let comunasHTML = document.getElementById("commune");
-        let comuna = document.createElement("option")
-          comuna.textContent = regiones[numeroRegion][x];
-          comunasHTML.appendChild(comuna);  
-    }
+  // Se limpian las comunas previas.
+  var n = comunasHTML.options.length;
+  for (i = n-1; i > 0; i--) {
+    comunasHTML.options[i] = null;
   }
+  
+  // Se rellena la lista con las nuevas comunas.
+  var n = comunas.length;
+  for (var i = 0; i<n; i++){
+    var opt = document.createElement("option");
+    opt.appendChild(document.createTextNode(comunas[i]));
+    opt.value = comunas[i];
+    comunasHTML.appendChild(opt);
+  }
+}
