@@ -68,22 +68,24 @@
             <div class="col-9" id="store-contents">
 
                 <h1>Tus Tiendas:</h1>
-                <div class="create-new-store">
-                <a href="http://127.0.0.1:8000/ustores/createstore">
-                    Crear una nueva tienda.
+                <a href="http://127.0.0.1:8000/ustores/createstore" class="create-new-store">                
+                    Crear una nueva tienda
                 </a>
-                </div>
-                
+                    <p>        
                     {% for tienda in user_stores%}
                         <div class="display-store-style"> 
-                            <img class="store-image" src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario"/>
-                            {{tienda.brand_name}} 
-                            
+                            <div> <img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/>  {{tienda.brand_name}}</div>                           
+                            <div class="display-store-title"> </div>
+                            <div>
+                                <a href="http://127.0.0.1:8000/ustores/createstore">
+                                    <img class="store-image-config" src="{% static 'media/examples/ajustes.png' %}" alt="Imagen de Tienda"/>
+                                </a>
+                            </div>
                         </div>
                     {% empty %}
                         <p>Ups! no tienes tiendas</p>
-                    {% endfor %}
-                
+                    {% endfor %} 
+                    </p>                  
             </div>
 
         </div>
