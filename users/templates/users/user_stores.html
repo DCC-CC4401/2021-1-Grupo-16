@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="menu-options">
-                                <a href="http://127.0.0.1:8000/uprofile" style="text-decoration:none;">
+                                <a href="http://127.0.0.1:8000/uprofile/" style="text-decoration:none;">
                                 <div class="menu-item item-active">
                                     <i class="fas fa-info-circle"></i> <span>Información principal</span>
                                 </div>
@@ -68,18 +68,24 @@
             <div class="col-9" id="store-contents">
 
                 <h1>Tus Tiendas:</h1>
-                <a href="http://127.0.0.1:8000/ustores/createstore">
-                    <p>Crear una nueva tienda.</p>
+                <a href="http://127.0.0.1:8000/ustores/createstore" class="create-new-store">                
+                    Crear una nueva tienda
                 </a>
-                <ul>
-                    {% for i, tienda in user_stores%}
-                    <a href="http://127.0.0.1:8000/sprofile/{{i}}">
-                        <li>{{tienda.brand_name}}</li>
-                    </a>
+                    <p>        
+                    {% for tienda in user_stores%}
+                        <div class="display-store-style"> 
+                            <div> <img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/>  {{tienda.brand_name}}</div>                           
+                            <div class="display-store-title"> </div>
+                            <div>
+                                <a href="http://127.0.0.1:8000/ustores/createstore">
+                                    <img class="store-image-config" src="{% static 'media/examples/ajustes.png' %}" alt="Imagen de Tienda"/>
+                                </a>
+                            </div>
+                        </div>
                     {% empty %}
                         <p>Ups! no tienes tiendas</p>
-                    {% endfor %}
-                </ul>
+                    {% endfor %} 
+                    </p>                  
             </div>
 
         </div>
