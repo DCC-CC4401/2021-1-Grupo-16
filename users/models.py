@@ -15,8 +15,8 @@ class User(AbstractUser):
     gender = models.CharField(max_length=1, choices=gender_choices, default='O')
 
     # TODO: create validation functions for rut & phone_number 
-    rut = models.CharField(blank=True, max_length=12)  # OPTIONAL # Ex: 20.298.878-4 => 12 chars
-    phone_number = models.CharField(blank=True, max_length=12)  # OPTIONAL # Ex: +569XXXXXXXX => 12 chars
+    rut = models.CharField(blank=True, max_length=20)  # OPTIONAL # Ex: 20.298.878-4 => 12 chars
+    phone_number = models.CharField(blank=True, max_length=20)  # OPTIONAL # Ex: +569XXXXXXXX => 12 chars
 
     birthday = models.DateField()
     date_of_creation = models.DateTimeField()
@@ -24,18 +24,14 @@ class User(AbstractUser):
 
 class UserAddress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    alias = models.CharField(max_length=20,  blank=True, null=True)
-    shipping_comment = models.CharField(blank=True, max_length=255, null=True)  # OPTIONAL
+    alias = models.CharField(max_length=50,  blank=True, null=True)
+    region = models.CharField(max_length=50, default="No especificada")
+    commune = models.CharField(max_length=50, default="No especificada")
+    address = models.CharField(max_length=50, default="No especificado")
+    address_number = models.IntegerField(default=0)
 
-    # TODO: create choices for each region and commune.
-    region = models.CharField(max_length=20, blank=True, null=True)
-    commune = models.CharField(max_length=20, blank=True, null=True)
-
-    road = models.CharField(max_length=40, blank=True, null=True)
-    address_number = models.IntegerField(blank=True, null=True)
-    apartament_number = models.IntegerField(blank=True, null=True)
-
-
+    # OPTIONAL
+    shipping_comment = models.CharField(blank=True, max_length=255, null=True)
 class Administration(models.Model):
     privilege_choices = [
         ('0', "owner"),

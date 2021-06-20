@@ -12,7 +12,7 @@ from .forms import UserUpdateForm, UserAddressUpdateForm
 from stores.forms import *
 
 #TODO Edit fonts for aesthetics
-def edit_profile(request: 'HttpRequest') -> 'HttpResponse':
+def edit_uprofile(request: 'HttpRequest') -> 'HttpResponse':
     """
     Profile.
     (ONLY AVAILABLE WITH LOGGED IN)
@@ -45,7 +45,7 @@ def edit_profile(request: 'HttpRequest') -> 'HttpResponse':
     return render(request, "users/edit_user_profile.html", context)   
         
 
-def view_profile(request: 'HttpRequest') -> 'HttpResponse':
+def view_uprofile(request: 'HttpRequest') -> 'HttpResponse':
     """
     Profile.
     """
@@ -53,22 +53,30 @@ def view_profile(request: 'HttpRequest') -> 'HttpResponse':
 
     return render(request, 'users/user_profile.html', {'address': address})
 
-def view_stores(request: 'HttpRequest') -> 'HttpResponse':
+def view_ustores(request: 'HttpRequest') -> 'HttpResponse':
     administration_info = Administration.objects.filter(user_id=request.user)
     user_stores = []
 
-    for element in administration_info:
-        user_stores.append(element.store)
+    for instance in administration_info:
+        user_stores.append(instance.store)
     
+    stores_indices = [k for k in range(0,len(user_stores))]
+
     context = {
-        'user_stores':user_stores,
+        'user_stores':zip(stores_indices, user_stores)
     }
+
     return render(request, 'users/user_stores.html', context)
 
 
-def create_store(request: 'HttpRequest') -> 'HttpResponse':
+def create_ustore(request: 'HttpRequest') -> 'HttpResponse':
     if request.method == 'POST':
-        store_form = StoreForm(request.POST)    
+        store_form = StoreForm(request.POST)
+        a_region = request.POST["region"]
+        a_commune = request.POST["commune"]
+        store_form.region = a_region
+        store_form.commune = a_commune  
+          
         if store_form.is_valid():
             a_store = store_form.save()
             a_user = request.user

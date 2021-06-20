@@ -14,14 +14,13 @@ class Store(models.Model):
     website = models.CharField(max_length=200)
 
     # TODO: create validation functions for phone_number 
-    phone_number = models.CharField(max_length=12)
+    phone_number = models.CharField(max_length=20)
 
     # Store address fields:
-    region = models.CharField(max_length=20)
-    commune = models.CharField(max_length=20)
-    road = models.CharField(max_length=40)
+    region = models.CharField(max_length=50)
+    commune = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
     address_number = models.IntegerField()
-    apartament_number = models.IntegerField(blank=True)  # OPTIONAL
 
     # TODO: when the store is created, the date of creation MUST be 
     # datetime.datetime.today()
@@ -50,15 +49,19 @@ class Transaction(models.Model):
     # {0: (product_id, quantity), ... , n: (product_id, quantity)}
     list_of_products = models.JSONField()
 
-
-class Inventory(models.Model):
-    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
-    product_name = models.CharField(max_length=20)
+# Holds the common behaviour of a product of an arbitrary store.
+class Product(models.Model):
+    product_name = models.CharField(max_length=50)
     price = models.IntegerField()
     stock = models.IntegerField()
     short_description = models.CharField(max_length=255)
     long_description = models.CharField(max_length=4000, blank=True)
 
     # TODO: When a product is added to the table it MUST have likes = dislikes = 0.
-    likes = models.IntegerField()
-    dislikes = models.IntegerField()
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
+
+# Contains the pertenence relation between a store and a product
+class Inventory(models.Model):
+    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
+    product = models.ForeignKey("stores.Product", on_delete=models.CASCADE)

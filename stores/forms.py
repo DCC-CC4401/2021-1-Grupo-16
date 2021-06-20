@@ -13,7 +13,17 @@ class StoreForm(forms.ModelForm):
             'phone_number',
             'region',
             'commune',
-            'road',
+            'address',
             'address_number',
-            'apartament_number',
             ]
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = [
+            'product_name',
+            'price',
+            'stock',
+            'short_description',
+            'long_description',
+        ]

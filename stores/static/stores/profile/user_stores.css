@@ -1,0 +1,89 @@
+#store-contents {
+	background-color: #ffffff;
+	padding: 1rem;
+}
+
+#store-contents .profile-title {
+	border-bottom: 2px solid #e91e63;
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 640px) {
+	#store-contents .profile-title {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+}
+
+/* noinspection Stylelint */
+#store-contents .profile-title i {
+	margin-right: 0.75rem;
+}
+
+#store-contents .profile-input-line {
+	margin-left: 1.5rem;
+	margin-bottom: 1.2rem;
+}
+
+@media screen and (max-width: 640px) {
+	#store-contents .profile-input-line {
+		margin-left: 1.1rem;
+	}
+}
+
+#store-contents .profile-input-line .col-sm-4 {
+	align-items: center;
+	display: flex;
+	font-size: 1.1rem;
+	font-weight: 600;
+	justify-content: flex-start;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 750px) {
+	#store-contents .profile-input-line .col-sm-4 {
+		font-size: 1rem;
+	}
+}
+
+#store-contents .profile-input-line .col-sm-8 .form-control {
+	max-width: 75%;
+}
+
+@media screen and (max-width: 640px) {
+	#store-contents .profile-input-line .col-sm-8 .form-control {
+		max-width: 85%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#store-contents .profile-input-line .col-sm-8 .form-control {
+		max-width: 100%;
+	}
+}
+
+#store-contents .profile-group {
+	cursor: default;
+}
+
+#store-contents .profile-group + div.profile-group {
+	margin-top: 3rem;
+}
+
+@media screen and (max-width: 640px) {
+	#store-contents .profile-group + div.profile-group {
+		margin-top: 2rem;
+	}
+}
+
+#store-contents .profile-group.group-buttons {
+	text-align: center;
+	padding-top: 1rem;
+}
+
+#store-contents .profile-group.group-buttons .btn {
+	margin-left: 1rem;
+	margin-right: 1rem;
+}

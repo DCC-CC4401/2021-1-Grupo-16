@@ -11,4 +11,4 @@ class UserUpdateForm(forms.ModelForm): #ESTO ES PARA PODER CAMBIAR LA INFO DEL U
 class UserAddressUpdateForm(forms.ModelForm):
     class Meta:
         model = UserAddress
-        fields = ['road', 'region', 'commune']
+        fields = ['address', 'region', 'commune', 'address_number']

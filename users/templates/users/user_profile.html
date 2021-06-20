@@ -42,9 +42,11 @@
                                 </div>
                             </div>
                             <div class="menu-options">
+                                <a href="http://127.0.0.1:8000/uprofile" style="text-decoration:none;">
                                 <div class="menu-item item-active">
                                     <i class="fas fa-info-circle"></i> <span>Información principal</span>
                                 </div>
+                                </a>
                                 <div class="menu-item">
                                     <i class="fas fa-database"></i> <span>Datos adicionales</span>
                                 </div>
@@ -149,26 +151,30 @@
                     <div class="profile-title"><i class="fas fa-compass"></i> Dirección de envío</div>
                     <div class="profile-input-line">
                         <div class="row">
-                            <div class="col-sm-4">Dirección</div>
-                           <!--- <div class="col-sm-8"><input type="text" value="Av. Apoquindo #1200" class="form-control"/>
-                            </div> -->
-                            <div class="col-sm-8">{{address.road}}</div>
-                        </div>
-                    </div>
-                    <div class="profile-input-line">
-                        <div class="row">
                             <div class="col-sm-4">Región</div>
-                            <div class="col-sm-8">
-                                <div class="col-sm-8">{{address.region}}</div>
-                            </div>
+                            <div class="col-sm-8">{{address.region}}</div>
                         </div>
                     </div>
                     <div class="profile-input-line">
                         <div class="row">
                             <div class="col-sm-4">Comuna</div>
-                            <div class="col-sm-8">
-                                <div class="col-sm-8">{{address.commune}}</div>
-                            </div>
+                            <div class="col-sm-8">{{address.commune}}</div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Dirección</div>
+                           <!--- <div class="col-sm-8"><input type="text" value="Av. Apoquindo #1200" class="form-control"/>
+                            </div> -->
+                            <div class="col-sm-8">{{address.address}}</div>
+                        </div>
+                    </div>
+                    <div class="profile-input-line">
+                        <div class="row">
+                            <div class="col-sm-4">Numero de Casa/Departamento/Oficina</div>
+                           <!--- <div class="col-sm-8"><input type="text" value="Av. Apoquindo #1200" class="form-control"/>
+                            </div> -->
+                            <div class="col-sm-8">{{address.address_number}}</div>
                         </div>
                     </div>
                 </div>
