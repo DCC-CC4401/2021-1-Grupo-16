@@ -12,8 +12,8 @@ class Store(models.Model):
     short_description = models.CharField(max_length=255)
     long_description = models.CharField(max_length=4000)
     website = models.CharField(max_length=200)
-    store_image_profile = models.CharField(max_length=1000)
-    store_image_banner = models.CharField(max_length=1000)
+    store_image_profile = models.CharField(max_length=1000, blank=True)
+    store_image_banner = models.CharField(max_length=1000, blank=True)
 
     # TODO: create validation functions for phone_number 
     phone_number = models.CharField(max_length=20)
@@ -60,6 +60,7 @@ class Product(models.Model):
     stock = models.IntegerField()
     short_description = models.CharField(max_length=255)
     long_description = models.CharField(max_length=4000, blank=True)
+    product_image = models.CharField(max_length=1000, blank=True)
 
     # TODO: When a product is added to the table it MUST have likes = dislikes = 0.
     likes = models.IntegerField(default=0)

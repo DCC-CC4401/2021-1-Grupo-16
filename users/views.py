@@ -63,7 +63,7 @@ def view_ustores(request: 'HttpRequest') -> 'HttpResponse':
     stores_indices = [k for k in range(0, len(user_stores))]
 
     context = {
-        'user_stores': zip(stores_indices, stores_indices_global, user_stores)
+        'user_stores': list(zip(stores_indices, stores_indices_global, user_stores))
     }
     return render(request, 'users/user_stores.html', context)
 

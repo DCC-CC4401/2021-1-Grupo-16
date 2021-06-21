@@ -35,11 +35,17 @@
                                         <img src="{% static 'media/examples/store-image.png' %}"
                                              alt="Avatar de Tienda"/>
                                     </div>
+                                    <script>
+                                        let $store_img = '{{ store.store_image_profile }}';
+                                        if (File.isFileImageExtension($store_img)) {
+                                            $('.menu-header-image img').attr('src', $store_img);
+                                        }
+                                    </script>
                                     <div class="menu-header-title name-full">
                                         {{ store.brand_name }}
                                     </div>
                                     <div class="menu-header-title name-abbv">
-                                        Nombre C.
+                                        {{ store.brand_name }}
                                     </div>
                                 </div>
                                 <div class="menu-options">
@@ -112,13 +118,13 @@
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
-                                <div class="col-sm-4">Descripcion Corta</div>
+                                <div class="col-sm-4">Descripción Corta</div>
                                 <div class="col-sm-8">{{ store.short_description }}</div>
                             </div>
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
-                                <div class="col-sm-4">Descripcion Larga</div>
+                                <div class="col-sm-4">Descripción Larga</div>
                                 <div class="col-sm-8">{{ store.long_description }}</div>
                             </div>
                         </div>
@@ -145,7 +151,7 @@
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
-                                <div class="col-sm-4">Nº de Casa / Departamento / Of.</div>
+                                <div class="col-sm-4">Nº de Casa / Dpto. / Of.</div>
                                 <div class="col-sm-8">{{ store.address_number }}</div>
                             </div>
                         </div>

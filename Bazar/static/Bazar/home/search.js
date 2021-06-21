@@ -120,9 +120,7 @@ function HomeModuleSearchComponent() {
         // Get the jQuery object
         let $box = $('#{0}'.format($id));
 
-        let $img_extension = $img.split('.');
-        $img_extension = $img_extension[$img_extension.length - 1];
-        if (File.isImageExtension($img_extension)) {
+        if (File.isFileImageExtension($img)) {
             $box.css('background-image', 'url({0}),linear-gradient(45deg,#000000,#00000000)'.format($img));
         } else {
             $box.css('background-color', $result_colors[$result_number]);

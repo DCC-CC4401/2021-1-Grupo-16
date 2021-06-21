@@ -157,3 +157,15 @@ File.isImageExtension = function ($extension) {
     return ['PNG', 'JPG', 'JPEG', 'GIF', 'TIF', 'ICO', 'TIFF', 'BMP', 'JPG', 'EPS', 'RAW', 'CR2', 'NEF', 'PCX', 'TGA', 'YUV', '3FR', 'ABR', 'AI', 'ANI', 'APX', 'AVW', 'BAY', 'BIP', 'BLP', 'BPG', 'IMG'].indexOf($extension.toUpperCase().replace('.', '')) !== -1;
 
 };
+
+/**
+ * Checks if file has an image extension.
+ *
+ * @param {string} $file - File
+ * @returns {boolean} - File is an image
+ */
+File.isFileImageExtension = function ($file) {
+    let $img_extension = $file.split('.');
+    $img_extension = $img_extension[$img_extension.length - 1];
+    return File.isImageExtension($img_extension);
+}

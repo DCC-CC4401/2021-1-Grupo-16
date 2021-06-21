@@ -36,11 +36,17 @@
                                         <img src="{% static 'media/examples/store-image.png' %}"
                                              alt="Avatar de Usuario"/>
                                     </div>
+                                    <script>
+                                        let $store_img = '{{ store.store_image_profile }}';
+                                        if (File.isFileImageExtension($store_img)) {
+                                            $('.menu-header-image img').attr('src', $store_img);
+                                        }
+                                    </script>
                                     <div class="menu-header-title name-full">
                                         {{ store.brand_name }}
                                     </div>
                                     <div class="menu-header-title name-abbv">
-                                        Nombre C.
+                                        {{ store.brand_name }}
                                     </div>
                                 </div>
                                 <div class="menu-options">

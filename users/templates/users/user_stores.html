@@ -3,7 +3,7 @@
 {% load widget_tweaks %}
 
 {% block title %}
-    Profile
+    Profile - Tus Tiendas
 {% endblock %}
 
 {% block static-files %}
@@ -93,6 +93,19 @@
                     </p>
 
                 </div>
+                <script>
+                    let $store_images = [
+                        {% for _, _, store in user_stores %}
+                            '{{ store.store_image_profile }}',
+                        {% endfor %}
+                    ];
+                    $('.store-image').each(($id, $val) => {
+                        let $img = $store_images[$id]
+                        if (File.isFileImageExtension($img)) {
+                            $($val).attr('src', $store_images[$id]);
+                        }
+                    });
+                </script>
 
             </div>
         </div>

@@ -25,12 +25,18 @@
         <div class="store-banner">
             <div class=""><img class="store-image" src="{% static 'media/examples/tienda.png' %}"
                                alt="Imagen de Tienda"/>
-                {{ store.brand_name}}
+                {{ store.brand_name }}
             </div>
+            <script>
+                let $store_img = '{{ store.store_image_profile }}';
+                if (File.isFileImageExtension($store_img)) {
+                    $('.store-image').attr('src', $store_img);
+                }
+            </script>
             <div class="horizontal-display">
-                <div class="store-stars">5 Stars</div>
-                <div class="store-description">Esta es la descripción corta/larga de la tienda</div>
-                <div class="store-webpage">Esta es la página web de una tienda</div>
+                <div class="store-stars">{{ store.stars }} Stars</div>
+                <div class="store-description">{{ store.long_description }}</div>
+                <div class="store-webpage"><a href="{{ store.website }}">{{ store.website }}</a></div>
             </div>
         </div>
     </div>
