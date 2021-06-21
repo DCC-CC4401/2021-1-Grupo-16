@@ -81,11 +81,11 @@
                     <a href="http://127.0.0.1:8000/sinventory/addproduct/{{ store_index }}" class="create-new-store">
                         <p>Agregar un nuevo producto</p>
                     </a>
-                    <ul>
+                    <ul style="margin-top: 1rem;">
                         {% for p in store_inventory %}
                             <li>{{ p.product_name }}</li>
                         {% empty %}
-                            <p style="margin-top: 1rem;">Ups! no tienes productos</p>
+                            <p>Ups! no tienes productos</p>
                         {% endfor %}
                     </ul>
                 </div>
