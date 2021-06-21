@@ -56,13 +56,14 @@ def view_ustores(request: 'HttpRequest') -> 'HttpResponse':
     administration_info = Administration.objects.filter(user_id=request.user)
     user_stores = []
 
+    stores_indices_global = []
     for instance in administration_info:
         user_stores.append(instance.store)
-
+        stores_indices_global.append(instance.store.id)
     stores_indices = [k for k in range(0, len(user_stores))]
 
     context = {
-        'user_stores': zip(stores_indices, user_stores)
+        'user_stores': zip(stores_indices, stores_indices_global, user_stores)
     }
     return render(request, 'users/user_stores.html', context)
 

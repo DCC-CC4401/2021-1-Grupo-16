@@ -12,14 +12,15 @@ def view_store(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
     """
     Store front.
     """
-    administration_info: 'QuerySet' = Administration.objects.filter(user_id=request.user)
     # Load products
     try:
-        a_store: 'Store' = administration_info[store_index].store
+        a_store: 'QuerySet' = Store.objects.filter(id=store_index)
     except IndexError:
         return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
+    if len(a_store) != 1:
+        return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
     context = {
-        'store': a_store,
+        'store': a_store[0],
         'store_index': store_index
     }
     return render(request, 'stores/storefront.html', context)
