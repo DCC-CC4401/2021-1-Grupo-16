@@ -1,6 +1,7 @@
 #store-contents {
 	background-color: #ffffff;
 	padding: 1rem;
+	
 }
 
 #store-contents .profile-title {
@@ -8,6 +9,7 @@
 	font-size: 1.5rem;
 	font-weight: 700;
 	margin-bottom: 1.5rem;
+	text-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 640px) {

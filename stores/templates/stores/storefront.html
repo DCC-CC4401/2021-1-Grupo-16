@@ -1,0 +1,83 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Bazar - Tienda
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static '/stores/store.css' %}" media="screen">
+
+    <script src="{% static 'stores/store.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    
+    <div id="contents">
+    <div class="store-banner">
+            
+            <div class=""><img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/> 
+                 Store name
+            </div>
+                <div class="horizontal-display">
+                    <div class="store-stars">5 Stars</div>
+                    <div class="store-description">Esta es la descripción corta/larga de la tienda</div>
+                    <div class="store-webpage">Esta es la página web de una tienda</div>
+                </div>
+            </div>
+
+    </div>
+    </div>
+
+    <div class="products-div">
+        <div class="products-banner">
+            <div class="recomended-banner">
+                <div class="recommended-text">Recomendados</div>
+            </div>
+        </div>
+        <div class="products-container">
+            <div class="product">
+                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
+                <div class="product-name">Nombre del producto</div> 
+                <div class="product-price">5000$</div>
+            </div> 
+            <div class="product">
+                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
+                <div class="product-name">Nombre del producto</div> 
+                <div class="product-price">6000$</div>
+            </div> 
+            <div class="product">
+                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
+                <div class="product-name">Nombre del producto</div> 
+                <div class="product-price">5000$</div>
+            </div> 
+            <div class="product">
+                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
+                <div class="product-name">Nombre del producto</div> 
+                <div class="product-price">5000$</div>
+            </div> 
+            <div class="product">
+                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
+                <div class="product-name">Nombre del producto</div> 
+                <div class="product-price">5000$</div>
+            </div> 
+            <div class="product">
+                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
+                <div class="product-name">Nombre del producto</div> 
+                <div class="product-price">5000$</div>
+            </div> 
+        </div>
+    </div>
+
+
+    <!-- <div id="search-results-bg"></div> -->
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
