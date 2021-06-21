@@ -1,7 +1,7 @@
 #store-contents {
 	background-color: #ffffff;
 	padding: 1rem;
-	
+
 }
 
 #store-contents .profile-title {
@@ -92,11 +92,11 @@
 
 #store-contents .display-store-style {
 	display: grid;
-    grid-template-columns: auto auto 120px;
+	grid-template-columns: auto auto 120px;
 	border-radius: 25px;
 	background: #DEDEDE;
-	padding: 20px;
-	height: 150px;
+	padding: 10px;
+	/* height: 150px; */
 	margin-left: 2%;
 	margin-top: 10px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -118,7 +118,7 @@
 	font-weight: bold;
 }
 
-#store-contents .store-image-config{
+#store-contents .store-image-config {
 	width: 100px;
 	height: 100px;
 	border-radius: 1rem;
@@ -127,10 +127,10 @@
 	float: right;
 }
 
-#store-contents .store-image-config:hover{
+#store-contents .store-image-config:hover {
 	background-color: #808080;
 	cursor: pointer;
-}	
+}
 
 #store-contents .create-new-store {
 	display: block;
@@ -145,8 +145,8 @@
 	font-weight: bold;
 	text-align: center;
 	text-decoration: none;
-	color: white;}
-
+	color: white;
+}
 
 
 #store-contents .create-new-store:hover {

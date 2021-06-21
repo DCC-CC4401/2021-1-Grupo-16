@@ -37,8 +37,8 @@ class Store(models.Model):
 
 
 class Transaction(models.Model):
-    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE)
+    store = models.ForeignKey('stores.Store', on_delete=models.CASCADE)
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
     transaction_date = models.DateTimeField()
     amount_payed = models.IntegerField()
 
@@ -48,6 +48,7 @@ class Transaction(models.Model):
     # Ex: the JSON must be like this:
     # {0: (product_id, quantity), ... , n: (product_id, quantity)}
     list_of_products = models.JSONField()
+
 
 # Holds the common behaviour of a product of an arbitrary store.
 class Product(models.Model):
@@ -61,7 +62,8 @@ class Product(models.Model):
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
 
+
 # Contains the pertenence relation between a store and a product
 class Inventory(models.Model):
-    store = models.ForeignKey("stores.Store", on_delete=models.CASCADE)
-    product = models.ForeignKey("stores.Product", on_delete=models.CASCADE)
+    store = models.ForeignKey('stores.Store', on_delete=models.CASCADE)
+    product = models.ForeignKey('stores.Product', on_delete=models.CASCADE)

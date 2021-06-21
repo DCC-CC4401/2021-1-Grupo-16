@@ -1,12 +1,13 @@
 from django import forms
 from .models import *
 
+
 class StoreForm(forms.ModelForm):
     class Meta:
         model = Store
         fields = [
-            'brand_name', 
-            'company_name', 
+            'brand_name',
+            'company_name',
             'short_description',
             'long_description',
             'website',
@@ -15,7 +16,8 @@ class StoreForm(forms.ModelForm):
             'commune',
             'address',
             'address_number',
-            ]
+        ]
+
 
 class ProductForm(forms.ModelForm):
     class Meta:
@@ -25,5 +27,5 @@ class ProductForm(forms.ModelForm):
             'price',
             'stock',
             'short_description',
-            'long_description',
+            'long_description'
         ]
