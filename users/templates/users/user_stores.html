@@ -3,7 +3,7 @@
 {% load widget_tweaks %}
 
 {% block title %}
-    Profile
+    Profile - Tus Tiendas
 {% endblock %}
 
 {% block static-files %}
@@ -23,73 +23,92 @@
 
 {% block body %}
     {% include 'components/header.html' with type='body' %}
-<form method="post">
-    {% csrf_token %}
-    <div id="contents">
-        <div class="row no-margin">
-            <div class="col-3" id="menu-left-container">
-                <div class="menu-left-table">
-                    <div class="menu-centered">
-                        <div id="profile-menu">
-                            <div class="menu-header">
-                                <div class="menu-header-image">
-                                    <img src="{% static 'media/examples/user-image.jpeg' %}" alt="Avatar de Usuario"/>
+    <form method="post">
+        {% csrf_token %}
+        <div id="contents">
+            <div class="row no-margin">
+                <div class="col-3" id="menu-left-container">
+                    <div class="menu-left-table">
+                        <div class="menu-centered">
+                            <div id="profile-menu">
+                                <div class="menu-header">
+                                    <div class="menu-header-image">
+                                        <img src="{% static 'media/examples/user-image.jpeg' %}"
+                                             alt="Avatar de Usuario"/>
+                                    </div>
+                                    <div class="menu-header-title name-full">
+                                        {{ user.first_name }} {{ user.last_name }}
+                                    </div>
+                                    <div class="menu-header-title name-abbv">
+                                        Nombre C.
+                                    </div>
                                 </div>
-                                <div class="menu-header-title name-full">
-                                    {{user.first_name}} {{user.last_name}}
+                                <div class="menu-options">
+                                    <a href="http://127.0.0.1:8000/uprofile/">
+                                        <div class="menu-item item-active">
+                                            <i class="fas fa-info-circle"></i> <span>Información principal</span>
+                                        </div>
+                                    </a>
+                                    <div class="menu-item">
+                                        <i class="fas fa-database"></i> <span>Datos adicionales</span>
+                                    </div>
+                                    <div class="menu-item">
+                                        <i class="fas fa-shopping-cart"></i> <span>Mis Compras</span>
+                                    </div>
+                                    <a href="http://127.0.0.1:8000/ustores">
+                                        <div class="menu-item item-active">
+                                            <i class="fas fa-store"></i> <span>Mis Tiendas</span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="menu-header-title name-abbv"> 
-                                    Nombre C.
-                                </div>
-                            </div>
-                            <div class="menu-options">
-                                <a href="http://127.0.0.1:8000/uprofile/" style="text-decoration:none;">
-                                <div class="menu-item item-active">
-                                    <i class="fas fa-info-circle"></i> <span>Información principal</span>
-                                </div>
-                                </a>
-                                <div class="menu-item">
-                                    <i class="fas fa-database"></i> <span>Datos adicionales</span>
-                                </div>
-                                <div class="menu-item">
-                                    <i class="fas fa-shopping-cart"></i> <span>Mis Compras</span>
-                                </div>
-                                <a href="http://127.0.0.1:8000/ustores" style="text-decoration:none;">
-                                <div class="menu-item item-active">
-                                    <i class="fas fa-store"></i> <span>Mis Tiendas</span>
-                                </div>
-                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-9" id="store-contents">
+                <div class="col-9" id="store-contents">
 
-                <h1>Tus Tiendas:</h1>
-                <a href="http://127.0.0.1:8000/ustores/createstore" class="create-new-store">                
-                    Crear una nueva tienda
-                </a>
-                    <p>        
-                    {% for store_index, store in user_stores%}
-                        <div class="display-store-style"> 
-                            <div> <img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/>  {{store.brand_name}}</div>                           
-                            <div class="display-store-title"> </div>
-                            <div>
-                                <a href="http://127.0.0.1:8000/sprofile/{{store_index}}">
-                                    <img class="store-image-config" src="{% static 'media/examples/ajustes.png' %}" alt="Imagen de Tienda"/>
-                                </a>
+                    <h1>Tus Tiendas:</h1>
+                    <a href="http://127.0.0.1:8000/ustores/createstore" class="create-new-store">
+                        Crear una nueva tienda
+                    </a>
+                    <p>
+                        {% for store_index, store_index_global, store in user_stores %}
+                            <div class="display-store-style">
+                                <div>
+                                    <img class="store-image" src="{% static 'media/examples/tienda.png' %}"
+                                         alt="Imagen de Tienda"/>
+                                    <a href="http://127.0.0.1:8000/store/{{ store_index_global }}">{{ store.brand_name }}</a>
+                                </div>
+                                <div>
+                                    <a href="http://127.0.0.1:8000/sprofile/{{ store_index }}">
+                                        <img class="store-image-config" src="{% static 'media/examples/ajustes.png' %}"
+                                             alt="Imagen de Tienda"/>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    {% empty %}
-                        <p>Ups! no tienes tiendas</p>
-                    {% endfor %} 
-                    </p>                  
-            </div>
+                        {% empty %}
+                            <p>Ups! no tienes tiendas</p>
+                        {% endfor %}
+                    </p>
 
+                </div>
+                <script>
+                    let $store_images = [
+                        {% for _, _, store in user_stores %}
+                            '{{ store.store_image_profile }}',
+                        {% endfor %}
+                    ];
+                    $('.store-image').each(($id, $val) => {
+                        let $img = $store_images[$id]
+                        if (File.isFileImageExtension($img)) {
+                            $($val).attr('src', $store_images[$id]);
+                        }
+                    });
+                </script>
+
+            </div>
         </div>
-    </div>
-</form>
+    </form>
     {% include 'components/footer.html' with type='body' %}
 {% endblock %}

@@ -58,12 +58,13 @@ function ajaxPostFormData($url, $data, $success, $error, $any) {
  * execute $error($response).
  *
  * @param {string} $url - Query URL
+ * @param {string} $method - post or get
  * @param {string} $data - Data to upload
  * @param {function} $success - Function triggered after success, takes parsed JSON data
  * @param {function} $error - Error function, takes response as argument
  * @param {function=} $any - Function to be executed if success or error
  */
-function ajaxPostDataString($url, $data, $success, $error, $any) {
+function ajaxPostDataString($url, $method, $data, $success, $error, $any) {
 
     if (isNullUndf($any)) $any = () => {
     };
@@ -74,7 +75,7 @@ function ajaxPostDataString($url, $data, $success, $error, $any) {
             $error();
             $any();
         },
-        method: 'post',
+        method: $method,
         success: function ($response) {
             try {
                 let $r_data = JSON.parse($response);

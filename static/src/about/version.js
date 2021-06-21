@@ -7,7 +7,7 @@
  * Version
  */
 app_about.v = {
-    "date": "04/24/2021", // MM/dd/AAAA
+    "date": "06/21/2021", // MM/dd/AAAA
     "hash": "",
-    "version": "0.0.1",
+    "version": "1.0.0",
 };

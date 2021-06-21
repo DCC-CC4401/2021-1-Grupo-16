@@ -47,6 +47,12 @@ function HomeModuleSearchComponent() {
     this._contents_initial_height = 0;
 
     /**
+     * Stores the home query key
+     * @type {string}
+     */
+    const $home_query = '__SEACH_ALL_HOME__';
+
+    /**
      * Input hover color if user has the context.
      *
      * @private
@@ -65,6 +71,19 @@ function HomeModuleSearchComponent() {
         });
     };
 
+    let $result_colors = [];
+    let $result_stars = [];
+    let $stars = [1, 2, 3, 4, 5];
+    for (let $j = 0; $j < 1000; $j++) {
+        let $hue = Math.floor(Math.random() * 360),
+            $saturation = Math.floor(Math.random() * 100),
+            $lightness = Math.floor(Math.random() * 50);
+        let $color = "hsl(" + $hue + ", " + $saturation + "%, " + $lightness + "%)";
+        $result_colors.push($color);
+        $result_stars.push($stars.randomElement());
+    }
+
+
     /**
      * Appends a result of the search query.
      *
@@ -74,28 +93,38 @@ function HomeModuleSearchComponent() {
      * @param {string} $region - Card region
      * @param {string} $other - Other description
      * @param {string} $description - Card description
+     * @param {number} $result_number - Number of the card
+     * @param {number} $store_index - Index of the store
      */
     this.appendResultStoreCard = function ($title, $img, $stars,
-                                           $region, $other, $description) {
+                                           $region, $other, $description,
+                                           $result_number, $store_index) {
 
         // Create random ID
         let $id = generateID();
 
         let $html = `
-        <div class="results-card-box hvr-grow" id="${$id}">
-            <div class="results-card-stars"><i class="fas fa-star"></i> ${$stars} / 5</div>
-            <div class="results-card-region">${$region}</div>
-            <div class="results-card-other">${$other}</div>
-            <div class="results-card-title">${$title}</div>
-            <div class="results-card-description">${$description}</div>
-        </div>
+        <a href="http://127.0.0.1:8000/store/${$store_index}">
+            <div class="results-card-box hvr-grow" id="${$id}">
+                <div class="results-card-stars"><i class="fas fa-star"></i> ${$stars} / 5</div>
+                <div class="results-card-region">${$region}</div>
+                <div class="results-card-other">${$other}</div>
+                <div class="results-card-title">${$title}</div>
+                <div class="results-card-description">${$description}</div>
+            </div>
+        </a>
         `;
 
         self._results_box.append($html);
 
         // Get the jQuery object
         let $box = $('#{0}'.format($id));
-        $box.css('background-image', 'url({0}),linear-gradient(45deg,#000000,#00000000)'.format($img));
+
+        if (File.isFileImageExtension($img)) {
+            $box.css('background-image', 'url({0}),linear-gradient(45deg,#000000,#00000000)'.format($img));
+        } else {
+            $box.css('background-color', $result_colors[$result_number]);
+        }
 
         $box.on('mouseover.ToggleBottomDescription', function () {
             if ($box.attr('over') === 'true') return;
@@ -131,13 +160,13 @@ function HomeModuleSearchComponent() {
             'http://127.0.0.1:8000/static/media/examples/example-7.jpg',
             'http://127.0.0.1:8000/static/media/examples/example-8.jpg',
             'http://127.0.0.1:8000/static/media/examples/example-9.jpg'
-        ];
-        let $stars = [1, 2, 3, 4, 5];
+        ]
         let $description = [
             'Ricas empanadas de pollo revueltas en jamon y queso', // 50
             'Librería de libros de papel impresos en tinta con tamaños similares en todo Chile muy barato compre compre rápido', // 113
             'Tienda de ropa y diseño de última generación @tiendaChileBonitoYElegante en Chile y todo el mundo compre rápido y ahora o perderá la oferta.' // 140 ]
         ];
+        let $stars = [1, 2, 3, 4, 5];
         let $other = '{0} productos'.format(Math.getRandomInt(40, 10000));
         self.appendResultStoreCard(
             $title.randomElement(),
@@ -145,8 +174,64 @@ function HomeModuleSearchComponent() {
             $stars.randomElement(),
             $regions.randomElement(),
             $other,
-            $description.randomElement()
+            $description.randomElement(),
+            1,
+            1
         )
+    };
+
+    /**
+     * Write store seach result.
+     *
+     * @param $store - Store json data
+     * @param $resultnum - Number of the card
+     * @private
+     */
+    this._write_search_result = function ($store, $resultnum) {
+        self.appendResultStoreCard(
+            $store['brand_name'],
+            $store['store_image_profile'],
+            $store['stars'] === 0 ? $result_stars[$resultnum] : $store['stars'],
+            $store['region'],
+            $store['commune'], // N products
+            $store['short_description'],
+            $resultnum,
+            $store['id']
+        )
+    };
+
+    /**
+     * This function process the input text from the search box.
+     *
+     * @param {string=} $query - Accepts query text, if null gets from the input text
+     * @private
+     */
+    this._process_search_text = function ($query) {
+        if ($query !== $home_query) {
+            $query = self._search_input.val();
+        }
+        let $query_sanitized = escape($query); // TODO
+        if ($query.length < 2) {
+            return self._process_search_text($home_query);
+        }
+        ajaxPostDataString('http://127.0.0.1:8000/store/search/{0}'.format($query_sanitized), 'get',
+            '',
+            ($data) => {
+                let $keys = Object.keys($data);
+                $keys.sort();
+                self._results_box.empty();
+                if ($keys.length === 0) {
+                    self._results_box.append(`
+                    <div class="results-empty">
+                        <i class="far fa-sad-tear"></i> No se han encontrado resultados para la búsqueda</div>
+                    `)
+                } else {
+                    for (let $i = 0; $i < $keys.length; $i++) {
+                        self._write_search_result($data[$keys[$i]], $i);
+                    }
+                }
+            }, () => {
+            });
     };
 
     /**
@@ -175,6 +260,9 @@ function HomeModuleSearchComponent() {
         $update_box_margin();
         app_dom.window.on('resize.updateSearchboxTopMargin', $update_box_margin);
 
+        // Set search event
+        self._search_input.on('input.findtext', self._process_search_text);
+
         // self._results_box.css({
         //     'margin-bottom': -$contents_height * 0.7,
         //     'top': -$contents_height * 0.7
@@ -192,6 +280,13 @@ function HomeModuleSearchComponent() {
         $('#search-box-last-queries span').each(function () {
             $(this).css('background-color', ColorLib.getRandomColor());
         });
+
+        // Check if page inits with seach value
+        if (self._search_input.val() !== '') {
+            self._process_search_text();
+        } else {
+            self._process_search_text($home_query);
+        }
 
     };
 

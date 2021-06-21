@@ -1,0 +1,32 @@
+/**
+Error module.
+ */
+
+#error-box {
+	background-color: #ffffff;
+	border-radius: 1rem;
+	box-shadow: 0 0 7px 0 rgb(0 0 0 / 24%);
+	font-size: 1rem;
+	margin: 0 auto;
+	max-width: 50%;
+	min-width: 380px;
+	padding: 1em;
+}
+
+@media screen and (max-width: 500px) {
+	#error-box {
+		min-width: fit-content;
+		width: 95%;
+	}
+}
+
+#error-box .error-top {
+	font-size: 2rem;
+	border-bottom: 1px solid red;
+	margin-bottom: 1rem;
+	font-weight: 300;
+}
+
+#error-box .error-top i {
+	margin-right: 1rem;
+}

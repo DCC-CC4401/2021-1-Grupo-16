@@ -20,24 +20,28 @@
 
 {% block body %}
     {% include 'components/header.html' with type='body' %}
-    
+
     <div id="contents">
-    <div class="store-banner">
-            
-            <div class=""><img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/> 
-                 Store name
+        <div class="store-banner">
+            <div class=""><img class="store-image" src="{% static 'media/examples/tienda.png' %}"
+                               alt="Imagen de Tienda"/>
+                {{ store.brand_name }}
             </div>
-                <div class="horizontal-display">
-                    <div class="store-stars">5 Stars</div>
-                    <div class="store-description">Esta es la descripción corta/larga de la tienda</div>
-                    <div class="store-webpage">Esta es la página web de una tienda</div>
-                </div>
+            <script>
+                let $store_img = '{{ store.store_image_profile }}';
+                if (File.isFileImageExtension($store_img)) {
+                    $('.store-image').attr('src', $store_img);
+                }
+            </script>
+            <div class="horizontal-display">
+                <div class="store-stars">{{ store.stars }} Stars</div>
+                <div class="store-description">{{ store.long_description }}</div>
+                <div class="store-webpage"><a href="{{ store.website }}">{{ store.website }}</a></div>
             </div>
-
+        </div>
     </div>
-    </div>
 
-    <div class="products-div">
+    <div id="products" class="products-div">
         <div class="products-banner">
             <div class="recomended-banner">
                 <div class="recommended-text">Recomendados</div>
@@ -46,37 +50,36 @@
         <div class="products-container">
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div> 
+                <div class="product-name">Nombre del producto</div>
                 <div class="product-price">5000$</div>
-            </div> 
+            </div>
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div> 
+                <div class="product-name">Nombre del producto</div>
                 <div class="product-price">6000$</div>
-            </div> 
+            </div>
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div> 
+                <div class="product-name">Nombre del producto</div>
                 <div class="product-price">5000$</div>
-            </div> 
+            </div>
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div> 
+                <div class="product-name">Nombre del producto</div>
                 <div class="product-price">5000$</div>
-            </div> 
+            </div>
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div> 
+                <div class="product-name">Nombre del producto</div>
                 <div class="product-price">5000$</div>
-            </div> 
+            </div>
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div> 
+                <div class="product-name">Nombre del producto</div>
                 <div class="product-price">5000$</div>
-            </div> 
+            </div>
         </div>
     </div>
-
 
     <!-- <div id="search-results-bg"></div> -->
     {% include 'components/footer.html' with type='body' %}

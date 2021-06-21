@@ -103,3 +103,21 @@ String.prototype.replaceMultiple = function ($search, $replacement) {
     return $target.replace(new RegExp($search, 'g'), $replacement);
 
 };
+
+/**
+ * Get an attribute from key
+ * @param $key
+ * @returns {string|null}
+ */
+String.prototype.splitAttrGetKey = function ($key) {
+    let $v = this;
+    let $s = $v.split($key);
+    if ($s.length < 2) {
+        return null;
+    }
+    let $w = $s[1].split('"');
+    if ($w.length < 2) {
+        return null;
+    }
+    return $w[1];
+}

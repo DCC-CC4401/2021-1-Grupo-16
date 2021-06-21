@@ -1,0 +1,33 @@
+{% extends 'root.html' %}
+{% load static %}
+
+{% block title %}
+    Error {{ code }}
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'Bazar/error/error.css' %}" media="screen">
+
+    <script src="{% static 'Bazar/error/error.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+    <div id="contents" class="centered-vertically">
+        <div class="contents-centered-box">
+            <div id="error-box">
+                <div class="error-top"><i class="fas fa-exclamation-triangle"></i> Error {{ code }}</div>
+                <div class="error-content">{{ msg }}</div>
+            </div>
+        </div>
+    </div>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
