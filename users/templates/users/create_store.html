@@ -100,28 +100,28 @@
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Sitio web</div>
-                                <div class="col-sm-8"> {{ store_form.website|add_class:"form-control" }}</div>
+                                <div class="col-sm-8"> {{ store_form.website|add_class:"form-control"|append_attr:"placeholder:website.com" }}</div>
                             </div>
                         </div>
 
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Imagen perfil</div>
-                                <div class="col-sm-8"> {{ store_form.store_image_profile|add_class:"form-control" }}</div>
+                                <div class="col-sm-8"> {{ store_form.store_image_profile|add_class:"form-control"|append_attr:"placeholder:website.com/image_profile.png" }}</div>
                             </div>
                         </div>
 
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Imagen banner</div>
-                                <div class="col-sm-8"> {{ store_form.store_image_banner|add_class:"form-control" }}</div>
+                                <div class="col-sm-8"> {{ store_form.store_image_banner|add_class:"form-control"|append_attr:"placeholder:website.com/image_banner.png" }}</div>
                             </div>
                         </div>
 
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Numero de telefono</div>
-                                <div class="col-sm-8"> {{ store_form.phone_number|add_class:"form-control" }}</div>
+                                <div class="col-sm-8"> {{ store_form.phone_number|add_class:"form-control"|append_attr:"placeholder:+569 12345678" }}</div>
                             </div>
                         </div>
                     </div>

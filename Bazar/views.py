@@ -50,6 +50,13 @@ def generate_username(an_username: str) -> str:
     return a_new_username
 
 
+def error(request: 'HttpRequest', error_code: str, error_msg: str) -> 'HttpResponse':
+    """
+    Throw error.
+    """
+    return render(request, 'Bazar/error.html', {'code': error_code, 'msg': error_msg})
+
+
 def view_home(request: 'HttpRequest') -> 'HttpResponse':
     """
     Home.

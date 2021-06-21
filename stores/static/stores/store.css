@@ -71,10 +71,9 @@
 	display: grid;
 	grid-template-columns: 250px 250px 250px 250px;
 	align-content: center;
-	grid-gap: 100px 80px;
-	margin-left: 10%;
+	grid-gap: 50px 80px;
 	margin-bottom: 10%;
-	margin-top: 5%;
+	margin-top: 2.5%;
 }
 
 @media screen and (max-width: 1350px) {

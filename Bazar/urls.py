@@ -27,6 +27,7 @@ urlpatterns = [
     path('login/', view_login, name="login"),
     path('signup/', view_signup, name="signup"),
     path('logout/', view_logout, name='logout'),
+    path('error/<str:error_code>/<str:error_msg>', error, name='error'),
     path('', include('users.urls')),
     path('', include('stores.urls'))
 ]

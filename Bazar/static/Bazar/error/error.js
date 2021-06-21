@@ -1,22 +1,22 @@
 /**
- STORE
- Stores module.
+ ERROR
+ Error module.
  */
 "use strict";
 
 /**
- * Store module.
+ * Error module.
  *
  * @class
  * @extends {Module}
  */
-function StoreModule() {
+function ErrorModule() {
 
     Module.call(this);
 
     /**
      * Object pointer
-     * @type {StoreModule}
+     * @type {ErrorModule}
      */
     let self = this;
 
@@ -24,23 +24,23 @@ function StoreModule() {
      * Inits the module.
      */
     this.init = function () {
-        app_console.info('Initializing store module');
+        app_console.info('Initializing error module');
 
         // Load DOM objects
         let $contents = $('#contents');
-        let $products = $('#products');
 
         // Init header
-        self.initBasicHeader('{0} — Tienda'.format(self._bazar_main_title));
+        self.initBasicHeader('Error');
         self._header.registerToolPopupCloseElement($contents);
 
+        // Init footer
         self.initBasicFooter();
 
-        // Update contents height to fit window height
-        self.extendDivToMaxHeight($products);
+        // Set the contents max height
+        self.extendDivToMaxHeight($contents);
 
     };
 
 }
 
-app_module.registerModule('store', new StoreModule());
+app_module.registerModule('error', new ErrorModule());

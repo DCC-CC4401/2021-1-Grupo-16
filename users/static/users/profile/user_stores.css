@@ -106,8 +106,8 @@
 
 
 #store-contents .store-image {
-	width: 110px;
-	height: 110px;
+	width: 90px;
+	height: 90px;
 	border-radius: 1rem;
 	margin-right: 15px;
 }
@@ -119,8 +119,8 @@
 }
 
 #store-contents .store-image-config {
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 	border-radius: 1rem;
 	background-color: #ADADAD;
 	padding: 10px;
