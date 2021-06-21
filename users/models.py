@@ -24,7 +24,7 @@ class User(AbstractUser):
 
 class UserAddress(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    alias = models.CharField(max_length=50,  blank=True, null=True)
+    alias = models.CharField(max_length=50, blank=True, null=True)
     region = models.CharField(max_length=50, default="No especificada")
     commune = models.CharField(max_length=50, default="No especificada")
     address = models.CharField(max_length=50, default="No especificado")
@@ -32,6 +32,8 @@ class UserAddress(models.Model):
 
     # OPTIONAL
     shipping_comment = models.CharField(blank=True, max_length=255, null=True)
+
+
 class Administration(models.Model):
     privilege_choices = [
         ('0', "owner"),
