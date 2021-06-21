@@ -106,6 +106,20 @@
 
                         <div class="profile-input-line">
                             <div class="row">
+                                <div class="col-sm-4">Imagen perfil</div>
+                                <div class="col-sm-8"> {{ store_form.store_image_profile|add_class:"form-control" }}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
+                                <div class="col-sm-4">Imagen banner</div>
+                                <div class="col-sm-8"> {{ store_form.store_image_banner|add_class:"form-control" }}</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-input-line">
+                            <div class="row">
                                 <div class="col-sm-4">Numero de telefono</div>
                                 <div class="col-sm-8"> {{ store_form.phone_number|add_class:"form-control" }}</div>
                             </div>
@@ -164,7 +178,7 @@
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
-                                <div class="col-sm-4">Numero de Casa/Departamento/Oficina</div>
+                                <div class="col-sm-4">Nº de Casa / Dpto. / Of.</div>
                                 <div class="col-sm-8"> {{ store_form.address_number|add_class:"form-control" }}</div>
                             </div>
                         </div>

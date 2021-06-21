@@ -12,6 +12,8 @@ class Store(models.Model):
     short_description = models.CharField(max_length=255)
     long_description = models.CharField(max_length=4000)
     website = models.CharField(max_length=200)
+    store_image_profile = models.CharField(max_length=500)
+    store_image_banner = models.CharField(max_length=500)
 
     # TODO: create validation functions for phone_number 
     phone_number = models.CharField(max_length=20)

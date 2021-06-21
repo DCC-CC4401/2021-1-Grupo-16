@@ -11,6 +11,8 @@ class StoreForm(forms.ModelForm):
             'short_description',
             'long_description',
             'website',
+            'store_image_profile',
+            'store_image_banner',
             'phone_number',
             'region',
             'commune',

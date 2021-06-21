@@ -26,12 +26,12 @@ def edit_uprofile(request: 'HttpRequest') -> 'HttpResponse':
         if u_form.is_valid() and address_form.is_valid():  # VALIDAMOS
             u_form.save()  # GUARDAMOS EN LA BASE DE DATOS
 
-            region = request.POST["region"]
-            commune = request.POST["commune"]
+            region = request.POST['region']
+            commune = request.POST['commune']
             address_form.commune = commune  # Care, strange formulas in select option
             address_form.region = region
             address_form.save()
-            return redirect('/uprofile/')  # REDIRIGIMOS #TENER UN PROFIEL WITHOUT EDIT PLS
+            return redirect('/uprofile/')  # REDIRIGIMOS #TENER UN PROFILE WITHOUT EDIT PLS
     else:
         u_form = UserUpdateForm(instance=request.user)  # PRE-LLENAMOS LOS DATOS DEL USUARIO
         address_form = UserAddressUpdateForm(instance=address)
@@ -83,6 +83,7 @@ def create_ustore(request: 'HttpRequest') -> 'HttpResponse':
             adm = Administration(user=a_user, store=a_store, privilege_level=a_privilege_lvl)
             adm.save()
             return redirect('/ustores/')
+
     else:
         store_form = StoreForm()
         context = {

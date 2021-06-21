@@ -44,7 +44,7 @@ def edit_sprofile(request: 'HttpRequest', store_index: 'int') -> 'HttpResponse':
             return redirect('/sprofile/{0}/'.format(str(store_index)))
 
     else:
-        s_form = StoreForm()
+        s_form = StoreForm(instance=a_store)
         context = {
             'store': a_store,
             'store_index': store_index,
