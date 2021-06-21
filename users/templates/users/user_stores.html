@@ -72,12 +72,12 @@
                     Crear una nueva tienda
                 </a>
                     <p>        
-                    {% for tienda in user_stores%}
+                    {% for store_index, store in user_stores%}
                         <div class="display-store-style"> 
-                            <div> <img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/>  {{tienda.brand_name}}</div>                           
+                            <div> <img class="store-image" src="{% static 'media/examples/tienda.png' %}" alt="Imagen de Tienda"/>  {{store.brand_name}}</div>                           
                             <div class="display-store-title"> </div>
                             <div>
-                                <a href="http://127.0.0.1:8000/ustores/createstore">
+                                <a href="http://127.0.0.1:8000/sprofile/{{store_index}}">
                                     <img class="store-image-config" src="{% static 'media/examples/ajustes.png' %}" alt="Imagen de Tienda"/>
                                 </a>
                             </div>

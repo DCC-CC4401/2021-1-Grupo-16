@@ -1,0 +1,84 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Profile
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'stores/profile/profile.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'stores/profile/user_stores.css' %}" media="screen">
+
+    <script src="{% static 'stores/profile/profile.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+<form method="post">
+    {% csrf_token %}
+    <div id="contents">
+        <div class="row no-margin">
+            <div class="col-3" id="menu-left-container">
+                <div class="menu-left-table">
+                    <div class="menu-centered">
+                        <div id="profile-menu">
+                            <div class="menu-header">
+                                <div class="menu-header-image">
+                                    <img src="{% static 'media/examples/store-image.png' %}" alt="Avatar de Usuario"/>
+                                </div>
+                                <div class="menu-header-title name-full">
+                                    {{store.brand_name}}
+                                </div>
+                                <div class="menu-header-title name-abbv"> 
+                                    Nombre C.
+                                </div>
+                            </div>
+                            <div class="menu-options">
+                                <a href="http://127.0.0.1:8000/sprofile/{{store_index}}" style="text-decoration:none;">
+                                <div class="menu-item item-active">
+                                    <i class="fas fa-info-circle"></i><span>Información principal</span>
+                                </div>
+                                </a>
+                                <div class="menu-item">
+                                    <i class="fas fa-database"></i><span>Datos adicionales</span>
+                                </div>
+                                <a href="http://127.0.0.1:8000/sinventory/{{store_index}}" style="text-decoration:none;">
+                                <div class="menu-item item-active">
+                                    <i class="fas fa-store"></i><span>Mis Productos</span>
+                                </div>
+                                </a>
+                                <div class="menu-item">
+                                    <i class="fas fa-shopping-cart"></i><span>Mis Vistas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9" id="store-contents">
+                <h1>Inventario Tienda:</h1>
+                <a href="http://127.0.0.1:8000/sinventory/addproduct/{{store_index}}">
+                    <p>Agregar un nuevo producto.</p>
+                </a>
+                <ul>
+                    {% for p in store_inventory%}
+                        <li>{{p.product_name}}</li>
+                    {% empty %}
+                        <p>Ups! no tienes productos</p>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}

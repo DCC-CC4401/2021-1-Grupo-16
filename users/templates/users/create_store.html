@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'users/profile/profile.css' %}" media="screen">
     <link rel="stylesheet" type="text/css" href="{% static 'users/profile/user_stores.css' %}" media="screen">
 
+    <script src="{% static 'users/profile/cargarComuna.js' %}"></script>
     <script src="{% static 'users/profile/profile.js' %}"></script>
 
     {% comment %} Import components templates {% endcomment %}
@@ -43,9 +44,11 @@
                                 </div>
                             </div>
                             <div class="menu-options">
+                                <a href="http://127.0.0.1:8000/uprofile" style="text-decoration:none;">
                                 <div class="menu-item item-active">
                                     <i class="fas fa-info-circle"></i> <span>Información principal</span>
                                 </div>
+                                </a>
                                 <div class="menu-item">
                                     <i class="fas fa-database"></i> <span>Datos adicionales</span>
                                 </div>
@@ -64,7 +67,7 @@
             </div>
             <div class="col-9" id="store-contents">
                 <div class="profile-group">
-                    <div class="profile-title"><i class="far fa-user-circle"></i> Direccion Tienda</div>
+                    <div class="profile-title"><i class="far fa-user-circle"></i>Datos de la Tienda</div>
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Nombre comercial</div>
@@ -108,41 +111,64 @@
                         </div>
                 </div>
                 <div class="profile-group">
-                    <div class="profile-title"><i class="far fa-compass"></i> Datos Tienda</div>
+                    <div class="profile-title"><i class="far fa-compass"></i>Direccion de la Tienda</div>
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Region</div>
-                                <div class="col-sm-8"> {{store_form.region|add_class:"form-control"}}</div>
+                                <div class="col-sm-8">
+                                <select name="region" id="region" class="form-control" onchange="cargarComunas()"  required="required">
+                                    <option value="" disabled selected hidden>Seleccione región</option>
+                                    <option value="Arica y Parinacota">Arica y Parinacota</option>
+                                    <option value="Tarapacá">Tarapacá</option>
+                                    <option value="Antofagasta">Antofagasta</option>
+                                    <option value="Atacama">Atacama</option>
+                                    <option value="Coquimbo">Coquimbo</option>
+                                    <option value="Valparaíso">Valparaíso </option>
+                                    <option value="RM">RM</option>
+                                    <option value="Libertador Gral. Bernardo O’Higgins">Libertador Gral. Bernardo O’Higgins</option>
+                                    <option value="Maule">Maule</option>
+                                    <option value="Ñuble">Ñuble</option>
+                                    <option value="Biobío">Biobío</option>
+                                    <option value="Araucanía"> Araucanía</option>
+                                    <option value="Los Ríos">Los Ríos</option>
+                                    <option value="Los Lagos">Los Lagos </option>
+                                    <option value="Aisén del Gral. Carlos Ibáñez del Campo"> Aisén del Gral. Carlos Ibáñez del Campo </option>
+                                    <option value="Magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option>
+                                </select>
+                                </div>
                             </div>
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Comuna</div>
-                                <div class="col-sm-8"> {{store_form.commune|add_class:"form-control"}}</div>
+                                <div class="col-sm-8">
+                                    <select name="commune" id="commune" class="form-control" required="required">
+                                        <option value="" disabled selected hidden>Seleccione comuna</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
-                                <div class="col-sm-4">Calle</div>
-                                <div class="col-sm-8"> {{store_form.road|add_class:"form-control"}}</div>
+                                <div class="col-sm-4">Dirección</div>
+                                <div class="col-sm-8"> {{store_form.address|add_class:"form-control"}}</div>
                             </div>
                         </div>
                         <div class="profile-input-line">
                             <div class="row">
-                                <div class="col-sm-4">Numero de edificio</div>
+                                <div class="col-sm-4">Numero de Casa/Departamento/Oficina</div>
                                 <div class="col-sm-8"> {{store_form.address_number|add_class:"form-control"}}</div>
-                            </div>
-                        </div>
-                        <div class="profile-input-line">
-                            <div class="row">
-                                <div class="col-sm-4">Numero de oficina</div>
-                                <div class="col-sm-8"> {{store_form.apartament_number|add_class:"form-control"}}</div>
                             </div>
                         </div>
                 </div>
                 <div class="profile-group group-buttons">
                     <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                    <button type="button" class="btn btn-secondary">Deshacer cambios</button>
+                    <button type="button" class="btn btn-secondary" id="dismiss">Deshacer cambios</button>
+                    <script type="text/javascript">
+                        document.getElementById("dismiss").onclick = function () {
+                            location.href = "http://127.0.0.1:8000/ustores";
+                        };
+                    </script>
                 </div>
             </div>
         </div>
