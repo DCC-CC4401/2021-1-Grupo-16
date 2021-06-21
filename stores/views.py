@@ -4,6 +4,7 @@ from users.models import *
 from django.http import HttpResponse, HttpRequest
 from stores.models import *
 from django.db.models import QuerySet
+import json
 
 
 # Create your views here.
@@ -12,8 +13,9 @@ def view_store(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
     Store front.
     """
     administration_info: 'QuerySet' = Administration.objects.filter(user_id=request.user)
+    # Load products
     try:
-        a_store = administration_info[store_index].store
+        a_store: 'Store' = administration_info[store_index].store
     except IndexError:
         return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
     context = {
@@ -116,4 +118,15 @@ def search_store(request: 'HttpRequest', query: str) -> 'HttpResponse':
     # Search all stories
     query = str(query)
     by_name: 'QuerySet' = Store.objects.filter(brand_name__icontains=query)
-    return HttpResponse(by_name.values())
+    results = {}
+    i = 0
+    k = ('id', 'brand_name', 'store_image_profile', 'region', 'commune', 'stars',
+         'short_description', 'long_description')
+    for v in by_name.values():
+        m = {}
+        for j in k:
+            m[j] = v[j]
+        results[i] = m
+        i += 1
+
+    return HttpResponse(json.dumps(results))

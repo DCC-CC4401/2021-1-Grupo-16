@@ -87,6 +87,6 @@ def create_ustore(request: 'HttpRequest') -> 'HttpResponse':
     else:
         store_form = StoreForm()
         context = {
-            'store_form': store_form,
+            'store_form': store_form
         }
         return render(request, 'users/create_store.html', context)
