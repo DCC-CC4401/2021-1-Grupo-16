@@ -5,6 +5,7 @@ from django.http import HttpResponse, HttpRequest
 from stores.models import *
 from django.db.models import QuerySet
 import json
+import random
 
 
 # Create your views here.
@@ -118,9 +119,11 @@ def add_product(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
 def search_store(request: 'HttpRequest', query: str) -> 'HttpResponse':
     # Search all stories
     query = str(query)
+    if query == '__SEACH_ALL_HOME__':
+        query = ''
     by_name: 'QuerySet' = Store.objects.filter(brand_name__icontains=query)
     results = {}
-    i = 0
+    i = 0 if query != '' else random.randint(-100000, 1000000)
     k = ('id', 'brand_name', 'store_image_profile', 'region', 'commune', 'stars',
          'short_description', 'long_description')
     for v in by_name.values():
@@ -128,6 +131,9 @@ def search_store(request: 'HttpRequest', query: str) -> 'HttpResponse':
         for j in k:
             m[j] = v[j]
         results[i] = m
-        i += 1
+        if query == '':
+            i += random.randint(-100000, 1000000)
+        else:
+            i += 1
 
     return HttpResponse(json.dumps(results))

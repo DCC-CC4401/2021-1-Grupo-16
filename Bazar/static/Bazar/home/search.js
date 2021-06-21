@@ -47,6 +47,12 @@ function HomeModuleSearchComponent() {
     this._contents_initial_height = 0;
 
     /**
+     * Stores the home query key
+     * @type {string}
+     */
+    const $home_query = '__SEACH_ALL_HOME__';
+
+    /**
      * Input hover color if user has the context.
      *
      * @private
@@ -199,16 +205,22 @@ function HomeModuleSearchComponent() {
     /**
      * This function process the input text from the search box.
      *
+     * @param {string=} $query - Accepts query text, if null gets from the input text
      * @private
      */
-    this._process_search_text = function () {
-        let $query = self._search_input.val();
+    this._process_search_text = function ($query) {
+        if ($query !== $home_query) {
+            $query = self._search_input.val();
+        }
         let $query_sanitized = escape($query); // TODO
-        if ($query.length < 2) return;
+        if ($query.length < 2) {
+            return self._process_search_text($home_query);
+        }
         ajaxPostDataString('http://127.0.0.1:8000/store/search/{0}'.format($query_sanitized), 'get',
             '',
             ($data) => {
                 let $keys = Object.keys($data);
+                $keys.sort();
                 self._results_box.empty();
                 if ($keys.length === 0) {
                     self._results_box.append(`
@@ -217,7 +229,6 @@ function HomeModuleSearchComponent() {
                     `)
                 } else {
                     for (let $i = 0; $i < $keys.length; $i++) {
-                        console.warn($data[$keys[$i]])
                         self._write_search_result($data[$keys[$i]], $i);
                     }
                 }
@@ -271,6 +282,13 @@ function HomeModuleSearchComponent() {
         $('#search-box-last-queries span').each(function () {
             $(this).css('background-color', ColorLib.getRandomColor());
         });
+
+        // Check if page inits with seach value
+        if (self._search_input.val() !== '') {
+            self._process_search_text();
+        } else {
+            self._process_search_text($home_query);
+        }
 
     };
 

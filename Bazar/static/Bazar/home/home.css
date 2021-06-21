@@ -97,6 +97,7 @@ Last search elements
 	line-height: 2rem;
 	overflow: hidden;
 	padding-top: 0.8rem;
+	display: none;
 }
 
 #search-box-last-queries span {
