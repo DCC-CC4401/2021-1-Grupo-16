@@ -1,7 +1,17 @@
-from stores.models import Inventory
 from stores.forms import *
 from django.shortcuts import redirect, render
 from users.models import *
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
+from django.utils import timezone
+from datetime import date
+from stores.models import *
+
+# Create your views here.
+def view_store(request: 'HttpRequest') -> 'HttpResponse':
+    """
+    Store front.
+    """  
+    return render(request, 'stores/storefront.html', {})
 
 def view_sprofile(request: 'HttpRequest', store_index: 'int') -> 'HttpResponse':
     """
@@ -19,7 +29,6 @@ def edit_sprofile(request: 'HttpRequest', store_index: 'int') -> 'HttpResponse':
     """
     Edit Profile.
     """
-    
     administration_info = Administration.objects.filter(user_id=request.user)
     a_store = administration_info[store_index].store
 

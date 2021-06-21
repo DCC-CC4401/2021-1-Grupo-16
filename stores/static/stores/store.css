@@ -1,0 +1,136 @@
+#image-banner{
+    background-image: url(https://i.ibb.co/xjymngd/stock-photo-panoramic-crop-young-woman-holding.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+     
+}
+.store-banner {
+    
+    font-family:Arial, sans-serif;
+    color: white;
+    font-size: 50px;
+    padding: 30px;
+    font:bolder;
+ 
+}
+
+.store-banner .store-image{
+
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.horizontal-display{
+    display: grid;
+    grid-template-columns: auto auto auto;  
+}
+
+.store-banner .store-stars {
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-left: 15px;
+    font-weight: bolder;
+
+}
+
+.store-banner .store-description {
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-left: 30%;
+
+}
+
+.store-banner .store-webpage {
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin-left: 30%;
+
+}
+
+.products-div{
+    margin-top: 3%;
+    margin-left: 8%;
+    margin-right: 8%;
+
+}
+
+.products-div .products-banner{
+    background-color: #b19cd9;
+
+}
+
+.products-div .products-banner .recomended-banner{
+    
+    background-color: plum;
+    margin-right: 80%;
+}
+
+.products-div .products-banner .recomended-banner .recommended-text{
+    margin-left: 30px;
+    font-size: 30px;
+    color: white;
+}
+
+.products-div .products-container{
+
+    display: grid;
+    grid-template-columns: 250px 250px 250px 250px;
+    align-content: center;
+    grid-gap: 100px 80px;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    
+}
+
+@media screen and (max-width: 1350px) {
+	.products-div .products-container{
+		grid-template-columns: auto auto auto;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.products-div .products-container{
+		grid-template-columns: auto auto;
+	}
+}
+
+.products-div .products-container .product{
+    display: grid;
+    margin-top: 10%;
+    font-size: 20px;    
+}
+
+.products-div .products-container .product:hover{
+    cursor: pointer;
+    box-shadow:2px 2px 6px gray;
+ 
+}
+
+.products-div .products-container .product .product-image{
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.products-div .products-container .product .product-name{
+    text-align: center;
+}
+
+.products-div .products-container .product .product-price{
+    text-align: center;
+}
+
+
+
+
