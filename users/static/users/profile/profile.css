@@ -94,9 +94,12 @@ Profile module.
 	padding-top: 1rem;
 }
 
+#profile-menu .menu-options a {
+	text-decoration: none;
+}
+
 #profile-menu .menu-options .menu-item {
 	color: #b9b9b9;
-	cursor: pointer;
 	font-size: 1.2rem;
 	padding-bottom: 0.5rem;
 }
@@ -116,6 +119,7 @@ Profile module.
 
 #profile-menu .menu-options .menu-item.item-active {
 	color: #ffffff;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 750px) {

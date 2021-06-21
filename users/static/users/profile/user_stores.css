@@ -92,7 +92,7 @@
 
 #store-contents .display-store-style {
 	display: grid;
-	grid-template-columns: auto auto 120px;
+	grid-template-columns: auto 120px;
 	border-radius: 25px;
 	background: #DEDEDE;
 	padding: 10px;
