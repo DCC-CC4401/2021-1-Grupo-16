@@ -48,11 +48,14 @@
             </div>
         </div>
         <div class="products-container">
+            {% for p in store_inventory %}
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div>
-                <div class="product-price">5000$</div>
+                <div class="product-name">{{p.product_name}}</div>
+                <div class="product-price">{{p.price}}$</div>
             </div>
+            {% endfor %}
+            <!--
             <div class="product">
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
                 <div class="product-name">Nombre del producto</div>
@@ -77,7 +80,7 @@
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
                 <div class="product-name">Nombre del producto</div>
                 <div class="product-price">5000$</div>
-            </div>
+            </div> -->
         </div>
     </div>
 
