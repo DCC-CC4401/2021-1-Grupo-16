@@ -88,14 +88,10 @@ def view_sinventory(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
         return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
     inventory_instances = Inventory.objects.filter(store_id=a_store)
     store_inventory = [i.product for i in inventory_instances]
-    product_index = [k for k in range(0, len(store_inventory))]
-    for instance in inventory_instances:
-        product_index_global.append(instance.product.id)
-
     context = {
         'store': a_store,
         'store_index': store_index,
-        'products': list(zip(store_inventory, product_index, product_index_global))
+        'products': store_inventory
     }
     return render(request, 'stores/store_inventory.html', context)
 
@@ -117,6 +113,7 @@ def view_sproduct(request: 'HttpRequest',store_index: int, product_index: int):
     else:
         p_form = ProductForm(instance=a_product)
         context = {
+            'store_index' : store_index,
             'product': a_product,
             'product_index': product_index,
             'product_form': p_form

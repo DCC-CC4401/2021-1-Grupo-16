@@ -82,7 +82,7 @@
                         <p>Agregar producto</p>
                     </a>
                     <p>
-                    {% for store_inventory, product_index, product_index_global in products %}
+                    {% for store_inventory in products %}
                     <div class="display-store-style">
                         <div>
                             <img class="store-image" src="{% static 'media/examples/caja.png' %}"
@@ -90,7 +90,7 @@
                             {{ store_inventory.product_name }}
                         </div>
                         <div>
-                            <a href="http://127.0.0.1:8000/sinventory/product/{{ store_index }}/{{product_index_global}}">
+                            <a href="http://127.0.0.1:8000/sinventory/product/{{ store_index }}/{{store_inventory.id}}">
                                 <img class="store-image-config" src="{% static 'media/examples/ajustes.png' %}"
                                     alt="Imagen de Tienda"/>
                             </a>
