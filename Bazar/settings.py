@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'stores',
     'users',
-    'widget_tweaks'
+    'widget_tweaks',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -63,7 +64,8 @@ TEMPLATES = [
             'Bazar/templates',
             'static/templates',
             'stores/templates',
-            'users/templates'
+            'users/templates',
+            'cart/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -134,5 +136,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
     os.path.join(BASE_DIR, 'Bazar/static/'),
     os.path.join(BASE_DIR, 'stores/static/'),
-    os.path.join(BASE_DIR, 'users/static/')
+    os.path.join(BASE_DIR, 'users/static/'),
+    os.path.join(BASE_DIR, 'cart/static/')
 ]

@@ -53,6 +53,7 @@
                 <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
                 <div class="product-name">{{p.product_name}}</div>
                 <div class="product-price">{{p.price}}$</div>
+                <button data-product="{{p.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Agregar al carro</button>
             </div>
             {% endfor %}
             <!--
