@@ -11,8 +11,10 @@
     {% comment %} Import module libraries {% endcomment %}
     <!--suppress HtmlFormInputWithoutLabel -->
     <link rel="stylesheet" type="text/css" href="{% static 'cart.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'ccviewer/card.css' %}" media="screen">
 
     <script src="{% static 'cart.js' %}"></script>
+    <script src="{% static 'ccviewer/jquery.card.js' %}"></script>
 
     {% comment %} Import components templates {% endcomment %}
     {% include 'components/header.html' with type='head' %}
@@ -90,10 +92,11 @@
                                 <br>
                                 <table class="table">
                                     <tr>
-                                        <th><h5>Items: <strong>1</strong></h5></th>
-                                        <th><h5>Total: <strong>$50000</strong></h5></th>
+                                        <th><h5>Items: <strong id="cart_total"></strong></h5></th>
+                                        <th><h5>Total: <strong id="cart_value"></strong></h5></th>
                                         <th>
-                                            <a style="float:right; margin:5px;" class="btn btn-success">Checkout</a>
+                                            <a style="float:right; margin:5px;" class="btn btn-success"
+                                               id="checkout_button">Checkout</a>
                                         </th>
                                     </tr>
                                 </table>
@@ -101,24 +104,55 @@
                             </div>
 
                             <br>
-                            <div class="box-element">
+                            <div class="box-element" id="cart-items">
                                 <div class="cart-row">
                                     <div style="flex:2"><strong>Item</strong></div>
-                                    <div style="flex:1"><strong>Price</strong></div>
-                                    <div style="flex:1"><strong>Quantity</strong></div>
+                                    <div style="flex:1"><strong>Cantidad</strong></div>
+                                    <div style="flex:1"><strong>Precio</strong></div>
                                 </div>
-
-                                <div class="cart-row">
-                                    <div style="flex:2"><p>Mario 64</p></div>
-                                    <div style="flex:1"><p>$50000</p></div>
-                                    <div style="flex:1">
-                                        <p class="quantity">1</p>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
-
+                        <script>
+                            $(function () {
+                                app_cart.cart_init();
+                            });
+                            $('#checkout_button').on('click', function () {
+                                let $cardid = generateID();
+                                let $total = $('#cart_value').html();
+                                app_dialog.form('Checkout',
+                                    `
+                                <div class="cart-summary"></div>
+                                <br>
+                                <div class="card-wrapper"></div>
+                                <br>
+                                <div class="form-container active">
+                                  <form action="" id="${$cardid}">
+                                    <input placeholder="Card number" type="tel" name="number" class="form-control unknown jp-card-invalid">
+                                    <input placeholder="Full name" type="text" name="name" class="form-control jp-card-invalid">
+                                    <input placeholder="MM/YY" type="tel" name="expiry" class="form-control jp-card-valid" style="width: 50%; display:inline-block">
+                                    <input placeholder="CVC" type="number" name="cvc" class="form-control jp-card-valid" style="width: 50%">
+                                  </form>
+                                </div>
+                                `,
+                                    function () {
+                                    },
+                                    null,
+                                    {
+                                        size: app_dialog.options.size.LARGE,
+                                        submitText: 'Pagar'
+                                    }
+                                );
+                                setTimeout(function () {
+                                    $('#' + $cardid).card({
+                                        container: '.card-wrapper',
+                                    });
+                                    $('.cart-summary').html(`
+                                    Ingrese su CC para pagar el total de $${$total}.
+                                    La boleta electrónica será enviada a su correo <i>{{ user.email }}</i>
+                                    `);
+                                }, 200);
+                            });
+                        </script>
                     </div>
                 </div>
             </div>

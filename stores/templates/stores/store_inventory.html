@@ -86,7 +86,7 @@
                     <div class="display-store-style">
                         <div>
                             <img class="store-image" src="{% static 'media/examples/caja.png' %}"
-                                    alt="Imagen de Producto"/>
+                                    alt="Imagen de Producto" id="img_item_{{ store_inventory.id }}"/>
                             {{ store_inventory.product_name }}
                         </div>
                         <div>
@@ -101,6 +101,26 @@
                     {% endfor %}
                     </p>
                 </div>
+                <script>
+                    /*
+                    Establece las imágenes
+                     */
+                    let imgs = [
+                        {% for store_inventory in products %}
+                            '{{ store_inventory.product_image }}',
+                        {% endfor %}
+                    ];
+                    let ids = [
+                        {% for store_inventory in products %}
+                            '#img_item_{{ store_inventory.id }}',
+                        {% endfor %}
+                    ];
+                    for (let $i = 0; $i < imgs.length; $i++) {
+                        if (File.isFileImageExtension(imgs[$i])) {
+                            $(ids[$i]).attr('src', imgs[$i]);
+                        }
+                    }
+                </script>
             </div>
         </div>
     </form>

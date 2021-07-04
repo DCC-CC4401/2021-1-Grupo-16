@@ -68,6 +68,63 @@ function BazarCart() {
         self.save();
     };
 
+    /**
+     * Group similar items by name.
+     *
+     * @private
+     * @return item dict
+     */
+    this._group_items = function () {
+        let $items = {};
+        let $k = Object.keys(self._cart);
+        for (let $i = 0; $i < $k.length; $i++) {
+            let $j = self._cart[$k[$i]]; // Get the item
+            if (!$items.hasOwnProperty($j.name)) {
+                $items[$j.name] = {
+                    'quantity': 1,
+                    'price': $j.price
+                }
+            } else {
+                $items[$j.name].quantity += 1;
+            }
+        }
+        return $items;
+    };
+
+    /**
+     * Inits cart object.
+     */
+    this.cart_init = function () {
+        let $c = self._group_items();
+        let $k = Object.keys($c);
+        let $cart_items_box = $('#cart-items');
+        let $total = 0;
+        let $items = 0;
+
+        // Add items
+        for (let $i = 0; $i < $k.length; $i++) {
+            let $obj = $c[$k[$i]];
+            let $t = $obj.price * $obj.quantity; // total pricew
+            $cart_items_box.append(`
+            <div class="cart-row">
+                <div style="flex:2"><p>${$k[$i]}</p></div>
+                <div style="flex:1"><p>${$obj.quantity}</p></div>
+                <div style="flex:1"><p class="quantity">$${$t}</p></div>
+            </div>`);
+            $items += $obj.quantity;
+            $total += $t;
+        }
+
+        // If empty
+        if ($items === 0){
+            $cart_items_box.append('<div class="empty-item">El carrito está vacío <i class="fas fa-luggage-cart"></i></div>')
+        }
+
+        // Change overall description
+        $('#cart_total').html($items);
+        $('#cart_value').html($total);
+    };
+
 }
 
 /**

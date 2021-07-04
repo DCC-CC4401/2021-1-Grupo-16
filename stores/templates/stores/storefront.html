@@ -78,7 +78,9 @@
                     {% endfor %}
                 ];
                 for (let $i = 0; $i < imgs.length; $i++) {
-                    $(ids[$i] + ' .product-image').attr('src', imgs[$i]);
+                    if (File.isFileImageExtension(imgs[$i])) {
+                        $(ids[$i] + ' .product-image').attr('src', imgs[$i]);
+                    }
                 }
 
                 /*
