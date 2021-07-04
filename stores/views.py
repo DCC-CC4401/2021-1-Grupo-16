@@ -78,7 +78,7 @@ def edit_sprofile(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
 
 
 def view_sinventory(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
-    # TODO: VERY IMPORTANT PLEASE FIX. SECURITY FAIL BECAUSE GLOBAL INDEX ALLOW TO EVERYONE CAN EDIT.
+    # TODO: VERY IMPORTANT PLEASE FIX. SECURITY FAIL BECAUSE GLOBAL INDEX ALLOW TO EVERYONE CAN EDIT
     administration_info = Administration.objects.filter(user_id=request.user)
 
     try:
@@ -96,7 +96,7 @@ def view_sinventory(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
 
 
 def view_sproduct(request: 'HttpRequest', store_index: int, product_index: int):
-    inventory_info = Inventory.objects.filter(product_id=product_index)
+    store_products = Inventory.objects.filter(store_id=store_index)
     administration_info = Administration.objects.filter(user_id=request.user)
 
     try:
@@ -104,11 +104,18 @@ def view_sproduct(request: 'HttpRequest', store_index: int, product_index: int):
     except IndexError:
         return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
 
-    # try:
-    a_product = inventory_info[store_index].product
+    inventory_instances = Inventory.objects.filter(store_id=a_store)
 
-    # except IndexError:
-    #   return redirect('/error/UNKNOWN_PRODUCT/Producto solicitado no existe')
+    # try:
+    a_product = None
+    iii = [i.product for i in inventory_instances]
+    for product in inventory_instances:
+        if product.id == product_index:
+            a_product = product.product
+            break
+
+    if a_product is None:
+        return redirect('/error/UNKNOWN_PRODUCT/Producto solicitado no existe')
 
     if request.method == 'POST':
         p_form = ProductForm(request.POST, instance=a_product)

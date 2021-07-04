@@ -34,7 +34,7 @@
                 }
             </script>
             <div class="horizontal-display">
-                <div class="store-stars">{{ store.stars }} Stars</div>
+                <div class="store-stars">{{ store.stars }} <i class="fas fa-star"></i></div>
                 <div class="store-description">{{ store.long_description }}</div>
                 <div class="store-webpage"><a href="{{ store.website }}">{{ store.website }}</a></div>
             </div>
@@ -99,8 +99,13 @@
                                     app_cart.add_item($name, $product.attr('data-price'));
                                 }
                                 app_cart.save();
-                                app_dialog.success('Producto añadido!', 'Producto añadido al carro de manera satisfactoria');
-                            }, null);
+                                app_dialog.success(
+                                    'Producto añadido!',
+                                    'Producto añadido al carro de manera satisfactoria.', {});
+                            }, null,
+                            {
+                                submitText: 'Añadir al carrito'
+                            });
                     });
                 }
             </script>
