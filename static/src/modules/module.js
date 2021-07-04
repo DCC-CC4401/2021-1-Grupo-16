@@ -32,7 +32,7 @@ function Module() {
      * @type {string}
      * @protected
      */
-    this._bazar_main_title = '<span style="font-family: serif;">Bazar</span>';
+    this._bazar_main_title = '<span style="font-family:serif;" class="linkbazar"><a href="http://127.0.0.1:8000/home/">Bazar</a></span>';
 
     /**
      * This function inits a simple header.

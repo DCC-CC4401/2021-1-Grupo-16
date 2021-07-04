@@ -17,7 +17,7 @@ def view_store(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
     try:
         a_store: 'QuerySet' = Store.objects.filter(id=store_index)
         product_id = Inventory.objects.filter(store_id=store_index)
-        #inventory_instances = Inventory.objects.filter(store_id=a_store)
+        # inventory_instances = Inventory.objects.filter(store_id=a_store)
         store_inventory = [i.product for i in product_id]
     except IndexError:
         return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
@@ -26,7 +26,7 @@ def view_store(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
     context = {
         'store': a_store[0],
         'store_index': store_index,
-        'store_inventory' : store_inventory
+        'store_inventory': store_inventory
     }
     return render(request, 'stores/storefront.html', context)
 
@@ -78,10 +78,9 @@ def edit_sprofile(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
 
 
 def view_sinventory(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
-    #TODO: VERY IMPORTANT PLEASE FIX. SECURITY FAIL BECAUSE GLOBAL INDEX ALLOW TO EVERYONE CAN EDIT.
+    # TODO: VERY IMPORTANT PLEASE FIX. SECURITY FAIL BECAUSE GLOBAL INDEX ALLOW TO EVERYONE CAN EDIT.
     administration_info = Administration.objects.filter(user_id=request.user)
-    product_index_global = []
-    
+
     try:
         a_store = administration_info[store_index].store
     except IndexError:
@@ -95,14 +94,21 @@ def view_sinventory(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
     }
     return render(request, 'stores/store_inventory.html', context)
 
-def view_sproduct(request: 'HttpRequest',store_index: int, product_index: int):
+
+def view_sproduct(request: 'HttpRequest', store_index: int, product_index: int):
     inventory_info = Inventory.objects.filter(product_id=product_index)
-    
-    #try:
+    administration_info = Administration.objects.filter(user_id=request.user)
+
+    try:
+        a_store = administration_info[store_index].store
+    except IndexError:
+        return redirect('/error/UNKNOWN_STORE/Tienda solicitada no existe')
+
+    # try:
     a_product = inventory_info[store_index].product
-    
-    #except IndexError:
-     #   return redirect('/error/UNKNOWN_PRODUCT/Producto solicitado no existe')
+
+    # except IndexError:
+    #   return redirect('/error/UNKNOWN_PRODUCT/Producto solicitado no existe')
 
     if request.method == 'POST':
         p_form = ProductForm(request.POST, instance=a_product)
@@ -113,15 +119,14 @@ def view_sproduct(request: 'HttpRequest',store_index: int, product_index: int):
     else:
         p_form = ProductForm(instance=a_product)
         context = {
-            'store_index' : store_index,
+            'store': a_store,
+            'store_index': store_index,
             'product': a_product,
             'product_index': product_index,
             'product_form': p_form
         }
         return render(request, 'stores/edit_product.html', context)
-    
 
-    
 
 def add_product(request: 'HttpRequest', store_index: int) -> 'HttpResponse':
     administration_info = Administration.objects.filter(user_id=request.user)

@@ -105,14 +105,14 @@
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Imagen perfil</div>
-                                <div class="col-sm-8">{{ store_form.store_image_profile|add_class:"form-control" }}</div>
+                                <div class="col-sm-8">{{ store_form.store_image_profile|add_class:"form-control"|attr:"placeholder:https://example.com/image.jpg" }}</div>
                             </div>
                         </div>
 
                         <div class="profile-input-line">
                             <div class="row">
                                 <div class="col-sm-4">Imagen banner</div>
-                                <div class="col-sm-8">{{ store_form.store_image_banner|add_class:"form-control" }}</div>
+                                <div class="col-sm-8">{{ store_form.store_image_banner|add_class:"form-control"|attr:"placeholder:https://example.com/image.jpg" }}</div>
                             </div>
                         </div>
 

@@ -49,39 +49,35 @@
         </div>
         <div class="products-container">
             {% for p in store_inventory %}
-            <div class="product">
-                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">{{p.product_name}}</div>
-                <div class="product-price">{{p.price}}$</div>
-                <button data-product="{{p.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Agregar al carro</button>
-            </div>
+                <div class="product">
+                    <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"
+                         id="product_{{ p.id }}"/>
+                    <div class="product-name">{{ p.product_name }}</div>
+                    <div class="product-price">{{ p.price }}$</div>
+                    <button data-product="{{ p.id }}" data-action="add"
+                            class="btn btn-outline-secondary add-btn update-cart">Agregar al carro
+                    </button>
+                </div>
+            {% empty %}
+                <div class="empty-items">
+                    Ups! Esta tienda no tiene items para vender <i class="far fa-sad-tear"></i>
+                </div>
             {% endfor %}
-            <!--
-            <div class="product">
-                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div>
-                <div class="product-price">6000$</div>
-            </div>
-            <div class="product">
-                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div>
-                <div class="product-price">5000$</div>
-            </div>
-            <div class="product">
-                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div>
-                <div class="product-price">5000$</div>
-            </div>
-            <div class="product">
-                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div>
-                <div class="product-price">5000$</div>
-            </div>
-            <div class="product">
-                <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
-                <div class="product-name">Nombre del producto</div>
-                <div class="product-price">5000$</div>
-            </div> -->
+            <script>
+                let imgs = [
+                    {% for p in store_inventory %}
+                        '{{ p.product_image }}',
+                    {% endfor %}
+                ];
+                let ids = [
+                    {% for p in store_inventory %}
+                        '#product_{{ p.id }}',
+                    {% endfor %}
+                ];
+                for (let $i = 0; $i < imgs.length; $i++) {
+                    $(ids[$i]).attr('src', imgs[$i]);
+                }
+            </script>
         </div>
     </div>
 
