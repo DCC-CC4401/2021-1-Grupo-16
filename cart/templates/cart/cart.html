@@ -1,0 +1,128 @@
+{% extends 'root.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}
+    Carro de Compras
+{% endblock %}
+
+{% block static-files %}
+
+    {% comment %} Import module libraries {% endcomment %}
+    <!--suppress HtmlFormInputWithoutLabel -->
+    <link rel="stylesheet" type="text/css" href="{% static 'cart.css' %}" media="screen">
+
+    <script src="{% static 'cart.js' %}"></script>
+
+    {% comment %} Import components templates {% endcomment %}
+    {% include 'components/header.html' with type='head' %}
+    {% include 'components/footer.html' with type='head' %}
+
+{% endblock %}
+
+{% block body %}
+    {% include 'components/header.html' with type='body' %}
+
+    <form method="post">
+        {% csrf_token %}
+        <div id="contents">
+            <div class="row no-margin">
+                <div class="col-3" id="menu-left-container">
+                    <div class="menu-left-table">
+                        <div class="menu-centered">
+                            <div id="profile-menu">
+                                <div class="menu-header">
+                                    <div class="menu-header-image">
+                                        <img src="{% static 'media/examples/user-image.jpeg' %}"
+                                             alt="Avatar de Usuario"/>
+                                    </div>
+                                    <div class="menu-header-title name-full">
+                                        {{ user.first_name }} {{ user.last_name }}
+                                    </div>
+                                    <div class="menu-header-title name-abbv">
+                                        Nombre C.
+                                    </div>
+                                </div>
+                                <div class="menu-options">
+                                    <a href="http://127.0.0.1:8000/uprofile">
+                                        <div class="menu-item item-active">
+                                            <i class="fas fa-info-circle"></i> <span>Información principal</span>
+                                        </div>
+                                    </a>
+                                    <div class="menu-item">
+                                        <i class="fas fa-database"></i> <span>Datos adicionales</span>
+                                    </div>
+                                    <div class="menu-item">
+                                        <i class="fas fa-shopping-cart"></i> <span>Mis Compras</span>
+                                    </div>
+                                    <a href="http://127.0.0.1:8000/ustores">
+                                        <div class="menu-item item-active">
+                                            <i class="fas fa-store"></i> <span>Mis Tiendas</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-9" id="profile-contents">
+                    <div class="profile-group">
+                        <div class="profile-title"><i class="fas fa-shopping-cart"></i> Carro de Compra</div>
+
+                        <div class="col-lg-12">
+                            <div class="box-element">
+                
+                                <a href="http://127.0.0.1:8000/home" class="btn btn-outline-dark">&#x2190; Seguir comprando</a>
+                
+                                <br>
+                                <br>
+                                <table class="table">
+                                    <tr>
+                                        <th><h5>Items: <strong>1</strong></h5></th>
+                                        <th><h5>Total:<strong> $50000</strong></h5></th>
+                                        <th>
+                                            <a  style="float:right; margin:5px;" class="btn btn-success" >Checkout</a>
+                                        </th>
+                                    </tr>
+                                </table>
+                
+                            </div>
+                
+                            <br>
+                            <div class="box-element">
+                                <div class="cart-row">
+
+                                    <div style="flex:2"><strong>Item</strong></div>
+                                    <div style="flex:1"><strong>Price</strong></div>
+                                    <div style="flex:1"><strong>Quantity</strong></div>
+                                    
+                                    
+                                </div>
+                                
+                                <div class="cart-row">
+                                    
+                                    <div style="flex:2"><p>Mario 64</p></div>
+                                    <div style="flex:1"><p>$50000</p></div>
+                                    <div style="flex:1">
+                                        <p class="quantity">1</p>
+                                    </div>
+    
+                                    
+                                </div>
+                
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    {% include 'components/footer.html' with type='body' %}
+{% endblock %}
