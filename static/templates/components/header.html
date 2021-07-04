@@ -3,6 +3,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'src/components/header/header.css' %}" media="screen">
     <script src="{% static 'src/components/header/header.js' %}"></script>
+    <script src="{% static 'src/components/cart.js' %}"></script>
 
 {% elif type == 'body' %}
 
@@ -14,7 +15,10 @@
                 <div id="header-tool-container">
                     {% if user.is_authenticated %}
                     <div class="header-tool-icon"><a href="http://127.0.0.1:8000/logout/">Logout</a></div>
-                    <div class="header-tool-icon"><a href="http://127.0.0.1:8000/cart/">Carro</a></div>
+                    <div class="header-tool-icon">
+                        <a href="http://127.0.0.1:8000/cart/">Carro</a>
+                        <span class="notification"><span class="badge">6</span></span>
+                    </div>
                     <div class="header-tool-icon"><a href="http://127.0.0.1:8000/uprofile/">Perfil</a></div>
                     {% else %}
                     <div class="header-tool-icon"><a href="http://127.0.0.1:8000/signup/">Sign up</a></div>

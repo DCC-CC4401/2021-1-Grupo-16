@@ -62,7 +62,7 @@ class Product(models.Model):
     long_description = models.CharField(max_length=4000, blank=True)
     product_image = models.CharField(max_length=1000, blank=True)
 
-    # TODO: When a product is added to the table it MUST have likes = dislikes = 0.
+    # TODO: When a product is added to the table it MUST have likes = dislikes = 0
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
 

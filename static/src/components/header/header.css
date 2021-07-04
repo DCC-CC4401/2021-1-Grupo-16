@@ -66,6 +66,16 @@ Header component.
 	height: 0;
 }
 
+#header-component .notification {
+	position: relative;
+	background: red;
+	border-radius: 50%;
+	box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
+	color: white;
+	right: 6px;
+	top: -10px;
+}
+
 #header-tool-container.header-tools-popup {
 	background-color: #ffffff;
 	border-radius: var(--border-loading-px);

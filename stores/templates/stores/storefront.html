@@ -49,13 +49,13 @@
         </div>
         <div class="products-container">
             {% for p in store_inventory %}
-                <div class="product">
-                    <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"
-                         id="product_{{ p.id }}"/>
+                <div class="product" id="product_{{ p.id }}">
+                    <img class="product-image" src="{% static 'media/examples/caja.png' %}" alt="Imagen de Tienda"/>
                     <div class="product-name">{{ p.product_name }}</div>
                     <div class="product-price">{{ p.price }}$</div>
-                    <button data-product="{{ p.id }}" data-action="add"
-                            class="btn btn-outline-secondary add-btn update-cart">Agregar al carro
+                    <button data-name="{{ p.product_name }}" data-price="{{ p.price }}"
+                            class="btn btn-outline-secondary add-btn update-cart">
+                        Agregar al carro
                     </button>
                 </div>
             {% empty %}
@@ -64,6 +64,9 @@
                 </div>
             {% endfor %}
             <script>
+                /*
+                Establece las imágenes
+                 */
                 let imgs = [
                     {% for p in store_inventory %}
                         '{{ p.product_image }}',
@@ -75,7 +78,28 @@
                     {% endfor %}
                 ];
                 for (let $i = 0; $i < imgs.length; $i++) {
-                    $(ids[$i]).attr('src', imgs[$i]);
+                    $(ids[$i] + ' .product-image').attr('src', imgs[$i]);
+                }
+
+                /*
+                Establece botón para añadir al carro
+                 */
+                for (let $i = 0; $i < imgs.length; $i++) {
+                    $(ids[$i] + ' button').on('click', function () {
+                        let $product = $(this);
+                        let $name = $product.attr('data-name');
+                        let $id = generateID();
+                        app_dialog.form('Elija cantidad para {0}'.format($name),
+                            '<input class="form-control" id="{0}" type="number" value="1" min="1" />'.format($id),
+                            function () {
+                                let $total = $('#{0}'.format($id)).val();
+                                for (let $j = 0; $j < $total; $j++) {
+                                    app_cart.add_item($name, $product.attr('data-price'));
+                                }
+                                app_cart.save();
+                                app_dialog.success('Producto añadido!', 'Producto añadido al carro de manera satisfactoria');
+                            }, null);
+                    });
                 }
             </script>
         </div>

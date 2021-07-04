@@ -72,54 +72,55 @@
 
                         <div class="col-lg-12">
                             <div class="box-element">
-                
-                                <a href="http://127.0.0.1:8000/home" class="btn btn-outline-dark">&#x2190; Seguir comprando</a>
-                
+
+                                <a href="http://127.0.0.1:8000/home"
+                                   class="btn btn-outline-dark">
+                                    &#x2190; Seguir comprando</a>
+
+                                <a id="wipe_cart" class="btn btn-outline-danger"
+                                   style="margin-left: 0.5rem;">Borrar carrito</a>
+                                <script>
+                                    $('#wipe_cart').on('click', function () {
+                                        app_cart.clear();
+                                        app_url.reload();
+                                    });
+                                </script>
+
                                 <br>
                                 <br>
                                 <table class="table">
                                     <tr>
                                         <th><h5>Items: <strong>1</strong></h5></th>
-                                        <th><h5>Total:<strong> $50000</strong></h5></th>
+                                        <th><h5>Total: <strong>$50000</strong></h5></th>
                                         <th>
-                                            <a  style="float:right; margin:5px;" class="btn btn-success" >Checkout</a>
+                                            <a style="float:right; margin:5px;" class="btn btn-success">Checkout</a>
                                         </th>
                                     </tr>
                                 </table>
-                
+
                             </div>
-                
+
                             <br>
                             <div class="box-element">
                                 <div class="cart-row">
-
                                     <div style="flex:2"><strong>Item</strong></div>
                                     <div style="flex:1"><strong>Price</strong></div>
                                     <div style="flex:1"><strong>Quantity</strong></div>
-                                    
-                                    
                                 </div>
-                                
+
                                 <div class="cart-row">
-                                    
                                     <div style="flex:2"><p>Mario 64</p></div>
                                     <div style="flex:1"><p>$50000</p></div>
                                     <div style="flex:1">
                                         <p class="quantity">1</p>
                                     </div>
-    
-                                    
                                 </div>
-                
+
                             </div>
                         </div>
 
-
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </form>

@@ -162,7 +162,7 @@ function __UI_Dialog() {
             _type: $types.TEXT,
             close: null,
             closeButtonClass: self.options.buttons.DEFAULT,
-            closeText: 'Close',
+            closeText: 'Cerrar',
         };
         $options = $.extend($defaults, $options);
 
@@ -315,7 +315,7 @@ function __UI_Dialog() {
             _type: $types.EWSIO,
             close: null,                        // Close function
             closeButtonClass: $button_class,    // Button class
-            closeText: 'Close',      // Confirm text
+            closeText: 'Cerrar',                // Confirm text
             icon: $icon,                        // Icon
             size: self.options.size.SMALL,      // Dialog size
             type: $type,                        // Dialog type
@@ -416,12 +416,12 @@ function __UI_Dialog() {
             backgroundDismiss: false,
             backgroundDismissAnimation: '',
             cancelButtonClass: self.options.buttons.DEFAULT,
-            cancelText: 'Cancel',
+            cancelText: 'Cancelar',
             closeAfterSubmit: true,
             closeIcon: false,
             escapeCancelKey: false,
             submitButtonClass: self.options.buttons.BLUE,
-            submitText: 'Submit',
+            submitText: 'Enviar',
         };
         $options = $.extend($defaults, $options);
 
@@ -526,7 +526,7 @@ function __UI_Dialog() {
             closeIcon: true,                        // Close icon
             confirm: null,                          // Confirm function
             confirmButtonClass: self.options.buttons.BLUE, // Confirm button style
-            confirmText: 'Yes',                     // Confirm text
+            confirmText: 'Si',                      // Confirm text
             disableSelect: false,                   // Disables text select
             disableWebScroll: true,                 // Disables web scrolling
             draggable: false,                       // Popup can be dragged

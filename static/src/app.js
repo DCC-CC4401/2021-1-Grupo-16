@@ -69,6 +69,9 @@ $(function () {
     // app_loading_layer.start();
     app_ui_utils.init();
 
+    // Load cart items
+    app_cart.load();
+
     /**
      * --------------------------------------------------------------------
      * Init module
