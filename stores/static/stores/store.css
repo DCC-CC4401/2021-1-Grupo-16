@@ -11,8 +11,10 @@
 	border: 1px solid #999999;
 	box-shadow: 0 0 0 rgba(0, 0, 0, 0.2);
 	font-size: 1.3rem;
-	padding: 2rem;
+	margin-left: 15%;
 	margin-top: 2.5%;
+	padding: 2rem;
+	width: 70%;
 }
 
 .store-banner {
@@ -23,17 +25,21 @@
 }
 
 .store-banner .store-image {
-	width: 150px;
-	height: 150px;
 	background-color: transparent;
-	padding: 10px;
+	border-radius: 2rem 2rem 0 0;
 	font-weight: bold;
-	border-radius: 2rem;
+	height: 150px;
+	margin-right: 1rem;
+	width: 150px;
 }
 
 .horizontal-display {
+	backdrop-filter: blur(15px);
+	background-color: rgba(0, 0, 0, 0.35);
+	border-radius: 0 0.5rem 0.5rem 0.5rem;
 	display: grid;
 	grid-template-columns: auto auto auto;
+	padding: 1rem;
 }
 
 .store-banner .store-stars {
@@ -63,7 +69,7 @@
 
 .products-div .products-banner {
 	background-color: #b19cd9;
-
+	border-radius: 0.5rem;
 }
 
 .products-div .products-banner .recomended-banner {
@@ -98,13 +104,13 @@
 }
 
 .products-div .products-container .product {
+	border-radius: 1rem;
 	display: grid;
-	margin-top: 10%;
 	font-size: 20px;
+	margin-top: 10%;
 }
 
 .products-div .products-container .product:hover {
-	cursor: pointer;
 	box-shadow: 2px 2px 6px gray;
 }
 

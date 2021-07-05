@@ -65,6 +65,10 @@ Contextual menu title
 	padding: 0 !important;
 }
 
+.jconfirm-holder {
+	margin-top: 55px;
+}
+
 /**
 -------------------------------------------------------------------------------
 twbs bootstrap

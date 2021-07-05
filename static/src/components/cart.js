@@ -22,11 +22,15 @@ function BazarCart() {
      * Adds an item to the cart
      * @param $name
      * @param $price
+     * @param $image
+     * @param $store
      */
-    this.add_item = function ($name, $price) {
+    this.add_item = function ($name, $price, $image, $store) {
         self._cart[generateID()] = {
             name: $name,
-            price: parseFloat($price)
+            price: parseFloat($price),
+            image: $image,
+            store: $store
         }
         self._update_header();
     };
@@ -79,13 +83,19 @@ function BazarCart() {
         let $k = Object.keys(self._cart);
         for (let $i = 0; $i < $k.length; $i++) {
             let $j = self._cart[$k[$i]]; // Get the item
-            if (!$items.hasOwnProperty($j.name)) {
-                $items[$j.name] = {
+            let $name = $j.name + '_' + $j.store;
+            if (!$items.hasOwnProperty($name)) {
+                let $img = $j.image;
+                if (!File.isFileImageExtension($img)) $img = 'media/examples/caja.png';
+                $items[$name] = {
+                    'name': $j.name,
                     'quantity': 1,
-                    'price': $j.price
+                    'price': $j.price,
+                    'store': $j.store,
+                    'image': $img
                 }
             } else {
-                $items[$j.name].quantity += 1;
+                $items[$name].quantity += 1;
             }
         }
         return $items;
@@ -107,7 +117,10 @@ function BazarCart() {
             let $t = $obj.price * $obj.quantity; // total pricew
             $cart_items_box.append(`
             <div class="cart-row">
-                <div style="flex:2"><p>${$k[$i]}</p></div>
+                <div style="flex:2">
+                    <p><img src="${$obj.image}" alt="" /><a href="http://127.0.0.1:8000/store/${$obj.store}">
+                        ${$obj.name}</a></p>
+                </div>
                 <div style="flex:1"><p>${$obj.quantity}</p></div>
                 <div style="flex:1"><p class="quantity">$${$t}</p></div>
             </div>`);
@@ -116,8 +129,10 @@ function BazarCart() {
         }
 
         // If empty
-        if ($items === 0){
-            $cart_items_box.append('<div class="empty-item">El carrito está vacío <i class="fas fa-luggage-cart"></i></div>')
+        if ($items === 0) {
+            $cart_items_box.append('<div class="empty-item">El carrito está vacío <i class="fas fa-luggage-cart"></i></div>');
+            $('#checkout_button').hide();
+            $('#wipe_cart').hide();
         }
 
         // Change overall description

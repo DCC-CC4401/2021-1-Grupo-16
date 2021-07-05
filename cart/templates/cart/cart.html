@@ -127,10 +127,10 @@
                                 <br>
                                 <div class="form-container active">
                                   <form action="" id="${$cardid}">
-                                    <input placeholder="Card number" type="tel" name="number" class="form-control unknown jp-card-invalid" maxlength="19">
-                                    <input placeholder="Full name" type="text" name="name" class="form-control jp-card-invalid">
+                                    <input placeholder="Nº de la tarjeta" type="tel" name="number" class="form-control unknown jp-card-invalid" maxlength="19">
+                                    <input placeholder="Nombre completo" type="text" name="name" class="form-control jp-card-invalid">
                                     <input placeholder="MM/YY" type="tel" name="expiry" class="form-control jp-card-valid" style="width: 50%; display:inline-block" maxlength="7">
-                                    <input placeholder="CVC" type="number" name="cvc" class="form-control jp-card-valid" style="width: 50%; float: left;" max="999" min="0">
+                                    <input placeholder="CV" type="number" name="cvc" class="form-control jp-card-valid" style="width: 50%; float: left;" max="999" min="0">
                                   </form>
                                 </div>
                                 `,
@@ -150,6 +150,9 @@
                                 setTimeout(function () {
                                     $('#' + $cardid).card({
                                         container: '.card-wrapper',
+                                        placeholders: {
+                                            name: 'Nombre Apellido'
+                                        }
                                     });
                                     $('.cart-summary').html(`
                                     Ingrese su CC para pagar el total de $${$total}.
